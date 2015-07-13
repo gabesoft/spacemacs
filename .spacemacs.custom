@@ -22,7 +22,6 @@
      emacs-lisp
      company-mode
      restclient
-     osx
      (colors :variable enable-rainbow-identifiers t)
      (git :variables
           git-magit-status-fullscreen t
@@ -173,9 +172,8 @@ layers configuration."
   (global-linum-mode)
   (linum-relative-toggle)
   (setq powerline-default-separator 'arrow)
-
   (setq-default ruby-enable-ruby-on-rails-support t)
-)
+  (setq auto-save-timeout 10))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
