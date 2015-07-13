@@ -545,15 +545,15 @@
   (use-package evil
     :init
     (progn
-      (defvar spacemacs-evil-cursor-colors '((normal . "DarkGoldenrod2")
-                                             (insert . "chartreuse3")
-                                             (emacs  . "SkyBlue2")
-                                             (evilified . "LightGoldenrod3")
-                                             (visual . "gray")
-                                             (motion . "plum3")
-                                             (lisp   . "HotPink1")
-                                             (iedit  . "firebrick1")
-                                             (iedit-insert  . "firebrick1"))
+      (defvar spacemacs-evil-cursor-colors '((normal . "#268bd2")
+                                             (insert . "#859900")
+                                             (emacs  . "#b58900")
+                                             (evilified . "#cb4b16")
+                                             (visual . "#d33682")
+                                             (motion . "#2aa198")
+                                             (lisp   . "#6c71c4")
+                                             (iedit  . "#dc322f")
+                                             (iedit-insert  . "#dc322f"))
         "Colors assigned to evil states.")
 
       ;; put back refresh of the cursor on post-command-hook see status of:
@@ -619,7 +619,7 @@
       (defun set-default-evil-visual-state-cursor ()
         (let ((c (when dotspacemacs-colorize-cursor-according-to-state
                    (spacemacs/state-color 'visual))))
-          (setq evil-visual-state-cursor `(,c (hbar . 2)))))
+          (setq evil-visual-state-cursor `(,c box))))
       (defun set-default-evil-motion-state-cursor ()
         (let ((c (when dotspacemacs-colorize-cursor-according-to-state
                    (spacemacs/state-color 'motion))))
