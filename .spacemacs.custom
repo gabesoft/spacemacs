@@ -19,25 +19,28 @@
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
-     emacs-lisp
      company-mode
+     emacs-lisp
+     evil-exchange
+     html
+     javascript
+     markdown
+     org
      restclient
+     ruby
+     syntax-checking
+     undo-tree
+     version-control
+     web
      (colors :variable enable-rainbow-identifiers t)
      (git :variables
           git-magit-status-fullscreen t
           git-enable-github-support t
           git-gutter-use-fringe t)
-     html
-     javascript
-     markdown
-     org
-     ruby
      (shell :variables
             shell-default-height 30
-            shell-default-position 'bottom)
-     syntax-checking
-     version-control
-     )
+            shell-default-position 'bottom))
+
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
@@ -169,7 +172,8 @@ before layers configuration."
   "Configuration function.
 This function is called at the very end of Spacemacs initialization after
 layers configuration."
-  (global-linum-mode)
+  (global-linum-mode 1)
+  (global-undo-tree-mode 1)
   (linum-relative-toggle)
   (setq powerline-default-separator 'arrow)
   (setq-default ruby-enable-ruby-on-rails-support t)
