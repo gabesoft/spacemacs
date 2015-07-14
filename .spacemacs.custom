@@ -39,7 +39,9 @@
                       auto-completion-enable-help-tooltip nil
                       auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t)
-     (colors :variable enable-rainbow-identifiers t)
+     (colors :variables
+             enable-rainbow-identifiers t
+             colors-enable-nyan-cat-progress-bar nil)
      (git :variables
           git-magit-status-fullscreen t
           git-enable-github-support t
@@ -189,11 +191,13 @@ layers configuration."
   (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)
   (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
 
+  (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
+
   (global-company-mode)
   (global-linum-mode)
   (global-undo-tree-mode 1)
+  (global-hl-line-mode -1)
   (linum-relative-toggle)
-  (setq truncate-lines t)
   (setq powerline-default-separator 'arrow)
   (setq-default ruby-enable-ruby-on-rails-support t)
   (setq auto-save-timeout 10))
