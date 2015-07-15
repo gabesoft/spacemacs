@@ -193,6 +193,7 @@ layers configuration."
 
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
 
+  (hl-highlight-mode 1)
   (global-company-mode)
   (global-linum-mode)
   (global-undo-tree-mode 1)
