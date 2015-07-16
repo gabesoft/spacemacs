@@ -204,7 +204,7 @@ layers configuration."
   (linum-relative-toggle)
   (setq powerline-default-separator 'arrow)
   (setq-default ruby-enable-ruby-on-rails-support t)
-  (setq auto-save-timeout 2))
+  (setq auto-save-timeout 1))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
