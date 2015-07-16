@@ -201,7 +201,7 @@ layers configuration."
   (linum-relative-toggle)
   (setq powerline-default-separator 'arrow)
   (setq-default ruby-enable-ruby-on-rails-support t)
-  (setq auto-save-timeout 10))
+  (setq auto-save-timeout 2))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -222,7 +222,8 @@ layers configuration."
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values
    (quote
-    ((eval when
+    ((encoding . utf-8)
+     (eval when
            (fboundp
             (quote rainbow-mode))
            (rainbow-mode 1))))))
