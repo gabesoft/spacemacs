@@ -173,6 +173,8 @@ before layers configuration."
    ;; specified with an installed package.
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
+   ;; semantic layer for Emacs lisp mode
+   dotspacemacs-configuration-layers '(semantic)
    )
   ;; User initialization goes here
   )
@@ -198,6 +200,7 @@ layers configuration."
   (global-linum-mode)
   (global-undo-tree-mode 1)
   (global-hl-line-mode -1)
+  (semantic-mode 1)
   (linum-relative-toggle)
   (setq powerline-default-separator 'arrow)
   (setq-default ruby-enable-ruby-on-rails-support t)
