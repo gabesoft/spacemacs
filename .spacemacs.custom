@@ -31,6 +31,7 @@
      syntax-checking
      undo-tree
      version-control
+     ycmd
      web
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
@@ -193,7 +194,12 @@ layers configuration."
   (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)
   (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
 
+  (set-variable 'ycmd-server-command (list "python" (expand-file-name "~/.emacs.d/ycmd/ycmd")))
+
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
+  (add-hook 'js-mode-hook 'ycmd-mode)
+  (add-hook 'emacs-lisp-mode 'ycmd-mode)
+  (add-hook 'after-init-hook #'global-ycmd-mode)
 
   (hl-highlight-mode 1)
   (global-company-mode)
