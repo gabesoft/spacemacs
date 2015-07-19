@@ -235,7 +235,11 @@ layers configuration."
   (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
     (make-directory (concat spacemacs-cache-directory "undo")))
 
-  (setq-default fringe-mode 'no-fringe)
+  ;; yasnippet
+  ;; disallow nested expansions (but nested expansions can be done with M-/)
+  (setq yas-triggers-in-field nil)
+
+  (global-vi-tilde-fringe-mode -1)
   (global-aggressive-indent-mode)
   (setq scroll-margin 1)
   (hl-highlight-mode 1)
@@ -245,6 +249,8 @@ layers configuration."
   (global-hl-line-mode -1)
   (semantic-mode 1)
   (linum-relative-toggle)
+  (smartparens-global-mode)
+  (global-subword-mode +1)
   (setq powerline-default-separator 'arrow)
   (setq-default ruby-enable-ruby-on-rails-support t)
   (setq auto-save-timeout 1))
