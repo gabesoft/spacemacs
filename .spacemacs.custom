@@ -211,7 +211,7 @@ layers configuration."
   (add-hook 'after-init-hook #'global-ycmd-mode)
 
   ;; js2-mode
-  (setq-default js2-basic-offset 2)
+  (setq-default js2-basic-offset 4)
 
   (setq scroll-margin 1)
   (hl-highlight-mode 1)
