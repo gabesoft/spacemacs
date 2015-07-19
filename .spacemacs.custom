@@ -21,7 +21,6 @@
      company-mode
      emacs-lisp
      evil-exchange
-     ;; (evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t)
      hl-anything
      html
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
@@ -192,11 +191,30 @@ layers configuration."
     (interactive)
     (evil-yank (point) (point-at-eol)))
 
+  (defun paste-after-current-line (count &optional register yank-handler)
+    "Pastes the latest yanked text after the current line."
+    (interactive "P<x>")
+    (evil-insert-newline-below)
+    (evil-normal-state 1)
+    (when evil-auto-indent (indent-according-to-mode))
+    (evil-paste-after count register yank-handler))
+
+  (defun paste-before-current-line (count &optional register yank-handler)
+    "Pastes the latest yanked text before the current line."
+    (interactive "P<x>")
+    (evil-insert-newline-above)
+    (evil-normal-state 1)
+    (when evil-auto-indent (indent-according-to-mode))
+    (evil-paste-after count register yank-handler))
+
   (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
   (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars)
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-normal-state-map (kbd "Y") 'copy-to-the-end-of-line)
+
+  (define-key evil-normal-state-map (kbd "]p") 'paste-after-current-line)
+  (define-key evil-normal-state-map (kbd "[p") 'paste-before-current-line)
 
   (define-key evil-normal-state-map (kbd "<up>") 'evil-window-increase-height)
   (define-key evil-normal-state-map (kbd "<down>") 'evil-window-decrease-height)
@@ -213,6 +231,7 @@ layers configuration."
   ;; js2-mode
   (setq-default js2-basic-offset 4)
 
+  (global-aggressive-indent-mode)
   (setq scroll-margin 1)
   (hl-highlight-mode 1)
   (global-company-mode)
