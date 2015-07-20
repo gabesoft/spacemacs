@@ -225,6 +225,12 @@ layers configuration."
   (add-hook 'emacs-lisp-mode 'ycmd-mode)
   (add-hook 'after-init-hook #'global-ycmd-mode)
 
+  ;; abbrevs
+  (setq abbrev-file-name (concat user-emacs-directory "abbrevs.el"))
+  (setq save-abbrevs 'silently)
+  (quietly-read-abbrev-file)
+  (setq-default abbrev-mode t)
+
   ;; js2-mode
   (setq-default js2-basic-offset 4)
 
