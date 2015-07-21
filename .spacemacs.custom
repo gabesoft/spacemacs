@@ -204,8 +204,14 @@ layers configuration."
     (when evil-auto-indent (indent-according-to-mode))
     (evil-paste-after count register yank-handler))
 
+  (defun transpose-chars-before-point (arg)
+    "Interchange the two characters before point."
+    (interactive "*P")
+    (if (not (eolp)) (forward-char -1))
+    (transpose-chars arg))
+
   (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
-  (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars)
+  (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars-before-point)
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-normal-state-map (kbd "Y") 'copy-to-the-end-of-line)
