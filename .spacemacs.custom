@@ -210,6 +210,10 @@ layers configuration."
     (if (not (eolp)) (forward-char -1))
     (transpose-chars arg))
 
+  (setq frame-title-format
+        '((:eval (if (buffer-file-name)
+                     (abbreviate-file-name (buffer-file-name)) "%b"))))
+
   (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
   (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars-before-point)
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
