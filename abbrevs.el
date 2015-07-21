@@ -52,8 +52,9 @@
 (define-abbrev-table 'global-abbrev-table
   '(
     ("heigth" "height" nil 1)
+    ("rigth" "right" nil 1)
     ("taht" "that" nil 2)
-    ("teh" "the" nil 8)
+    ("teh" "the" nil 9)
     ("thta" "that" nil 1)
    ))
 
