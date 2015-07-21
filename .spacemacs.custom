@@ -210,10 +210,6 @@ layers configuration."
     (if (not (eolp)) (forward-char -1))
     (transpose-chars arg))
 
-  (setq frame-title-format
-        '((:eval (if (buffer-file-name)
-                     (abbreviate-file-name (buffer-file-name)) "%b"))))
-
   (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
   (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars-before-point)
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
@@ -250,6 +246,11 @@ layers configuration."
         `(("." . ,(concat spacemacs-cache-directory "undo"))))
   (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
     (make-directory (concat spacemacs-cache-directory "undo")))
+
+  ;; display the buffer path in the frame title
+  (setq frame-title-format
+        '((:eval (if (buffer-file-name)
+                     (abbreviate-file-name (buffer-file-name)) "%b"))))
 
   ;; yasnippet
   ;; disallow nested expansions (but nested expansions can be done with M-/)
