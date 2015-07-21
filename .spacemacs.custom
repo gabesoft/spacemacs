@@ -245,7 +245,7 @@ layers configuration."
   ;; disallow nested expansions (but nested expansions can be done with M-/)
   (setq yas-triggers-in-field nil)
 
-  (global-vi-tilde-fringe-mode -1)
+  (global-vi-tilde-fringe-mode 1)
   (global-aggressive-indent-mode)
   (setq scroll-margin 1)
   (hl-highlight-mode 1)
