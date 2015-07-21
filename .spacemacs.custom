@@ -17,21 +17,6 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     better-defaults
-     emacs-lisp
-     html
-     (ibuffer :variables ibuffer-group-buffers-by 'projects)
-     javascript
-     markdown
-     org
-     osx
-     restclient
-     ruby
-     smartchr
-     syntax-checking
-     undo-tree
-     version-control
-     ycmd
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'complete
@@ -39,16 +24,41 @@
                       auto-completion-enable-help-tooltip nil
                       auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t)
+     better-defaults
      (colors :variables
              enable-rainbow-identifiers t
              colors-enable-nyan-cat-progress-bar nil)
+     emacs-lisp
+
+     ;; use cl instead of s and cc instead of S
+     (evil-snipe :variables
+                 evil-snipe-enable-alternate-f-and-t-behaviors t)
+
      (git :variables
-          git-magit-status-fullscreen t
+          git-magit-status-fullscreen nil
           git-enable-github-support t
           git-gutter-use-fringe t)
+     (html :variables
+           web-mode-code-indent-offset 2
+           web-mode-markup-indent-offset 2
+           web-mode-css-indent-offset 2)
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
+     javascript
+     markdown
+     org
+     osx
+     restclient
+     (ruby :variables
+           ruby-version-manager 'rbenv
+           ruby-enable-ruby-on-rails-support t)
      (shell :variables
             shell-default-height 30
-            shell-default-position 'bottom))
+            shell-default-position 'bottom)
+     smartchr
+     syntax-checking
+     undo-tree
+     version-control
+     ycmd)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -215,6 +225,7 @@ layers configuration."
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-normal-state-map (kbd "Y") 'copy-to-the-end-of-line)
+  (define-key evil-normal-state-map (kbd "\\") 'evil-repeat-find-char-reverse)
 
   (define-key evil-normal-state-map (kbd "]p") 'paste-after-current-line)
   (define-key evil-normal-state-map (kbd "[p") 'paste-before-current-line)
@@ -269,7 +280,6 @@ layers configuration."
   (smartparens-global-mode)
   (global-subword-mode +1)
   (setq powerline-default-separator 'arrow)
-  (setq-default ruby-enable-ruby-on-rails-support t)
   (setq auto-save-timeout 1))
 
 ;; Do not write anything past this comment. This is where Emacs will

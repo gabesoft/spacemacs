@@ -53,7 +53,7 @@
   '(
     ("heigth" "height" nil 1)
     ("rigth" "right" nil 1)
-    ("taht" "that" nil 2)
+    ("taht" "that" nil 3)
     ("teh" "the" nil 9)
     ("thta" "that" nil 1)
    ))
