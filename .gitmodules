@@ -19,3 +19,6 @@
 [submodule "ycmd"]
 	path = ycmd
 	url = https://github.com/Valloric/ycmd.git
+[submodule "contrib/!vim/evil-snipe/extensions/evil-snipe"]
+	path = contrib/!vim/evil-snipe/extensions/evil-snipe
+	url = https://github.com/gabesoft/evil-snipe.git
