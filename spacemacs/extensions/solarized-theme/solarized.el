@@ -388,6 +388,9 @@ customize the resulting theme."
 ;;;;; isearch
      `(isearch ((,class (:foreground ,base03 :background ,magenta :weight normal))))
      `(isearch-fail ((,class (:foreground ,red :background ,base03 :bold t))))
+;;;;; evil-snipe
+     `(evil-snipe-first-match-face ((,class (:foreground ,cyan :background ,base03 :weight normal))))
+     `(evil-snipe-matches-face ((,class (:foreground ,red :background ,base03 :bold t))))
 ;;;;; man
      `(Man-overstrike ((,class (:foreground ,blue :weight bold))))
      `(Man-reverse ((,class (:foreground ,orange))))

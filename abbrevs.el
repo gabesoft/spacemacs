@@ -3,21 +3,15 @@
 
 (define-abbrev-table 'Info-edit-mode-abbrev-table '())
 
-(define-abbrev-table 'awk-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'awk-mode-abbrev-table '())
 
 (define-abbrev-table 'bookmark-bmenu-mode-abbrev-table '())
 
 (define-abbrev-table 'bookmark-edit-annotation-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c++-mode-abbrev-table '())
 
-(define-abbrev-table 'c-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c-mode-abbrev-table '())
 
 (define-abbrev-table 'change-log-mode-abbrev-table '())
 
@@ -52,6 +46,7 @@
 (define-abbrev-table 'global-abbrev-table
   '(
     ("heigth" "height" nil 1)
+    ("lenght" "length" nil 1)
     ("rigth" "right" nil 1)
     ("taht" "that" nil 3)
     ("teh" "the" nil 9)
@@ -78,9 +73,7 @@
 
 (define-abbrev-table 'inferior-emacs-lisp-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'java-mode-abbrev-table '())
 
 (define-abbrev-table 'js2-mode-abbrev-table '())
 
@@ -122,9 +115,7 @@
 
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'objc-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
@@ -132,9 +123,7 @@
 
 (define-abbrev-table 'package-menu-mode-abbrev-table '())
 
-(define-abbrev-table 'pike-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'pike-mode-abbrev-table '())
 
 (define-abbrev-table 'process-menu-mode-abbrev-table '())
 
