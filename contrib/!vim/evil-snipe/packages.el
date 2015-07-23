@@ -1,8 +1,4 @@
-;; (setq evil-snipe-packages '(evil-snipe))
-
-(setq evil-snipe-post-extensions '(evil-snipe))
-
-(load-file (concat user-emacs-directory "contrib/!vim/evil-snipe/extensions/evil-snipe/evil-snipe.el"))
+(setq evil-snipe-packages '(evil-snipe))
 
 (defun evil-snipe/init-evil-snipe ()
   (use-package evil-snipe
