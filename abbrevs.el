@@ -37,9 +37,7 @@
 
 (define-abbrev-table 'emacs-lisp-mode-abbrev-table '())
 
-(define-abbrev-table 'enh-ruby-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'enh-ruby-mode-abbrev-table '())
 
 (define-abbrev-table 'ert-results-mode-abbrev-table '())
 
@@ -57,6 +55,7 @@
   '(
     ("cilp" "clip" nil 2)
     ("heigth" "height" nil 1)
+    ("htis" "this" nil 0)
     ("lenght" "length" nil 1)
     ("rigth" "right" nil 1)
     ("taht" "that" nil 3)

@@ -256,6 +256,7 @@ layers configuration."
   (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
 
   ;; ycmd
+  ;; in js2 mode ycmd-mode needs to be re-enabled to take effect
   (add-hook 'prog-mode-hook
             (lambda ()
               (if (not (eq major-mode 'emacs-lisp-mode))
@@ -274,7 +275,11 @@ layers configuration."
   (setq-default abbrev-mode t)
 
   ;; js2-mode
+  (defun delete-tern-process ()
+    (interactive)
+    (delete-process "Tern"))
   (setq-default js2-basic-offset 4)
+  (add-to-list 'completion-styles 'initials t)
 
   ;; persistent undo
   (setq undo-tree-auto-save-history t
