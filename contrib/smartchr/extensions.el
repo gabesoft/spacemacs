@@ -45,7 +45,8 @@
     :config
     (progn
       (add-hook 'js2-mode-hook #'smartchr/init-js2-mode)
-      (add-hook 'ruby-mode-hook #'smartchr/init-ruby-mode))))
+      (add-hook 'enh-ruby-mode-hook #'smartchr/init-ruby-mode)
+      (add-hook 'web-mode-hook #'smartchr/init-eruby-mode))))
 
 (defun smartchr/init-mode (mode-map)
   "Sets up the keys defined by MODE-MAP."
