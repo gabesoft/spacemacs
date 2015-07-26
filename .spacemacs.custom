@@ -238,6 +238,14 @@ layers configuration."
           (indent-buffer)
           (message "Indented buffer.")))))
 
+  (defmacro rename-modeline (package-name mode new-name)
+    `(eval-after-load ,package-name
+       '(defadvice ,mode (after rename-modeline activate)
+          (setq mode-name ,new-name))))
+
+  (rename-modeline "js2-mode" js2-mode "JS2")
+  (rename-modeline "clojure-mode" clojure-mode "Clj")
+
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
   (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
@@ -254,6 +262,10 @@ layers configuration."
   (define-key evil-normal-state-map (kbd "<down>") 'evil-window-decrease-height)
   (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)
   (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
+
+  ;; company mode
+  (define-key company-active-map (kbd "C-h") 'delete-backward-char)
+  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
 
   ;; ycmd
   ;; in js2 mode ycmd-mode needs to be re-enabled to take effect
