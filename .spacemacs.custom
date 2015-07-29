@@ -244,12 +244,15 @@ layers configuration."
        '(defadvice ,mode (after rename-modeline activate)
           (setq mode-name ,new-name))))
 
-  (defun whitespace-cleanup-hooks ()
-    "Adds white space cleanup hooks."
-    (progn
-      (add-hook 'auto-save-hook 'whitespace-cleanup)
-      (add-hook 'before-save-hook 'whitespace-cleanup)))
-
+  (defun update-whitespace-hooks ()
+    "Updates the white space hooks based on the current major mode."
+    (let ((modes '(emacs-lisp-mode, js2-mode))
+          (whitespace-hooks '(auto-save-hook before-save-hook)))
+      (if (member major-mode modes)
+          (mapcar (lambda (hook) (add-hook hook 'whitespace-cleanup))
+                  whitespace-hooks)
+        (mapcar (lambda (hook) (remove-hook hook 'whitespace-cleanup))
+            whitespace-hooks))))
 
   (rename-modeline "js2-mode" js2-mode "JS2")
   (rename-modeline "clojure-mode" clojure-mode "Clj")
@@ -288,6 +291,8 @@ layers configuration."
 
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
 
+  (add-hook 'after-change-major-mode-hook 'update-whitespace-hooks)
+
   ;; abbrevs
   (setq abbrev-file-name (concat user-emacs-directory "abbrevs.el"))
   (setq save-abbrevs 'silently)
@@ -300,10 +305,6 @@ layers configuration."
     (delete-process "Tern"))
   (setq-default js2-basic-offset 4)
   (add-to-list 'completion-styles 'initials t)
-  (add-hook 'js2-mode-hook 'whitespace-cleanup-hooks);
-
-  ;; emacs lisp
-  (add-hook 'emacs-lisp-mode-hook 'whitespace-cleanup-hooks);
 
   ;; persistent undo
   (setq undo-tree-auto-save-history t
