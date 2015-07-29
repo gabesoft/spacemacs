@@ -246,13 +246,13 @@ layers configuration."
 
   (defun update-whitespace-hooks ()
     "Updates the white space hooks based on the current major mode."
-    (let ((modes '(emacs-lisp-mode, js2-mode))
+    (let ((modes '(emacs-lisp-mode js2-mode))
           (whitespace-hooks '(auto-save-hook before-save-hook)))
       (if (member major-mode modes)
-          (mapcar (lambda (hook) (add-hook hook 'whitespace-cleanup))
+          (mapcar (lambda (hook) (add-hook hook 'whitespace-cleanup nil t))
                   whitespace-hooks)
-        (mapcar (lambda (hook) (remove-hook hook 'whitespace-cleanup))
-            whitespace-hooks))))
+        (mapcar (lambda (hook) (remove-hook hook 'whitespace-cleanup t))
+                whitespace-hooks))))
 
   (rename-modeline "js2-mode" js2-mode "JS2")
   (rename-modeline "clojure-mode" clojure-mode "Clj")
