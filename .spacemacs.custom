@@ -29,6 +29,7 @@
              enable-rainbow-identifiers t
              colors-enable-nyan-cat-progress-bar nil)
      emacs-lisp
+     erc
 
      ;; use cl instead of s and cc instead of S
      (evil-snipe :variables
@@ -268,7 +269,7 @@ layers configuration."
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
 
   ;; ycmd
-  ;; in js2 mode ycmd-mode needs to be re-enabled to take effect
+  ;; ycmd-mode needs to be re-enabled to take effect
   (add-hook 'prog-mode-hook
             (lambda ()
               (if (not (eq major-mode 'emacs-lisp-mode))
@@ -292,6 +293,11 @@ layers configuration."
     (delete-process "Tern"))
   (setq-default js2-basic-offset 4)
   (add-to-list 'completion-styles 'initials t)
+  (add-hook 'js2-mode-hook
+            (lambda ()
+              (progn
+                (add-hook 'auto-save-hook 'whitespace-cleanup)
+                (add-hook 'before-save-hook 'whitespace-cleanup))))
 
   ;; persistent undo
   (setq undo-tree-auto-save-history t
