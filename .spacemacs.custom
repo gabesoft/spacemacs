@@ -244,6 +244,13 @@ layers configuration."
        '(defadvice ,mode (after rename-modeline activate)
           (setq mode-name ,new-name))))
 
+  (defun whitespace-cleanup-hooks ()
+    "Adds white space cleanup hooks."
+    (progn
+      (add-hook 'auto-save-hook 'whitespace-cleanup)
+      (add-hook 'before-save-hook 'whitespace-cleanup)))
+
+
   (rename-modeline "js2-mode" js2-mode "JS2")
   (rename-modeline "clojure-mode" clojure-mode "Clj")
 
@@ -293,11 +300,10 @@ layers configuration."
     (delete-process "Tern"))
   (setq-default js2-basic-offset 4)
   (add-to-list 'completion-styles 'initials t)
-  (add-hook 'js2-mode-hook
-            (lambda ()
-              (progn
-                (add-hook 'auto-save-hook 'whitespace-cleanup)
-                (add-hook 'before-save-hook 'whitespace-cleanup))))
+  (add-hook 'js2-mode-hook 'whitespace-cleanup-hooks);
+
+  ;; emacs lisp
+  (add-hook 'emacs-lisp-mode-hook 'whitespace-cleanup-hooks);
 
   ;; persistent undo
   (setq undo-tree-auto-save-history t
