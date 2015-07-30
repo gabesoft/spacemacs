@@ -33,7 +33,7 @@
    ("!" "!" " != "))
 
  smartchr-eruby-key-map
- '(("=" " = " " => " " == " "=")
+ '(("=" "=" " = " " => " " == ")
    (">" ">" "%>")
    ("<" "<" "<%" "<%=")
    ("," ", " ","))
@@ -72,13 +72,3 @@
   (smartchr/init-mode smartchr-css-key-map))
 
 ;;; packages.el ends here
-
-
-
-
-
-
-
-
-
-
