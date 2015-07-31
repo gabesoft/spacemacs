@@ -46,7 +46,7 @@
     (progn
       (add-hook 'js2-mode-hook #'smartchr/init-js2-mode)
       (add-hook 'enh-ruby-mode-hook #'smartchr/init-ruby-mode)
-      (add-hook 'web-mode-hook #'smartchr/init-eruby-mode))))
+      (add-hook 'web-mode-hook #'smartchr/init-web-mode))))
 
 (defun smartchr/init-mode (mode-map)
   "Sets up the keys defined by MODE-MAP."
@@ -63,9 +63,10 @@
   "Set up the keys for ruby mode."
   (smartchr/init-mode smartchr-ruby-key-map))
 
-(defun smartchr/init-eruby-mode ()
+(defun smartchr/init-web-mode ()
   "Set up the keys for ruby mode."
-  (smartchr/init-mode smartchr-eruby-key-map))
+  (cond ((string= web-mode-engine "erb")
+         (smartchr/init-mode smartchr-eruby-key-map))))
 
 (defun smartchr/init-css-mode ()
   "Set up the keys for ruby mode."
