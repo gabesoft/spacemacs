@@ -317,7 +317,7 @@ layers configuration."
   (global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-c C-t") 'mc/skip-to-next-like-this)
   (global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-v") 'mc/skip-to-previous-like-this)
   (global-set-key (kbd "C-c C-l") 'mc/mark-all-like-this)
   (global-set-key (kbd "C-c C-w") 'mc/mark-next-word-like-this)
   (global-set-key (kbd "C-c C-s") 'mc/mark-next-symbol-like-this)
