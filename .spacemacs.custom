@@ -30,6 +30,7 @@
              colors-enable-nyan-cat-progress-bar nil)
      emacs-lisp
      erc
+     evil-commentary
 
      ;; use cl instead of s and cc instead of S
      (evil-snipe :variables
@@ -58,8 +59,7 @@
      smartchr
      syntax-checking
      undo-tree
-     version-control
-     ycmd)
+     version-control)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -285,10 +285,10 @@ layers configuration."
 
   ;; ycmd
   ;; ycmd-mode needs to be re-enabled to take effect
-  (add-hook 'prog-mode-hook
-            (lambda ()
-              (if (not (eq major-mode 'emacs-lisp-mode))
-                  (ycmd-mode))))
+  ;; (add-hook 'prog-mode-hook
+  ;;           (lambda ()
+  ;;             (if (not (eq major-mode 'emacs-lisp-mode))
+  ;;                 (ycmd-mode))))
 
   (set-variable 'ycmd-server-command (list "python" (concat (expand-file-name user-emacs-directory) "ycmd/ycmd")))
   (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))

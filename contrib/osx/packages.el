@@ -4,7 +4,7 @@
     reveal-in-finder
     ))
 
-(if (and (system-is-mac) (executable-find "gls")) 
+(if (and (system-is-mac) (executable-find "gls"))
     ;; maybe absolute or relative name of the `ls' program used by
     ;; `insert-directory'.
     ;; brew info coreutils
@@ -13,7 +13,7 @@
 
 (defun osx/init-pbcopy ()
   (use-package pbcopy
-    :if (and (system-is-mac)(not (display-graphic-p))) 
+    :if (and (system-is-mac)(not (display-graphic-p)))
     :init (turn-on-pbcopy)))
 
 (defun osx/init-reveal-in-finder ()
