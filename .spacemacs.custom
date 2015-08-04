@@ -298,6 +298,30 @@ layers configuration."
 
   (add-hook 'after-change-major-mode-hook 'update-whitespace-hooks)
 
+  ;; multiple cursors
+  (setq mc/max-cursors 100)
+  (setq mc/unsupported-minor-modes '(company-mode auto-complete-mode flyspell-mode jedi-mode))
+  (add-hook 'multiple-cursors-mode-enabled-hook 'evil-emacs-state)
+  (add-hook 'multiple-cursors-mode-disabled-hook 'evil-normal-state)
+
+  (define-key evil-visual-state-map (kbd "C-c C-o") 'mc/edit-lines)
+  (define-key evil-normal-state-map (kbd "C-c C-n") 'mc/mark-next-like-this)
+  (define-key evil-normal-state-map (kbd "C-c C-t") 'mc/skip-to-next-like-this)
+  (define-key evil-normal-state-map (kbd "C-c C-p") 'mc/mark-previous-like-this)
+  (define-key evil-normal-state-map (kbd "C-c C-v") 'mc/skip-to-previous-like-this)
+  (define-key evil-normal-state-map (kbd "C-c C-l") 'mc/mark-all-like-this)
+  (define-key evil-normal-state-map (kbd "C-c C-w") 'mc/mark-next-word-like-this)
+  (define-key evil-normal-state-map (kbd "C-c C-s") 'mc/mark-next-symbol-like-this)
+
+  (global-set-key (kbd "C-c C-o") 'mc/edit-lines)
+  (global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-c C-t") 'mc/skip-to-next-like-this)
+  (global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-l") 'mc/mark-all-like-this)
+  (global-set-key (kbd "C-c C-w") 'mc/mark-next-word-like-this)
+  (global-set-key (kbd "C-c C-s") 'mc/mark-next-symbol-like-this)
+
   ;; abbrevs
   (setq abbrev-file-name (concat user-emacs-directory "abbrevs.el"))
   (setq save-abbrevs 'silently)
