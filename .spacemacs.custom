@@ -290,9 +290,9 @@ layers configuration."
   ;;             (if (not (eq major-mode 'emacs-lisp-mode))
   ;;                 (ycmd-mode))))
 
-  (set-variable 'ycmd-server-command (list "python" (concat (expand-file-name user-emacs-directory) "ycmd/ycmd")))
-  (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
-  (set-variable 'ycmd-idle-change-delay 0.1)
+  ;; (set-variable 'ycmd-server-command (list "python" (concat (expand-file-name user-emacs-directory) "ycmd/ycmd")))
+  ;; (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
+  ;; (set-variable 'ycmd-idle-change-delay 0.1)
 
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
 
