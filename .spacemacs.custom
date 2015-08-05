@@ -29,7 +29,6 @@
              enable-rainbow-identifiers t
              colors-enable-nyan-cat-progress-bar nil)
      emacs-lisp
-     erc
      evil-commentary
 
      ;; use cl instead of s and cc instead of S
