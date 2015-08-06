@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: function declaration
+# key: de
+# --
+(defun ${1:name} ($2)
+    "${3:doc}."
+    $0)

@@ -388,6 +388,9 @@ customize the resulting theme."
 ;;;;; isearch
      `(isearch ((,class (:foreground ,base03 :background ,magenta :weight normal))))
      `(isearch-fail ((,class (:foreground ,red :background ,base03 :bold t))))
+;;;;; evil-snipe
+     `(evil-snipe-first-match-face ((,class (:foreground ,cyan :background ,base03 :weight normal))))
+     `(evil-snipe-matches-face ((,class (:foreground ,red :background ,base03 :bold t))))
 ;;;;; man
      `(Man-overstrike ((,class (:foreground ,blue :weight bold))))
      `(Man-reverse ((,class (:foreground ,orange))))
@@ -543,9 +546,9 @@ customize the resulting theme."
      `(cider-test-success-face ((t (:foreground ,green :weight bold :underline t))))
 ;;;;; company-mode
      `(company-template-field ((,class (:background ,yellow :foreground ,base02))))
-     `(company-tooltip ((,class (:background ,base02 :foreground ,cyan))))
-     `(company-tooltip-selection ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
-     `(company-tooltip-mouse ((,class (:background ,cyan-hc :foreground ,cyan-lc))))
+     `(company-tooltip ((,class (:background ,base02 :foreground ,blue))))
+     `(company-tooltip-selection ((,class (:background ,base3 :foreground ,magenta))))
+     `(company-tooltip-mouse ((,class (:background ,blue-hc :foreground ,blue-lc))))
      `(company-tooltip-common ((,class (:foreground ,base1 :underline t))))
      `(company-tooltip-common-selection ((,class (:foreground ,base1 :underline t))))
      `(company-tooltip-annotation ((,class (:foreground ,base1 :background ,base02))))
@@ -1992,10 +1995,14 @@ customize the resulting theme."
        '((,base02 . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
          (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,base02 . 100)))
 ;;;;; hl-anything
-     `(hl-fg-colors '(,base03 ,base03 ,base03 ,base03 ,base03 ,base03
+     `(hl-bg-colors '(,base03 ,base03 ,base03 ,base03 ,base03 ,base03
                               ,base03 ,base03))
-     `(hl-bg-colors '(,yellow-lc ,orange-lc ,red-lc ,magenta-lc
-                                 ,violet-lc ,blue-lc ,cyan-lc ,green-lc))
+     `(hl-fg-colors '(,yellow ,orange ,red ,magenta
+                                 ,violet ,blue ,cyan ,green))
+     `(hl-highlight-background-colors '(,base03 ,base03 ,base03 ,base03 ,base03 ,base03
+                              ,base03 ,base03))
+     `(hl-highlight-foreground-colors '(,yellow ,orange ,red ,magenta
+                                 ,violet ,blue ,cyan ,green))
 ;;;;; pos-tip
      `(pos-tip-foreground-color ,base1)
      `(pos-tip-background-color ,base02)

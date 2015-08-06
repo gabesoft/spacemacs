@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jsdoc parameter
+# key: jp
+# --
+* @param {${1:Type}} ${2:name} ${3:Description}$0
