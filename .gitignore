@@ -45,3 +45,4 @@ private/*
 !private/snippets/README.md
 /games/
 .mc-lists.el
+.cask
