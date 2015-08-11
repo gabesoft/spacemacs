@@ -335,6 +335,7 @@ layers configuration."
     (interactive)
     (delete-process "Tern"))
   (setq-default js2-basic-offset 4)
+  (setq-default css-indent-offset 2)
   (add-to-list 'completion-styles 'initials t)
 
   ;; persistent undo
@@ -394,7 +395,8 @@ layers configuration."
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values
    (quote
-    ((encoding . utf-8)
+    ((css-indent-offset . 2)
+     (encoding . utf-8)
      (eval when
            (fboundp
             (quote rainbow-mode))
