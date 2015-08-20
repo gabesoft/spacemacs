@@ -268,7 +268,9 @@ layers configuration."
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-normal-state-map (kbd "Y") 'copy-to-the-end-of-line)
+
   (define-key evil-normal-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
+  (define-key evil-visual-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
 
   (define-key evil-normal-state-map (kbd "]p") 'paste-after-current-line)
   (define-key evil-normal-state-map (kbd "[p") 'paste-before-current-line)
