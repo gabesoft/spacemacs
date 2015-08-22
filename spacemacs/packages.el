@@ -296,9 +296,11 @@
                  (ahs-highlight-now)
                  ) nil))
 
-      (defun spacemacs/quick-ahs-forward ()
+      (evil-define-motion spacemacs/quick-ahs-forward ()
         "Go to the next occurrence of symbol under point with
 `auto-highlight-symbol'"
+        :jump t
+        :type inclusive
         (interactive)
         (eval '(progn (spacemacs/integrate-evil-search t)
                       (spacemacs/ahs-highlight-now-wrapper)
@@ -306,9 +308,11 @@
                         (evil-set-jump))
                       (ahs-forward)) nil))
 
-      (defun spacemacs/quick-ahs-backward ()
+      (evil-define-motion spacemacs/quick-ahs-backward ()
         "Go to the previous occurrence of symbol under point with
 `auto-highlight-symbol'"
+        :jump t
+        :type inclusive
         (interactive)
         (eval '(progn (spacemacs/integrate-evil-search nil)
                       (spacemacs/ahs-highlight-now-wrapper)
