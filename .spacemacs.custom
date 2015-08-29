@@ -409,6 +409,7 @@ layers configuration."
  ;; If there is more than one, they won't work right.
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(org-done ((t (:foreground "#859900" :weight bold :family "MonacoB2"))))
  '(org-level-1 ((t (:inherit variable-pitch :foreground "#cb4b16" :height 1.0 :family "MonacoB2"))))
  '(org-level-2 ((t (:inherit variable-pitch :foreground "#859900" :height 1.0 :family "MonacoB2"))))
  '(org-level-3 ((t (:inherit variable-pitch :foreground "#268bd2" :height 1.0 :family "MonacoB2"))))
@@ -416,4 +417,6 @@ layers configuration."
  '(org-level-5 ((t (:inherit variable-pitch :foreground "#2aa198" :family "MonacoB2"))))
  '(org-level-6 ((t (:inherit variable-pitch :foreground "#859900" :family "MonacoB2"))))
  '(org-level-7 ((t (:inherit variable-pitch :foreground "#dc322f" :family "MonacoB2"))))
- '(org-level-8 ((t (:inherit variable-pitch :foreground "#268bd2" :family "MonacoB2")))))
+ '(org-level-8 ((t (:inherit variable-pitch :foreground "#268bd2" :family "MonacoB2"))))
+ '(org-todo ((t (:foreground "#2aa198" :weight bold :family "MonacoB2"))))
+ '(org-warning ((t (:foreground "#cb4b16" :underline nil :weight normal :family "MonacoB2")))))
