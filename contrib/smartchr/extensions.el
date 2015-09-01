@@ -53,23 +53,56 @@
   (mapcar (lambda (m)
             (define-key evil-insert-state-local-map
               (kbd (car m))
-              (smartchr (cdr m)))) mode-map))
+              (smartchr (cdr m))))
+          mode-map))
+
+(defun smartchr/undo-mode (mode-map)
+  "Undo the smartchr key maps defined in MODE-MAP."
+  (mapcar (lambda (m)
+            (define-key evil-insert-state-local-map
+              (kbd (car m)) nil))
+          mode-map))
+
+(defun smartchr/undo-js2-mode ()
+  "Undo the keys for js2 mode."
+  (interactive)
+  (smartchr/undo-mode smartchr-js-key-map))
 
 (defun smartchr/init-js2-mode ()
   "Set up the keys for js2 mode."
+  (interactive)
   (smartchr/init-mode smartchr-js-key-map))
+
+(defun smartchr/undo-ruby-mode ()
+  "Undo up the keys for ruby mode."
+  (interactive)
+  (smartchr/undo-mode smartchr-ruby-key-map))
 
 (defun smartchr/init-ruby-mode ()
   "Set up the keys for ruby mode."
+  (interactive)
   (smartchr/init-mode smartchr-ruby-key-map))
+
+(defun smartchr/undo-web-mode ()
+  "Undo up the keys for ruby mode."
+  (interactive)
+  (cond ((string= web-mode-engine "erb")
+         (smartchr/undo-mode smartchr-eruby-key-map))))
 
 (defun smartchr/init-web-mode ()
   "Set up the keys for ruby mode."
+  (interactive)
   (cond ((string= web-mode-engine "erb")
          (smartchr/init-mode smartchr-eruby-key-map))))
 
+(defun smartchr/undo-css-mode ()
+  "Undo up the keys for ruby mode."
+  (interactive)
+  (smartchr/undo-mode smartchr-css-key-map))
+
 (defun smartchr/init-css-mode ()
   "Set up the keys for ruby mode."
+  (interactive)
   (smartchr/init-mode smartchr-css-key-map))
 
 ;;; packages.el ends here
