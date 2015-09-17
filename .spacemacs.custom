@@ -57,6 +57,7 @@
             shell-default-position 'bottom)
      smartchr
      syntax-checking
+     themes-megapack
      undo-tree
      version-control)
 
@@ -362,8 +363,11 @@ layers configuration."
   ;; (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
   ;;   (normal-top-level-add-subdirs-to-load-path))
 
+  (add-to-list 'aggressive-indent-excluded-modes 'web-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'enh-ruby-mode)
+
   (global-vi-tilde-fringe-mode 1)
-  (global-aggressive-indent-mode)
+  (global-aggressive-indent-mode 1)
   (setq scroll-margin 1)
   (hl-highlight-mode 1)
   (global-company-mode)
