@@ -301,9 +301,16 @@ layers configuration."
   ;; (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
   ;; (set-variable 'ycmd-idle-change-delay 0.1)
 
-  (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
+  ;; TODO use ws-buttler for trimming whitespace
 
+  (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
   (add-hook 'after-change-major-mode-hook 'update-whitespace-hooks)
+  (add-hook 'emacs-lisp-mode-hook (lambda () (aggressive-indent-mode 1)))
+
+  ;; (add-to-list 'aggressive-indent-excluded-modes 'web-mode)
+  ;; (add-to-list 'aggressive-indent-excluded-modes 'enh-ruby-mode)
+  ;; (aggressive-indent-mode 1)
+  ;; (global-aggressive-indent-mode 1)
 
   ;; multiple cursors
   (setq mc/max-cursors 100)
@@ -363,11 +370,7 @@ layers configuration."
   ;; (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
   ;;   (normal-top-level-add-subdirs-to-load-path))
 
-  (add-to-list 'aggressive-indent-excluded-modes 'web-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'enh-ruby-mode)
-
   (global-vi-tilde-fringe-mode 1)
-  (global-aggressive-indent-mode 1)
   (setq scroll-margin 1)
   (hl-highlight-mode 1)
   (global-company-mode)
