@@ -762,7 +762,7 @@ customize the resulting theme."
                                       :weight normal :slant italic))))
 ;;;;; fixmee
      `(fixmee-notice-face ((,class (:background nil :foreground ,base1
-						:underline nil :slant italic :weight bold))))
+            :underline nil :slant italic :weight bold))))
 
 ;;;;; flx
      `(flx-highlight-face ((,class (:foreground ,blue

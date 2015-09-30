@@ -5,6 +5,10 @@
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration."
   (setq-default
+   ;; Base distribution to use. This is a layer contained in the directory
+   ;; `+distribution'. For now available distributions are `spacemacs-base'
+   ;; or `spacemacs'. (default 'spacemacs)
+   dotspacemacs-distribution 'spacemacs
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
@@ -44,6 +48,7 @@
            web-mode-markup-indent-offset 2
            web-mode-css-indent-offset 2)
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
+     java
      javascript
      markdown
      org
@@ -52,13 +57,15 @@
      (ruby :variables
            ruby-version-manager 'rbenv
            ruby-enable-ruby-on-rails-support t)
+     ruby-on-rails
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      smartchr
      syntax-checking
+     spell-checking
      themes-megapack
-     undo-tree
+     unimpaired
      version-control)
 
    ;; List of additional packages that will be installed without being
@@ -79,6 +86,19 @@ This function is called at the very startup of Spacemacs initialization
 before layers configuration."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
+
+  (defvar spacemacs-evil-cursors '(("normal" "#268bd2" box)
+                                   ("insert" "#859900" (bar . 2))
+                                   ("emacs"  "plum3" box)
+                                   ("hybrid" "SkyBlue2" (bar . 2))
+                                   ("replace" "#dc322f" (hbar . 2))
+                                   ("evilified" "#cb4b16" box)
+                                   ("visual" "#d33682" box)
+                                   ("motion" "#2aa198" box)
+                                   ("lisp"   "#6c71c4" box)
+                                   ("iedit"  "chocolate" box)
+                                   ("iedit-insert"  "#dc322f" (bar . 2)))
+    "Colors assigned to evil states with cursor definitions.")
 
   (setq enh-ruby-program "/usr/bin/ruby")
 
@@ -101,12 +121,12 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-light
-                         solarized-dark
-                         spacemacs-light
+   dotspacemacs-themes '(solarized-dark
+                         solarized-light
                          spacemacs-dark
+                         spacemacs-light
                          leuven
-                         monokai
+                         gruvbox
                          zenburn)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -131,6 +151,8 @@ before layers configuration."
    ;; By default the command key is `:' so ex-commands are executed like in Vim
    ;; with `:' and Emacs commands are executed with `<leader> :'.
    dotspacemacs-command-key ":"
+   ;; If non nil `Y' is remapped to `y$'. (default t)
+   dotspacemacs-remap-Y-to-y$ t
    ;; Location where to auto-save files. Possible values are `original' to
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
@@ -139,12 +161,25 @@ before layers configuration."
    ;; If non nil then `ido' replaces `helm' for some commands. For now only
    ;; `find-files' (SPC f f) is replaced.
    dotspacemacs-use-ido nil
+   ;; If non nil, `helm' will try to miminimize the space it uses. (default nil)
+   dotspacemacs-helm-resize nil
+   ;; if non nil, the helm header is hidden when there is only one source.
+   ;; (default nil)
+   dotspacemacs-helm-no-header nil
+   ;; define the position to display `helm', options are `bottom', `top',
+   ;; `left', or `right'. (default 'bottom)
+   dotspacemacs-helm-position 'bottom
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content.
    dotspacemacs-enable-paste-micro-state nil
    ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
    ;; the commands bound to the current keystrokes.
-   dotspacemacs-guide-key-delay 1.2
+   dotspacemacs-guide-key-delay 1.0
+   ;; Which-key frame position. Possible values are `right', `bottom' and
+   ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
+   ;; right; if there is insufficient space it displays it at the bottom.
+   ;; (default 'bottom)
+   dotspacemacs-which-key-position 'bottom
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil ;; to boost the loading time.
@@ -194,7 +229,7 @@ before layers configuration."
   ;; User initialization goes here
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
 This function is called at the very end of Spacemacs initialization after
 layers configuration."
@@ -278,8 +313,9 @@ layers configuration."
   ;; (define-key evil-normal-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
   ;; (define-key evil-visual-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
 
-  (define-key evil-normal-state-map (kbd "]p") 'paste-after-current-line)
-  (define-key evil-normal-state-map (kbd "[p") 'paste-before-current-line)
+  ;; provided by unimpaired now
+  ;; (define-key evil-normal-state-map (kbd "]p") 'paste-after-current-line)
+  ;; (define-key evil-normal-state-map (kbd "[p") 'paste-before-current-line)
 
   (define-key evil-normal-state-map (kbd "<up>") 'evil-window-increase-height)
   (define-key evil-normal-state-map (kbd "<down>") 'evil-window-decrease-height)
@@ -375,7 +411,7 @@ layers configuration."
 
   (global-vi-tilde-fringe-mode 1)
   (setq scroll-margin 1)
-  (hl-highlight-mode 1)
+  ;; (hl-highlight-mode 1)
   (global-company-mode)
   (global-linum-mode)
   (global-undo-tree-mode 1)

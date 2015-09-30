@@ -6,7 +6,7 @@
 
 (setq smartchr-post-extensions '(smartchr))
 
-(load-file (concat user-emacs-directory "contrib/smartchr/extensions/smartchr.el"))
+(load-file (concat user-emacs-directory "layers/smartchr/extensions/smartchr.el"))
 
 (setq
  smartchr-css-key-map
