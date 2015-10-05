@@ -426,7 +426,7 @@ layers configuration."
   (setq powerline-default-separator 'arrow)
   (setq auto-save-timeout 1)
 
-  (setq hl-paren-colors '("#deb542" "#9EA0E5" "#69B7F0" "#B4C342"))
+  (setq hl-paren-colors '("#deb542" "#9ea0e5" "#69b7f0" "#b4c342" "#ff6e64"))
 
   )
 
