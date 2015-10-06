@@ -446,6 +446,7 @@ layers configuration."
    (quote
     (mouse-drag-region mouse-set-point widget-button-click scroll-bar-toolkit-scroll evil-mouse-drag-region)))
  '(ccm-recenter-at-end-of-file t)
+ '(org-bullets-bullet-list (quote ("◉" "○")))
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values
    (quote
