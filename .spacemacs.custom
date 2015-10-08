@@ -37,7 +37,7 @@
 
      ;; use cl instead of s and cc instead of S
      (evil-snipe :variables
-                 evil-snipe-enable-alternate-f-and-t-behaviors nil)
+                 evil-snipe-enable-alternate-f-and-t-behaviors t)
 
      (git :variables
           git-magit-status-fullscreen nil
@@ -309,10 +309,10 @@ layers configuration."
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-normal-state-map (kbd "Y") 'copy-to-the-end-of-line)
 
-  (define-key evil-normal-state-map (kbd "\\") 'evil-repeat-find-char-reverse)
-  (define-key evil-visual-state-map (kbd "\\") 'evil-repeat-find-char-reverse)
-  ;; (define-key evil-normal-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
-  ;; (define-key evil-visual-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
+  ;; (define-key evil-normal-state-map (kbd "\\") 'evil-repeat-find-char-reverse)
+  ;; (define-key evil-visual-state-map (kbd "\\") 'evil-repeat-find-char-reverse)
+  (define-key evil-normal-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
+  (define-key evil-visual-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
 
   ;; provided by unimpaired now
   ;; (define-key evil-normal-state-map (kbd "]p") 'paste-after-current-line)
@@ -450,7 +450,10 @@ layers configuration."
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values
    (quote
-    ((eval when
+    ((flycheck-disabled-checkers
+      (quote
+       (emacs-lisp emacs-lisp-checkdoc)))
+     (eval when
            (and
             (buffer-file-name)
             (file-regular-p
