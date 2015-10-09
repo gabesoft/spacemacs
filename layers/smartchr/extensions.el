@@ -37,6 +37,21 @@
    (">" ">" "%>")
    ("<" "<" "<%" "<%=")
    ("," ", " ","))
+
+ smartchr-java-key-map
+ '(("+" " + " "++" " += " "+")
+   ("<" " < " " <= "  " << " "<")
+   (">" " > " " >= " " >> " ">")
+   ("-" " - " "-1" " -= " "--" "-")
+   ("=" " = " " == " "=")
+   ("|" " || " " | " "|")
+   ("&" " && " " & " "&")
+   ("!" "!" " != ")
+   ("%" " % " "%")
+   ("/" " / " "/")
+   ("*" " * " "*")
+   ("," ", " ","))
+
  )
 
 (defun smartchr/init-smartchr ()
@@ -46,7 +61,8 @@
     (progn
       (add-hook 'js2-mode-hook #'smartchr/init-js2-mode)
       (add-hook 'enh-ruby-mode-hook #'smartchr/init-ruby-mode)
-      (add-hook 'web-mode-hook #'smartchr/init-web-mode))))
+      (add-hook 'web-mode-hook #'smartchr/init-web-mode)
+      (add-hook 'java-mode-hook #'smartchr/init-java-mode))))
 
 (defun smartchr/init-mode (mode-map)
   "Sets up the keys defined by MODE-MAP."
@@ -84,25 +100,35 @@
   (smartchr/init-mode smartchr-ruby-key-map))
 
 (defun smartchr/undo-web-mode ()
-  "Undo up the keys for ruby mode."
+  "Undo up the keys for web mode."
   (interactive)
   (cond ((string= web-mode-engine "erb")
          (smartchr/undo-mode smartchr-eruby-key-map))))
 
 (defun smartchr/init-web-mode ()
-  "Set up the keys for ruby mode."
+  "Set up the keys for web mode."
   (interactive)
   (cond ((string= web-mode-engine "erb")
          (smartchr/init-mode smartchr-eruby-key-map))))
 
 (defun smartchr/undo-css-mode ()
-  "Undo up the keys for ruby mode."
+  "Undo up the keys for css mode."
   (interactive)
   (smartchr/undo-mode smartchr-css-key-map))
 
 (defun smartchr/init-css-mode ()
-  "Set up the keys for ruby mode."
+  "Set up the keys for css mode."
   (interactive)
   (smartchr/init-mode smartchr-css-key-map))
+
+(defun smartchr/undo-java-mode ()
+  "Undo up the keys for java mode."
+  (interactive)
+  (smartchr/undo-mode smartchr-java-key-map))
+
+(defun smartchr/init-java-mode ()
+  "Set up the keys for java mode."
+  (interactive)
+  (smartchr/init-mode smartchr-java-key-map))
 
 ;;; packages.el ends here
