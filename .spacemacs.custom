@@ -402,18 +402,13 @@ layers configuration."
                      (abbreviate-file-name (buffer-file-name)) "%b"))))
 
   ;; yasnippet
-  ;; disallow nested expansions (but nested expansions can be done with M-/)
+  ;; disallow nested expansions (can still be done with M-/)
   (setq yas-triggers-in-field nil)
 
   (setq global-mode-string nil)
 
-  ;; brew packages
-  ;; (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
-  ;;   (normal-top-level-add-subdirs-to-load-path))
-
   (global-vi-tilde-fringe-mode 1)
   (setq scroll-margin 1)
-  ;; (hl-highlight-mode 1)
   (global-company-mode)
   (global-linum-mode)
   (global-undo-tree-mode 1)
@@ -452,6 +447,7 @@ layers configuration."
     ((flycheck-disabled-checkers
       (quote
        (emacs-lisp emacs-lisp-checkdoc)))
+     (flycheck-temp-prefix . ".flycheck")
      (eval when
            (and
             (buffer-file-name)
