@@ -389,6 +389,17 @@ layers configuration."
   (quietly-read-abbrev-file)
   (setq-default abbrev-mode t)
 
+  (defun sort-words (reverse beg end)
+    "Sort words in region alphabetically, in REVERSE if negative.
+    Prefixed with negative \\[universal-argument], sorts in reverse.
+
+    The variable `sort-fold-case' determines whether alphabetic case
+    affects the sort order.
+
+    See `sort-regexp-fields'."
+    (interactive "*P\nr")
+    (sort-regexp-fields reverse "\\w+" "\\&" beg end))
+
   ;; js2-mode
   (defun delete-tern-process ()
     (interactive)
@@ -410,7 +421,7 @@ layers configuration."
                      (abbreviate-file-name (buffer-file-name)) "%b"))))
 
   ;; yasnippet
-  ;; disallow nested expansions (but nested expansions can be done with M-/)
+  ;; disallow nested expansions (can still be done with M-/)
   (setq yas-triggers-in-field nil)
 
   (setq global-mode-string nil)
@@ -455,6 +466,7 @@ layers configuration."
     ((flycheck-disabled-checkers
       (quote
        (emacs-lisp emacs-lisp-checkdoc)))
+     (flycheck-temp-prefix . ".flycheck")
      (eval when
            (and
             (buffer-file-name)
