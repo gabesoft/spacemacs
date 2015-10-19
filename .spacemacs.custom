@@ -282,10 +282,18 @@ layers configuration."
        '(defadvice ,mode (after rename-modeline activate)
           (setq mode-name ,new-name))))
 
+  (defvar-local whitespace-cleanup-disabled nil
+    "True if `whitespace-cleanup' must not be performed.")
+
   (defun do-whitespace-cleanup ()
     "Perform `whitespace-cleanup' unless in insert mode."
-    (when (not (evil-insert-state-p))
-      (whitespace-cleanup)))
+    (when (and (not (evil-insert-state-p))
+               (not whitespace-cleanup-disabled))
+      (let ((whitespace-style '(face
+                                tabs spaces trailing lines space-before-tab newline
+                                indentation space-after-tab
+                                space-mark tab-mark newline-mark)))
+        (whitespace-cleanup))))
 
   (defun update-whitespace-hooks ()
     "Updates the white space hooks based on the current major mode."
@@ -407,13 +415,8 @@ layers configuration."
 
   (setq global-mode-string nil)
 
-  ;; brew packages
-  ;; (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
-  ;;   (normal-top-level-add-subdirs-to-load-path))
-
   (global-vi-tilde-fringe-mode 1)
   (setq scroll-margin 1)
-  ;; (hl-highlight-mode 1)
   (global-company-mode)
   (global-linum-mode)
   (global-undo-tree-mode 1)
@@ -425,7 +428,7 @@ layers configuration."
   (setq powerline-default-separator 'arrow)
   (setq auto-save-timeout 1)
 
-  (setq hl-paren-colors '("#deb542" "#9ea0e5" "#69b7f0" "#b4c342" "#ff6e64"))
+  ;; (setq hl-paren-colors '("#deb542" "#9ea0e5" "#69b7f0" "#b4c342" "#ff6e64"))
 
   )
 
