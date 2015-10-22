@@ -51,6 +51,7 @@
      java
      javascript
      markdown
+     (nim)
      org
      osx
      restclient
@@ -334,6 +335,8 @@ layers configuration."
   (define-key company-active-map (kbd "C-h") 'delete-backward-char)
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
 
+  (add-to-list 'company-backends 'company-nim)
+
   ;; visual star
   ;; (setq evil-visualstar/persistent t)
 
@@ -438,6 +441,7 @@ layers configuration."
   (global-subword-mode +1)
   (setq powerline-default-separator 'arrow)
   (setq auto-save-timeout 1)
+  (indent-guide-global-mode 1)
 
   ;; (setq hl-paren-colors '("#deb542" "#9ea0e5" "#69b7f0" "#b4c342" "#ff6e64"))
 
