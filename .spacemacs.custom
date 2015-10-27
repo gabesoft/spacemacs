@@ -34,6 +34,7 @@
              colors-enable-nyan-cat-progress-bar nil)
      emacs-lisp
      evil-commentary
+     evil-mc
 
      ;; use cl instead of s and cc instead of S
      (evil-snipe :variables
@@ -337,30 +338,9 @@ layers configuration."
 
   (add-to-list 'company-backends 'company-nim)
 
-  ;; visual star
-  ;; (setq evil-visualstar/persistent t)
-
-  ;; ycmd
-  ;; ycmd-mode needs to be re-enabled to take effect
-  ;; (add-hook 'prog-mode-hook
-  ;;           (lambda ()
-  ;;             (if (not (eq major-mode 'emacs-lisp-mode))
-  ;;                 (ycmd-mode))))
-
-  ;; (set-variable 'ycmd-server-command (list "python" (concat (expand-file-name user-emacs-directory) "ycmd/ycmd")))
-  ;; (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
-  ;; (set-variable 'ycmd-idle-change-delay 0.1)
-
-  ;; TODO use ws-buttler for trimming whitespace
-
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
   (add-hook 'after-change-major-mode-hook 'update-whitespace-hooks)
   (add-hook 'emacs-lisp-mode-hook (lambda () (aggressive-indent-mode 1)))
-
-  ;; (add-to-list 'aggressive-indent-excluded-modes 'web-mode)
-  ;; (add-to-list 'aggressive-indent-excluded-modes 'enh-ruby-mode)
-  ;; (aggressive-indent-mode 1)
-  ;; (global-aggressive-indent-mode 1)
 
   ;; multiple cursors
   (setq mc/max-cursors 100)
@@ -429,6 +409,7 @@ layers configuration."
 
   (setq global-mode-string nil)
 
+  (global-evil-mc-mode 1)
   (global-vi-tilde-fringe-mode 1)
   (setq scroll-margin 1)
   (global-company-mode)
