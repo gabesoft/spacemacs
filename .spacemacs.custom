@@ -55,6 +55,7 @@
      (nim)
      org
      osx
+     react
      restclient
      (ruby :variables
            ruby-version-manager 'rbenv
@@ -229,7 +230,8 @@ before layers configuration."
    ;; semantic layer for Emacs lisp mode
    dotspacemacs-configuration-layers '(semantic)
    )
-  ;; User initialization goes here
+
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -387,9 +389,23 @@ layers configuration."
   (defun delete-tern-process ()
     (interactive)
     (delete-process "Tern"))
-  (setq-default js2-basic-offset 4)
-  (setq-default css-indent-offset 2)
+
   (add-to-list 'completion-styles 'initials t)
+
+  (setq-default
+   ;; js2-mode
+   js2-basic-offset 2
+   ;; web-mode
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2)
+
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
 
   ;; persistent undo
   (setq undo-tree-auto-save-history t
