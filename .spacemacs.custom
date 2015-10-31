@@ -104,8 +104,6 @@ before layers configuration."
                                    ("iedit-insert"  "#dc322f" (bar . 2)))
     "Colors assigned to evil states with cursor definitions.")
 
-  (setq enh-ruby-program "/usr/bin/ruby")
-
   (setq-default
    ;; Either `vim' or `emacs'. Evil is always enabled but if the variable
    ;; is `emacs' then the `holy-mode' is enabled at startup.
@@ -229,10 +227,7 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    ;; semantic layer for Emacs lisp mode
    dotspacemacs-configuration-layers '(semantic)
-   )
-
-
-  )
+   ))
 
 (defun dotspacemacs/user-config ()
   "Configuration function.
@@ -368,6 +363,26 @@ layers configuration."
   (global-set-key (kbd "C-c C-w") 'mc/mark-next-word-like-this)
   (global-set-key (kbd "C-c C-s") 'mc/mark-next-symbol-like-this)
 
+  ;; windows
+  (evil-define-command evil-window-split-and-focus (&optional count file)
+    "Splits the current window horizontally and sets the focus to it."
+    :repeat nil
+    (interactive "P<f>")
+    (evil-window-split count file)
+    (other-window 1))
+
+  (evil-define-command evil-window-vsplit-and-focus (&optional count file)
+    "Splits the current window vertically and sets the focus to it."
+    :repeat nil
+    (interactive "P<f>")
+    (evil-window-vsplit count file)
+    (other-window 1))
+
+  (define-key evil-visual-state-map (kbd "C-w s") 'evil-window-split-and-focus)
+  (define-key evil-normal-state-map (kbd "C-w s") 'evil-window-split-and-focus)
+  (define-key evil-visual-state-map (kbd "C-w v") 'evil-window-vsplit-and-focus)
+  (define-key evil-normal-state-map (kbd "C-w v") 'evil-window-vsplit-and-focus)
+
   ;; abbrevs
   (setq abbrev-file-name (concat user-emacs-directory "abbrevs.el"))
   (setq save-abbrevs 'silently)
@@ -384,6 +399,9 @@ layers configuration."
     See `sort-regexp-fields'."
     (interactive "*P\nr")
     (sort-regexp-fields reverse "\\w+" "\\&" beg end))
+
+  ;; ruby mode
+  (setq enh-ruby-program "/usr/bin/ruby")
 
   ;; js2-mode
   (defun delete-tern-process ()
