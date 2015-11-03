@@ -409,6 +409,8 @@ layers configuration."
     (delete-process "Tern"))
 
   (add-to-list 'completion-styles 'initials t)
+  (add-to-list 'auto-mode-alist '(".eslintrc" . json-mode))
+  (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
 
   (setq-default
    ;; js2-mode
