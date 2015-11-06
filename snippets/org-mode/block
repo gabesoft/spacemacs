@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: #+begin_...#+end_
+# key: bl
+# --
+#+BEGIN_${1:SRC} ${2:emacs-lisp}
+  $0
+#+END_$1

@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jsdoc returns
+# key: jr
+# --
+* @returns {${1:Type}}$0

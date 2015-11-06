@@ -14,6 +14,10 @@
     (use-package company-ycmd
       :if (configuration-layer/package-usedp 'company)
       :defer t
+      :init
+      (progn
+        (setq company-backend (remove 'company-clang company-backends))
+        (add-hook 'ycmd-mode-hook 'company-ycmd-setup))
       :commands company-ycmd)))
 
 (when (configuration-layer/layer-usedp 'syntax-checking)
