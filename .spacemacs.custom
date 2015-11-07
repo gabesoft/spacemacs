@@ -34,6 +34,7 @@
              colors-enable-nyan-cat-progress-bar nil)
      emacs-lisp
      evil-commentary
+     evil-easymotion
      evil-mc
 
      ;; use cl instead of s and cc instead of S

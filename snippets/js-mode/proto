@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: prototype function
+# key: pr
+# --
+${1:Ctor}.prototype.${2:name} = function() {
+  $0
+};

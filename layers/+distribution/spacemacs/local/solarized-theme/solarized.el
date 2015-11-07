@@ -505,6 +505,10 @@ customize the resulting theme."
      `(android-mode-warning-face ((,class (:foreground ,yellow))))
 ;;;;; anzu-mode
      `(anzu-mode-line ((,class (:foreground ,yellow :weight bold))))
+;;;;; avy-mode
+     `(avy-lead-face ((,class (:foreground ,red))))
+     `(avy-lead-face-0 ((,class (:foreground ,red))))
+     `(avy-lead-face-2 ((,class (:foreground ,red))))
 ;;;;; bm
      `(bm-face ((,class (:overline ,base0))))
      `(bm-fringe-face ((,class (:overline ,base0))))
