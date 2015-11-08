@@ -5,6 +5,7 @@
     :init
     (progn
       (let ((prefix "g"))
+        (setq avy-keys (append (number-sequence ?a ?z) (number-sequence ?A ?Z)))
         (evilem-define (kbd (concat prefix " w")) 'evil-forward-word-begin)
         (evilem-define (kbd (concat prefix " W")) 'evil-forward-WORD-begin)
         (evilem-define (kbd (concat prefix " e")) 'evil-forward-word-end)
