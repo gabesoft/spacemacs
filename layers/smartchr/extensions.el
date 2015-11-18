@@ -60,6 +60,7 @@
     :config
     (progn
       (add-hook 'js2-mode-hook #'smartchr/init-js2-mode)
+      (add-hook 'react-mode-hook #'smartchr/init-js2-mode)
       (add-hook 'enh-ruby-mode-hook #'smartchr/init-ruby-mode)
       (add-hook 'web-mode-hook #'smartchr/init-web-mode)
       (add-hook 'java-mode-hook #'smartchr/init-java-mode))))

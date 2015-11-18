@@ -18,7 +18,12 @@
 Can be used to temporarily disable any functionality that doesn't
 play well with `evil-mc'."
   (mapc 'evil-mc-pause-smartchr-for-mode
-        '(web-mode js2-mode java-mode (enh-ruby-mode . ruby-mode) css-mode))
+        '(web-mode
+          js2-mode
+          java-mode
+          css-mode
+          (react-mode . js2-mode)
+          (enh-ruby-mode . ruby-mode)))
   (when (boundp whitespace-cleanup-disabled)
     (setq whitespace-cleanup-disabled t)
     (push (lambda () (setq whitespace-cleanup-disabled nil)) evil-mc-custom-paused)))
