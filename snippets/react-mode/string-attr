@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: string attribute
+# key: ats
+# --
+${1:attr}="${2:value}"$0

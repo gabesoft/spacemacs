@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: props attribute
+# key: atp
+# --
+${1:attr}={this.props.${2:prop}}$0
