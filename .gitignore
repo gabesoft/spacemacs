@@ -47,3 +47,4 @@ private/*
 /games/
 .mc-lists.el
 .cask
+.tern-port
