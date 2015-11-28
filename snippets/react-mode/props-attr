@@ -2,4 +2,4 @@
 # name: props attribute
 # key: atp
 # --
-${1:attr}={${2:this.props.${3:prop}}}$0
+${1:className}={${2:this.props.${3:prop}}}$0
