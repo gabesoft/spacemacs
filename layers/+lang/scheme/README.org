@@ -1,30 +1,29 @@
-#+TITLE: Scheme contribution layer for Spacemacs
+#+TITLE: Scheme layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../../../css/readtheorg.css" />
 
-* Table of Contents                                                   :TOC@4:
- - [[#description][Description]]
- - [[#install][Install]]
- - [[#key-bindings][Key Bindings]]
-     - [[#compiling-][Compiling ]]
-     - [[#navigation][Navigation]]
-     - [[#documentation][Documentation]]
-     - [[#insertion][Insertion]]
-     - [[#macroexpansion][Macroexpansion]]
-     - [[#repl][REPL]]
+* Table of Contents                                         :TOC_4_org:noexport:
+ - [[Description][Description]]
+ - [[Install][Install]]
+ - [[Key Bindings][Key Bindings]]
+   - [[Compiling ][Compiling ]]
+   - [[Navigation][Navigation]]
+   - [[Documentation][Documentation]]
+   - [[Insertion][Insertion]]
+   - [[Macroexpansion][Macroexpansion]]
+   - [[REPL][REPL]]
+   - [[Evaluation][Evaluation]]
 
 * Description
 
 A spacemacs contribution layer providing Scheme support via [[http://www.nongnu.org/geiser/][Geiser]].
 
 * Install
-
 The scheme layer currently supports: Chicken and Guile. Combined usage of racket-mode
 and geiser has not been tested.
 
-To use this layer, simply add it to =~/.spacemacs=:
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default dotspacemacs-configuration-layers '(scheme))
-#+END_SRC
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =scheme= to the existing =dotspacemacs-configuration-layers= list in this
+file.
 
 For full Chicken support, the following commands should be run:
 
@@ -82,6 +81,7 @@ For full Chicken support, the following commands should be run:
 | Key Binding | Description                              |
 |-------------+------------------------------------------|
 | ~SPC m s i~ | Start or switch to the REPL              |
+| ~SPC m s s~ | Select Scheme implementation             |
 | ~SPC m s b~ | Send buffer to the REPL                  |
 | ~SPC m s B~ | Send buffer to the REPL and focus it     |
 | ~SPC m s f~ | Send definition to the REPL              |
@@ -89,3 +89,13 @@ For full Chicken support, the following commands should be run:
 | ~SPC m s e~ | Send last sexp to the REPL               |
 | ~SPC m s r~ | Send region to the REPL                  |
 | ~SPC m s R~ | Send region to the REPL and focus it     |
+
+** Evaluation
+
+| Key Binding | Description               |
+|-------------+---------------------------|
+| ~SPC m e b~ | Evaluate the whole buffer |
+| ~SPC m e e~ | Evaluate last sexp        |
+| ~SPC m e f~ | Evaluate current function |
+| ~SPC m e l~ | Evaluate line             |
+| ~SPC m e r~ | Evaluate region           |

@@ -1,14 +1,15 @@
-#+TITLE: HTML contribution layer for Spacemacs
+#+TITLE: HTML layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../../../css/readtheorg.css" />
 
 [[file:img/html.png]]
 
-* Table of Contents                                                   :TOC@4:
- - [[#description][Description]]
-   - [[#features][Features]]
- - [[#install][Install]]
- - [[#key-bindings][Key Bindings]]
-   - [[#web-mode][Web mode]]
-   - [[#cssscss][CSS/SCSS]]
+* Table of Contents                                         :TOC_4_org:noexport:
+ - [[Description][Description]]
+   - [[Features][Features]]
+ - [[Install][Install]]
+ - [[Key Bindings][Key Bindings]]
+   - [[Web mode][Web mode]]
+   - [[CSS/SCSS][CSS/SCSS]]
 
 * Description
 This layer adds support for editing HTML and CSS.
@@ -20,14 +21,11 @@ This layer adds support for editing HTML and CSS.
 - Tags navigation on key ~%~ using [[https://github.com/redguardtoo/evil-matchit][evil-matchit]]
 
 * Install
-To use this contribution add it to your =~/.spacemacs=
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default dotspacemacs-configuration-layers '(html))
-#+END_SRC
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =html= to the existing =dotspacemacs-configuration-layers= list in this
+file.
 
 * Key Bindings
-
 ** Web mode
 
 | Key Binding | Description                                               |
@@ -44,6 +42,7 @@ To use this contribution add it to your =~/.spacemacs=
 | ~SPC m r r~ | rename current element                                    |
 | ~SPC m r w~ | wrap current element                                      |
 | ~SPC m z~   | fold/unfold current element                               |
+| ~%~         | evil-matchit keybinding to jump to closing tag            |
 
 A micro-state is also defined, start it with ~SPC m .~ or ~, .~
 

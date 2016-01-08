@@ -1,11 +1,11 @@
-#+TITLE: Unimpaired port contribution layer for Spacemacs
+#+TITLE: Unimpaired port layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../../../css/readtheorg.css" />
 
-* Table of Contents                                                   :TOC@4:
- - [[#description][Description]]
- - [[#key-bindings][Key bindings]]
+* Table of Contents                                         :TOC_4_org:noexport:
+ - [[Description][Description]]
+ - [[Key bindings][Key bindings]]
 
 * Description
-
 This layer ports some of the functionality of [[https://github.com/tpope/vim-unimpaired][tpope's vim-unimpaired]].
 
 This plugin provides several pairs of bracket maps using ~[~ to denote

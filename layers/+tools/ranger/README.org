@@ -1,23 +1,22 @@
-#+TITLE: Ranger contribution layer for Spacemacs
+#+TITLE: Ranger layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../../../css/readtheorg.css" />
 
-* Table of Contents                                                   :TOC@4:
- - [[#description][Description]]
- - [[#features][Features]]
- - [[#configuration][Configuration]]
-     - [[#customizing][Customizing]]
-     - [[#parent-options][Parent options]]
-     - [[#preview-options][Preview options]]
- - [[#key-bindings][Key Bindings]]
+* Table of Contents                                         :TOC_4_org:noexport:
+ - [[Description][Description]]
+ - [[Features][Features]]
+ - [[Configuration][Configuration]]
+   - [[Customizing][Customizing]]
+   - [[Parent options][Parent options]]
+   - [[Preview options][Preview options]]
+ - [[Key Bindings][Key Bindings]]
 
 * Description
 
 This layer brings Ranger features to spacemacs from the =ranger= package.
 
-To use this contribution add it to your =~/.spacemacs=
-
-#+BEGIN_SRC emacs-lisp
-(setq-default dotspacemacs-configuration-layers '(ranger))
-#+END_SRC
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =ranger= to the existing =dotspacemacs-configuration-layers= list in this
+file.
 
 To default with preview enabled when entering ranger:
 #+BEGIN_SRC emacs-lisp
@@ -30,7 +29,6 @@ To default with preview enabled when entering ranger:
 - use ranger to display dired with ranger like preview and stacked parent windows.
 
 * Configuration
-
 Most parameters can be toggled on and off and stay within the current emacs
 session. Any settings that are desired on startup should be set below. 
 
@@ -111,26 +109,27 @@ To set the max files size (in MB), set the following parameter:
 
 | Key Binding | Description                                          |
 |-------------+------------------------------------------------------|
-| ~SPC a r~     | launch ranger                                        |
-| ~C-p~         | (ranger) toggle ranger in dired buffer               |
-| ~j~           | (ranger) navigate down                               |
-| ~k~           | (ranger) navigate up                                 |
-| ~C-j~         | (ranger) scroll preview window down                  |
-| ~C-k~         | (ranger) scroll preview window up                    |
-| ~f~           | (ranger) search for file names                       |
-| ~i~           | (ranger) show preview of current file                |
-| ~zi~          | (ranger) toggle showing literal / full-text previews |
-| ~zh~          | (ranger) toggle showing dotfiles                     |
-| ~o~           | (ranger) sort options                                |
-| ~H~           | (ranger) search through history                      |
-| ~h~           | (ranger) go up directory                             |
-| ~l~           | (ranger) find file / enter directory                 |
-| ~RET~         | (ranger) find file / enter directory                 |
-| ~q~           | (ranger) quit                                        |
-| ~r~           | (ranger) revert buffer                               |
-| ~z-~          | (ranger) reduce number of parents                    |
-| ~z+~          | (ranger) increment number of parents                 |
-| ~v~           | (ranger) toggle all marks                            |
-| ~V~           | (ranger) visually select lines                       |
-| ~S~           | (ranger) enter shell                                 |
-| ~C-SPC~       | (ranger) mark current file                           |
+| ~SPC a r~   | launch ranger                                        |
+| SPC a d     | deer (minimal ranger window in current directory)    |
+| ~C-p~       | (ranger) toggle ranger in dired buffer               |
+| ~j~         | (ranger) navigate down                               |
+| ~k~         | (ranger) navigate up                                 |
+| ~C-j~       | (ranger) scroll preview window down                  |
+| ~C-k~       | (ranger) scroll preview window up                    |
+| ~f~         | (ranger) search for file names                       |
+| ~i~         | (ranger) show preview of current file                |
+| ~zi~        | (ranger) toggle showing literal / full-text previews |
+| ~zh~        | (ranger) toggle showing dotfiles                     |
+| ~o~         | (ranger) sort options                                |
+| ~H~         | (ranger) search through history                      |
+| ~h~         | (ranger) go up directory                             |
+| ~l~         | (ranger) find file / enter directory                 |
+| ~RET~       | (ranger) find file / enter directory                 |
+| ~q~         | (ranger) quit                                        |
+| ~r~         | (ranger) revert buffer                               |
+| ~z-~        | (ranger) reduce number of parents                    |
+| ~z+~        | (ranger) increment number of parents                 |
+| ~v~         | (ranger) toggle all marks                            |
+| ~V~         | (ranger) visually select lines                       |
+| ~S~         | (ranger) enter shell                                 |
+| ~C-SPC~     | (ranger) mark current file                           |

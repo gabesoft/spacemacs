@@ -1,26 +1,27 @@
-#+TITLE: Elm contribution layer for Spacemacs
+#+TITLE: Elm layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../../../css/readtheorg.css" />
 
 [[file:img/elm.png]]
 
-* Table of Contents                                                   :TOC@4:
- - [[#description][Description]]
- - [[#install][Install]]
-   - [[#elm-platform][Elm Platform]]
-     - [[#os-x-and-windows-installers][OS X and Windows installers]]
-     - [[#universal-installer-using-npm][Universal installer using npm]]
-     - [[#source-code][Source code]]
-   - [[#elm-mode][elm-mode]]
-   - [[#elm-oracle][elm-oracle]]
- - [[#basic-usage-tips][Basic usage tips]]
-   - [[#compilation][Compilation]]
-   - [[#reactor][Reactor]]
- - [[#key-bindings][Key bindings]]
-   - [[#elm-make][elm-make]]
-   - [[#elm-repl][elm-repl]]
-   - [[#elm-reactor][elm-reactor]]
-   - [[#elm-package][elm-package]]
-     - [[#package-list-buffer][package list buffer]]
-   - [[#elm-oracle][elm-oracle]]
+* Table of Contents                                         :TOC_4_org:noexport:
+ - [[Description][Description]]
+ - [[Install][Install]]
+   - [[Layer][Layer]]
+   - [[Elm Platform][Elm Platform]]
+     - [[OS X and Windows installers][OS X and Windows installers]]
+     - [[Universal installer using npm][Universal installer using npm]]
+     - [[Source code][Source code]]
+   - [[elm-oracle][elm-oracle]]
+ - [[Basic usage tips][Basic usage tips]]
+   - [[Compilation][Compilation]]
+   - [[Reactor][Reactor]]
+ - [[Key bindings][Key bindings]]
+   - [[elm-make][elm-make]]
+   - [[elm-repl][elm-repl]]
+   - [[elm-reactor][elm-reactor]]
+   - [[elm-package][elm-package]]
+     - [[package list buffer][package list buffer]]
+   - [[elm-oracle][elm-oracle]]
 
 * Description
 This layer adds support for [[http://elm-lang.org][Elm]].
@@ -37,6 +38,11 @@ It relies on [[https://github.com/jcollard/elm-mode][elm-mode]] and [[https://gi
 - Integration with elm-package
 
 * Install
+** Layer
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =elm= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
 ** Elm Platform
 The ~elm-platform~ is a bundle of tools, including the ~elm-compiler~, ~elm-make~,
 ~elm-reactor~, ~elm-repl~ and ~elm-package~. 
@@ -63,13 +69,6 @@ run, see this issue [[https://github.com/kevva/elm-bin/issues/28][https://github
 *** Source code
 To build from source, see instructions here:
 [[https://github.com/elm-lang/elm-platform][https://github.com/elm-lang/elm-platform]]
-
-** elm-mode
-To use this contribution, add it to your =~/.spacemacs=
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default dotspacemacs-configuration-layers '(elm))
-#+END_SRC
 
 ** elm-oracle
 ~elm-oracle~ can be used to show type signatures and docs for tokens under the
@@ -116,7 +115,6 @@ can be controlled by passing in these variables in your =~/.spacemacs=:
 #+END_SRC
 
 * Key bindings
-
 ** elm-make
 
 | Key Binding | Description                                  |
@@ -129,7 +127,7 @@ can be controlled by passing in these variables in your =~/.spacemacs=:
 
 | Key Binding | Description                                                |
 |-------------+------------------------------------------------------------|
-| ~SPC m s i~ | load-elm-repl                                              |
+| ~SPC m s i~ | elm-repl-load                                              |
 | ~SPC m s f~ | send current function to REPL                              |
 | ~SPC m s F~ | send current function to REPL and focus it in insert state |
 | ~SPC m s r~ | send current region to REPL                                |

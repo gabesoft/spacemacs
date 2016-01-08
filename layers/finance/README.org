@@ -1,13 +1,14 @@
-#+TITLE: Finance contribution layer for Spacemacs
+#+TITLE: Finance layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../../css/readtheorg.css" />
 
-* Table of Contents                                                   :TOC@4:
- - [[#description][Description]]
- - [[#install][Install]]
-   - [[#layer][Layer]]
- - [[#configuration][Configuration]]
-   - [[#ledger][Ledger]]
- - [[#key-bindings][Key bindings]]
-   - [[#ledger][Ledger]]
+* Table of Contents                                         :TOC_4_org:noexport:
+ - [[Description][Description]]
+ - [[Install][Install]]
+   - [[Layer][Layer]]
+ - [[Configuration][Configuration]]
+   - [[Ledger][Ledger]]
+ - [[Key bindings][Key bindings]]
+   - [[Ledger][Ledger]]
 
 * Description
 
@@ -17,14 +18,10 @@ This layer adds finance related packages:
 [[file:img/ledger.png]]
 
 * Install
-
 ** Layer
-
-To use this contribution add it to your =~/.spacemacs=
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default dotspacemacs-configuration-layers '(finance))
-#+END_SRC
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =finance= to the existing =dotspacemacs-configuration-layers= list in this
+file.
 
 * Configuration
 
