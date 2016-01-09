@@ -228,6 +228,9 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    ;; semantic layer for Emacs lisp mode
    dotspacemacs-configuration-layers '(semantic)
+   dotspacemacs-whitespace-cleanup 'changed
+   dotspacemacs-line-numbers 'relative
+   dotspacemacs-startup-recent-list-size 30
    ))
 
 (defun dotspacemacs/user-config ()
@@ -444,9 +447,6 @@ layers configuration."
   (setq auto-save-timeout 1)
   (indent-guide-global-mode 1)
   (flycheck-pos-tip-mode 1)
-
-  ;; (setq hl-paren-colors '("#deb542" "#9ea0e5" "#69b7f0" "#b4c342" "#ff6e64"))
-
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -461,11 +461,14 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
  '(ccm-ignored-commands
    (quote
     (mouse-drag-region mouse-set-point widget-button-click scroll-bar-toolkit-scroll evil-mouse-drag-region)))
  '(ccm-recenter-at-end-of-file t)
  '(org-bullets-bullet-list (quote ("⊚" "⊙" "⊜" "⊝" "⊛")))
+ '(paradox-github-token t)
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values
    (quote

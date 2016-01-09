@@ -1,0 +1,5 @@
+* TODO Fix the solarized theme
+* TODO Fix the relative numbers
+** Should  be relative in the focused window and non-relative in all others
+* After update fixes
+** Ignore files with .#* (determine how to stop them from beiing generated)
