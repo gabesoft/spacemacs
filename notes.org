@@ -1,5 +1,8 @@
 * TODO Fix the solarized theme
 * TODO Fix the relative numbers
+
 ** Should  be relative in the focused window and non-relative in all others
+* TODO Setup layouts
+** http://spacemacs.org/layers/+window-management/spacemacs-layouts/README.html
 * After update fixes
 ** Ignore files with .#* (determine how to stop them from beiing generated)
