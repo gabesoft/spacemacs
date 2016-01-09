@@ -231,6 +231,7 @@ before layers configuration."
    dotspacemacs-whitespace-cleanup 'changed
    dotspacemacs-line-numbers 'relative
    dotspacemacs-startup-recent-list-size 30
+   auto-completion-private-snippets-directory (concat user-emacs-directory "snippets/")
    ))
 
 (defun dotspacemacs/user-config ()
