@@ -466,9 +466,9 @@ layers configuration."
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#657b83"])
- '(avy-all-windows (quote all-frames) t)
- '(avy-background t t)
- '(avy-style (quote de-bruijn) t)
+ '(avy-all-windows (quote all-frames))
+ '(avy-background t)
+ '(avy-style (quote de-bruijn))
  '(background-color "#202020")
  '(background-mode dark)
  '(ccm-ignored-commands
@@ -485,7 +485,7 @@ layers configuration."
  '(custom-safe-themes
    (quote
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
- '(fci-rule-color "#073642" t)
+ '(fci-rule-color "#073642")
  '(flycheck-display-errors-function (quote flycheck-pos-tip-error-messages))
  '(flycheck-emacs-lisp-load-path (quote inherit))
  '(flycheck-pos-tip-mode t)
@@ -620,8 +620,13 @@ layers configuration."
  '(avy-lead-face-0 ((t (:foreground "#6c71c4"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(flycheck-error ((t (:underline "#dc322f"))))
+ '(flycheck-fringe-error ((t (:background "transparent" :foreground "#dc322f" :weight bold))))
+ '(flycheck-fringe-info ((t (:background "transparent" :foreground "#268bd2" :weight bold))))
+ '(flycheck-fringe-warning ((t (:background "transparent" :foreground "#b58900" :weight bold))))
  '(flycheck-warning ((t (:underline "#b58900"))))
  '(flyspell-duplicate ((t (:underline "#b58900"))))
+ '(flyspell-incorrect ((t (:underline "#dc322f"))))
  '(hl-todo ((t (:foreground "#d33682" :slant italic))))
  '(linum-relative-current-face ((t (:inherit linum :foreground "#dc322f"))))
  '(org-done ((t (:foreground "#859900" :weight bold :family "MonacoB2"))))
