@@ -79,7 +79,7 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(tern-auto-complete)
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(evil-search-highlight-persist evil-escape)
+   dotspacemacs-excluded-packages '(evil-search-highlight-persist evil-escape hl-todo)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -466,9 +466,9 @@ layers configuration."
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#657b83"])
- '(avy-all-windows (quote all-frames))
- '(avy-background t)
- '(avy-style (quote de-bruijn))
+ '(avy-all-windows (quote all-frames) t)
+ '(avy-background t t)
+ '(avy-style (quote de-bruijn) t)
  '(background-color "#202020")
  '(background-mode dark)
  '(ccm-ignored-commands
@@ -634,4 +634,6 @@ layers configuration."
  '(org-level-7 ((t (:inherit variable-pitch :foreground "#dc322f" :family "MonacoB2"))))
  '(org-level-8 ((t (:inherit variable-pitch :foreground "#268bd2" :family "MonacoB2"))))
  '(org-todo ((t (:foreground "#2aa198" :weight bold :family "MonacoB2"))))
- '(org-warning ((t (:foreground "#cb4b16" :underline nil :weight normal :family "MonacoB2")))))
+ '(org-warning ((t (:foreground "#cb4b16" :underline nil :weight normal :family "MonacoB2"))))
+ '(web-mode-comment-keyword-face ((t (:inverse-video t))))
+ '(web-mode-javascript-comment-face ((t (:inherit web-mode-comment-face)))))
