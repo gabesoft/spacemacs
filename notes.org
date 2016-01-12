@@ -1,4 +1,5 @@
 * TODO Fix the solarized theme
+- http://spacemacs.org/layers/theming/README.html
 * TODO Fix the relative numbers
 
 ** Should  be relative in the focused window and non-relative in all others
