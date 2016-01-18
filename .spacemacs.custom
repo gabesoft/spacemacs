@@ -616,10 +616,10 @@ layers configuration."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(avy-lead-face ((t (:background "#002b36" :foreground "#dc322f"))))
- '(avy-lead-face-0 ((t (:background "#002b36" :foreground "#6c71c4"))))
- '(avy-lead-face-1 ((t (:foreground "white"))))
- '(avy-lead-face-2 ((t (:background "#2aa198"))))
+ '(avy-lead-face ((t (:background "inherit" :foreground "#dc322f"))))
+ '(avy-lead-face-0 ((t (:background "inherit" :foreground "#2aa198"))))
+ '(avy-lead-face-1 ((t (:foreground "#268bd2"))))
+ '(avy-lead-face-2 ((t (:background "inherit" :foreground "#859900"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(flycheck-error ((t (:underline "#dc322f"))))
