@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: require react server
+# key: rrs
+# --
+const ReactServer = require('react-dom/server');
+
