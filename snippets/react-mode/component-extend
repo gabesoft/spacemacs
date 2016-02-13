@@ -4,5 +4,4 @@
 # --
 class ${1:ClassName} extends React.Component {
   $0
-};
-
+}
