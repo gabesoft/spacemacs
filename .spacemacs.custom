@@ -435,7 +435,7 @@ layers configuration."
   (setq mode-require-final-newline 'visit-save)
 
   (global-evil-mc-mode 1)
-  (global-vi-tilde-fringe-mode 1)
+  ;; (global-vi-tilde-fringe-mode 1)
   (setq scroll-margin 1)
   (global-company-mode)
   (global-linum-mode 1)
