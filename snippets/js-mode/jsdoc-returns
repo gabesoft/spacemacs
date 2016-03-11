@@ -2,4 +2,4 @@
 # name: jsdoc returns
 # key: jr
 # --
-* @returns {${1:Type}}$0
+@returns {${1:Type}}$0

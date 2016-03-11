@@ -394,6 +394,13 @@ layers configuration."
     (interactive)
     (delete-process "Tern"))
 
+  (add-hook 'js2-mode-hook
+            (lambda ()
+              (setq-local comment-auto-fill-only-comments t)
+              (auto-fill-mode 1)
+              (setq-local comment-multi-line t)
+              (local-set-key (kbd "RET") 'c-indent-new-comment-line)))
+
   (add-to-list 'completion-styles 'initials t)
   (add-to-list 'auto-mode-alist '(".eslintrc" . json-mode))
   (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
