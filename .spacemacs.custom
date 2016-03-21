@@ -63,6 +63,7 @@
            ruby-enable-enh-ruby-mode t
            ruby-enable-ruby-on-rails-support t)
      ruby-on-rails
+     scala
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
