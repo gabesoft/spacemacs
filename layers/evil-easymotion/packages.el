@@ -2,6 +2,7 @@
 
 (defun evil-easymotion/init-evil-easymotion ()
   :init
+  :defer t
   (progn
     (evilem-default-keybindings "g")
     (let ((prefix "g"))
@@ -21,32 +22,3 @@
       (define-key evil-motion-state-map (kbd (concat prefix " g j")) nil)
       (define-key evil-motion-state-map (kbd (concat prefix " g k")) nil)
       (define-key evil-motion-state-map (kbd "gg") 'evil-goto-first-line))))
-
-;; (use-package evil-easymotion
-;;   :defer t
-;;   :init
-;;   (progn
-;;     (let ((prefix "g"))
-;; (setq avy-keys (append
-;;                 (number-sequence ?a ?z)
-;;                 (number-sequence ?A ?Z)
-;;                 (list ?, ?. ?' ?-)))
-;;       (setq avy-style 'de-bruijn)
-;;       (evilem-define (kbd (concat prefix " w")) 'evil-forward-word-begin)
-;;       (evilem-define (kbd (concat prefix " W")) 'evil-forward-WORD-begin)
-;;       (evilem-define (kbd (concat prefix " e")) 'evil-forward-word-end)
-;;       (evilem-define (kbd (concat prefix " E")) 'evil-forward-WORD-end)
-;;       (evilem-define (kbd (concat prefix " b")) 'evil-backward-word-begin)
-;;       (evilem-define (kbd (concat prefix " B")) 'evil-backward-WORD-begin)
-;;       (evilem-define (kbd (concat prefix " j")) 'next-line
-;;                      (lambda ()
-;;                        (setq evil-this-type 'line))
-;;                      nil
-;;                      ((temporary-goal-column (current-column))
-;;                       (line-move-visual nil)))
-;;       (evilem-define (kbd (concat prefix " k")) 'previous-line
-;;                      (lambda ()
-;;                        (setq evil-this-type 'line))
-;;                      nil
-;;                      ((temporary-goal-column (current-column))
-;;                       (line-move-visual nil))))))

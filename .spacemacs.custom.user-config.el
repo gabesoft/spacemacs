@@ -86,12 +86,6 @@ layers configuration."
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-normal-state-map (kbd "Y") 'copy-to-the-end-of-line)
 
-  ;; evil-numbers
-  (define-key evil-normal-state-map (kbd "gr+") 'evil-numbers/inc-at-pt)
-  (define-key evil-normal-state-map (kbd "gr-") 'evil-numbers/dec-at-pt)
-
-  ;; (define-key evil-normal-state-map (kbd "\\") 'evil-repeat-find-char-reverse)
-  ;; (define-key evil-visual-state-map (kbd "\\") 'evil-repeat-find-char-reverse)
   (define-key evil-normal-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
   (define-key evil-visual-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
 

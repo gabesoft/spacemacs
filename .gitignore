@@ -53,4 +53,5 @@ private/
 .mc-lists.el
 .cask
 .tern-port
+srecode-map.el
 .#*
