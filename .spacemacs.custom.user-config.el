@@ -93,6 +93,12 @@ layers configuration."
   ;; (define-key evil-normal-state-map (kbd "]p") 'paste-after-current-line)
   ;; (define-key evil-normal-state-map (kbd "[p") 'paste-before-current-line)
 
+  ;; org babel
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t) (emacs-lisp . t) (sh . t)))
+
+
   (define-key evil-normal-state-map (kbd "<up>") 'evil-window-increase-height)
   (define-key evil-normal-state-map (kbd "<down>") 'evil-window-decrease-height)
   (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)

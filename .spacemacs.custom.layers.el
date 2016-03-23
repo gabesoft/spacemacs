@@ -92,7 +92,7 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(tern-auto-complete)
+   dotspacemacs-additional-packages '(tern-auto-complete nodejs-repl)
 
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(evil-search-highlight-persist evil-escape hl-todo nyan iswitchb evil-jumper)
