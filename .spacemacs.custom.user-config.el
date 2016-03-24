@@ -78,6 +78,19 @@ layers configuration."
     (interactive "*P\nr")
     (sort-regexp-fields reverse "\\w+" "\\&" beg end))
 
+  (defun evil-window-decrease-height-by-3 ()
+    (interactive)
+    (evil-window-decrease-height 3))
+  (defun evil-window-increase-width-by-3 ()
+    (interactive)
+    (evil-window-increase-width 3))
+  (defun evil-window-increase-height-by-3 ()
+    (interactive)
+    (evil-window-increase-height 3))
+  (defun evil-window-decrease-width-by-3 ()
+    (interactive)
+    (evil-window-decrease-width 3))
+
   ;; indentation
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
@@ -111,10 +124,14 @@ layers configuration."
   (define-key evil-visual-state-map (kbd "C-w v") 'evil-window-vsplit-and-focus)
   (define-key evil-normal-state-map (kbd "C-w v") 'evil-window-vsplit-and-focus)
 
-  (define-key evil-normal-state-map (kbd "<up>") 'evil-window-increase-height)
-  (define-key evil-normal-state-map (kbd "<down>") 'evil-window-decrease-height)
-  (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)
-  (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
+  (define-key evil-normal-state-map (kbd "<up>")
+    'evil-window-increase-height-by-3)
+  (define-key evil-normal-state-map (kbd "<down>")
+    'evil-window-decrease-height-by-3)
+  (define-key evil-normal-state-map (kbd "<right>")
+    'evil-window-increase-width-by-3)
+  (define-key evil-normal-state-map (kbd "<left>")
+    'evil-window-decrease-width-by-3)
 
   (define-key evil-normal-state-map (kbd "M-l") 'helm-imenu)
 
@@ -188,6 +205,7 @@ layers configuration."
   (indent-guide-global-mode 1)
   (linum-relative-mode 1)
   (semantic-mode 1)
+  (toggle-truncate-lines 1)
   (turn-on-smartparens-mode))
 
 (provide 'spacemacs-custom-user-config)
