@@ -195,6 +195,8 @@ layers configuration."
   (setq powerline-default-separator 'arrow)
   (setq scroll-margin 1)
 
+  (setq-default truncate-lines t)
+
   (flycheck-pos-tip-mode 1)
   (global-company-mode)
   (global-evil-mc-mode 1)
@@ -205,7 +207,6 @@ layers configuration."
   (indent-guide-global-mode 1)
   (linum-relative-mode 1)
   (semantic-mode 1)
-  (toggle-truncate-lines 1)
   (turn-on-smartparens-mode))
 
 (provide 'spacemacs-custom-user-config)

@@ -29,6 +29,8 @@
              enable-rainbow-identifiers t
              colors-enable-nyan-cat-progress-bar nil)
 
+     dired-hacks
+
      emacs-lisp
      evil-commentary
      evil-easymotion
