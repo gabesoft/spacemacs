@@ -4,27 +4,6 @@
   "Configuration function.
 This function is called at the very end of Spacemacs initialization after
 layers configuration."
-  (defun copy-to-the-end-of-line ()
-    "Copies from point to the end of line."
-    (interactive)
-    (evil-yank (point) (point-at-eol)))
-
-  (defun paste-after-current-line (count &optional register yank-handler)
-    "Pastes the latest yanked text after the current line."
-    (interactive "P<x>")
-    (evil-insert-newline-below)
-    (evil-normal-state 1)
-    (when evil-auto-indent (indent-according-to-mode))
-    (evil-paste-after count register yank-handler))
-
-  (defun paste-before-current-line (count &optional register yank-handler)
-    "Pastes the latest yanked text before the current line."
-    (interactive "P<x>")
-    (evil-insert-newline-above)
-    (evil-normal-state 1)
-    (when evil-auto-indent (indent-according-to-mode))
-    (evil-paste-after count register yank-handler))
-
   (defun transpose-chars-before-point (arg)
     "Interchange the two characters before point."
     (interactive "*P")
@@ -75,46 +54,10 @@ layers configuration."
         (mapcar (lambda (hook) (remove-hook hook 'do-whitespace-cleanup t))
                 whitespace-hooks))))
 
-  (rename-modeline "js2-mode" js2-mode "JS2")
-  (rename-modeline "clojure-mode" clojure-mode "Clj")
+  (defun delete-tern-process ()
+    (interactive)
+    (delete-process "Tern"))
 
-  (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
-
-  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
-  (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars-before-point)
-  (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
-  (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
-  (define-key evil-normal-state-map (kbd "Y") 'copy-to-the-end-of-line)
-
-  (define-key evil-normal-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
-  (define-key evil-visual-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
-
-  ;; provided by unimpaired now
-  ;; (define-key evil-normal-state-map (kbd "]p") 'paste-after-current-line)
-  ;; (define-key evil-normal-state-map (kbd "[p") 'paste-before-current-line)
-
-  ;; org babel
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((python . t) (emacs-lisp . t) (sh . t)))
-
-
-  (define-key evil-normal-state-map (kbd "<up>") 'evil-window-increase-height)
-  (define-key evil-normal-state-map (kbd "<down>") 'evil-window-decrease-height)
-  (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)
-  (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
-
-  ;; company mode
-  (define-key company-active-map (kbd "C-h") 'delete-backward-char)
-  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
-
-  (add-to-list 'company-backends 'company-nim)
-
-  (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
-  (add-hook 'after-change-major-mode-hook 'update-whitespace-hooks)
-  (add-hook 'emacs-lisp-mode-hook (lambda () (aggressive-indent-mode 1)))
-
-  ;; windows
   (evil-define-command evil-window-split-and-focus (&optional count file)
     "Splits the current window horizontally and sets the focus to it."
     :repeat nil
@@ -129,17 +72,6 @@ layers configuration."
     (evil-window-vsplit count file)
     (other-window 1))
 
-  (define-key evil-visual-state-map (kbd "C-w s") 'evil-window-split-and-focus)
-  (define-key evil-normal-state-map (kbd "C-w s") 'evil-window-split-and-focus)
-  (define-key evil-visual-state-map (kbd "C-w v") 'evil-window-vsplit-and-focus)
-  (define-key evil-normal-state-map (kbd "C-w v") 'evil-window-vsplit-and-focus)
-
-  ;; abbrevs
-  (setq abbrev-file-name (concat user-emacs-directory "abbrevs.el"))
-  (setq save-abbrevs 'silently)
-  (quietly-read-abbrev-file)
-  (setq-default abbrev-mode t)
-
   (defun sort-words (reverse beg end)
     "Sort words in region alphabetically, in REVERSE if negative.
     Prefixed with negative \\[universal-argument], sorts in reverse.
@@ -151,14 +83,58 @@ layers configuration."
     (interactive "*P\nr")
     (sort-regexp-fields reverse "\\w+" "\\&" beg end))
 
+  ;; modeline
+  (rename-modeline "js2-mode" js2-mode "Js2")
+  (rename-modeline "Emacs-Lisp" js2-mode "Elisp")
+
+  ;; indentation
+  (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+  ;; text movement
+  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
+  (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars-before-point)
+  (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
+  (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
+
+  ;; evil snipe
+  (define-key evil-normal-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
+  (define-key evil-visual-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
+
+  ;; org babel
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t) (emacs-lisp . t) (sh . t)))
+
+  ;; company mode
+  (define-key company-active-map (kbd "C-h") 'delete-backward-char)
+  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+
+  ;; hooks
+  (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
+  (add-hook 'after-change-major-mode-hook 'update-whitespace-hooks)
+  (add-hook 'emacs-lisp-mode-hook (lambda () (aggressive-indent-mode 1)))
+
+  ;; windows
+  (define-key evil-visual-state-map (kbd "C-w s") 'evil-window-split-and-focus)
+  (define-key evil-normal-state-map (kbd "C-w s") 'evil-window-split-and-focus)
+  (define-key evil-visual-state-map (kbd "C-w v") 'evil-window-vsplit-and-focus)
+  (define-key evil-normal-state-map (kbd "C-w v") 'evil-window-vsplit-and-focus)
+
+  (define-key evil-normal-state-map (kbd "<up>") 'evil-window-increase-height)
+  (define-key evil-normal-state-map (kbd "<down>") 'evil-window-decrease-height)
+  (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)
+  (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
+
+  ;; abbrevs
+  (setq abbrev-file-name (concat user-emacs-directory "abbrevs.el"))
+  (setq save-abbrevs 'silently)
+  (quietly-read-abbrev-file)
+  (setq-default abbrev-mode t)
+
   ;; ruby mode
   (setq enh-ruby-program "/usr/bin/ruby")
 
   ;; js2-mode
-  (defun delete-tern-process ()
-    (interactive)
-    (delete-process "Tern"))
-
   (add-hook 'js2-mode-hook
             (lambda ()
               (setq-local comment-auto-fill-only-comments t)
@@ -177,9 +153,9 @@ layers configuration."
    js2-strict-inconsistent-return-warning nil
    ;; web-mode
    css-indent-offset 2
-   web-mode-markup-indent-offset 2
-   web-mode-css-indent-offset 2
    web-mode-code-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-markup-indent-offset 2
    web-mode-attr-indent-offset 2)
 
   (with-eval-after-load 'web-mode

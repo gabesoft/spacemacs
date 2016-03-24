@@ -3,10 +3,12 @@
 ;; It must be stored in your home directory.
 
 (load-file (concat user-emacs-directory ".spacemacs.custom.init.el"))
+(load-file (concat user-emacs-directory ".spacemacs.custom.user-init.el"))
 (load-file (concat user-emacs-directory ".spacemacs.custom.layers.el"))
 (load-file (concat user-emacs-directory ".spacemacs.custom.user-config.el"))
 
 (require 'spacemacs-custom-init)
+(provide 'spacemacs-custom-user-init)
 (require 'spacemacs-custom-layers)
 (provide 'spacemacs-custom-user-config)
 
