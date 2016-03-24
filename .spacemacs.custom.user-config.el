@@ -26,11 +26,6 @@ layers configuration."
           (indent-buffer)
           (message "Indented buffer.")))))
 
-  (defmacro rename-modeline (package-name mode new-name)
-    `(eval-after-load ,package-name
-       '(defadvice ,mode (after rename-modeline activate)
-          (setq mode-name ,new-name))))
-
   (defvar-local whitespace-cleanup-disabled nil
     "True if `whitespace-cleanup' must not be performed.")
 
@@ -83,10 +78,6 @@ layers configuration."
     (interactive "*P\nr")
     (sort-regexp-fields reverse "\\w+" "\\&" beg end))
 
-  ;; modeline
-  (rename-modeline "js2-mode" js2-mode "Js2")
-  (rename-modeline "Emacs-Lisp" js2-mode "Elisp")
-
   ;; indentation
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
@@ -124,6 +115,8 @@ layers configuration."
   (define-key evil-normal-state-map (kbd "<down>") 'evil-window-decrease-height)
   (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)
   (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
+
+  (define-key evil-normal-state-map (kbd "M-l") 'helm-imenu)
 
   ;; abbrevs
   (setq abbrev-file-name (concat user-emacs-directory "abbrevs.el"))
@@ -179,22 +172,22 @@ layers configuration."
   ;; disallow nested expansions (can still be done with M-/)
   (setq yas-triggers-in-field nil)
 
+  (setq auto-save-timeout 1)
   (setq global-mode-string nil)
   (setq mode-require-final-newline 'visit-save)
-
-  (global-evil-mc-mode 1)
-  (setq scroll-margin 1)
-  (global-company-mode)
-  (global-linum-mode 1)
-  (linum-relative-mode 1)
-  (global-undo-tree-mode 1)
-  (global-hl-line-mode -1)
-  (semantic-mode 1)
-  (smartparens-global-mode)
-  (global-subword-mode +1)
   (setq powerline-default-separator 'arrow)
-  (setq auto-save-timeout 1)
+  (setq scroll-margin 1)
+
+  (flycheck-pos-tip-mode 1)
+  (global-company-mode)
+  (global-evil-mc-mode 1)
+  (global-hl-line-mode -1)
+  (global-linum-mode 1)
+  (global-subword-mode +1)
+  (global-undo-tree-mode 1)
   (indent-guide-global-mode 1)
-  (flycheck-pos-tip-mode 1))
+  (linum-relative-mode 1)
+  (semantic-mode 1)
+  (turn-on-smartparens-mode))
 
 (provide 'spacemacs-custom-user-config)
