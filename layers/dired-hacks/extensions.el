@@ -40,6 +40,7 @@
 
     (use-package dired-subtree
       :init
+      (setq-default dired-subtree-use-backgrounds nil)
       (bind-keys :map dired-mode-map
                  :prefix "C-,"
                  :prefix-map dired-subtree-map
