@@ -36,26 +36,33 @@
         (dired-rainbow-define packaged "#e6a8df" ("deb" "rpm"))
         (dired-rainbow-define encrypted "LightBlue" ("gpg" "pgp"))
 
+        (dired-rainbow-define makefile
+                              "SkyBlue2"
+                              "Makefile")
+
+        (dired-rainbow-define gitignore (:inherit default :italic t) ".gitignore")
+        (dired-rainbow-define gitconfig (:inherit default :italic t) ".gitconfig")
+
         (dired-rainbow-define-chmod executable-unix "Green" "-.*x.*")))
 
     (use-package dired-subtree
       :init
       (setq-default dired-subtree-use-backgrounds nil)
       (bind-keys :map dired-mode-map
-                 :prefix "C-,"
+                 :prefix ","
                  :prefix-map dired-subtree-map
                  :prefix-docstring "Dired subtree map."
-                 ("C-j" . dired-subtree-insert)
+                 ("j" . dired-subtree-insert)
                  ("C-/" . dired-subtree-apply-filter)
-                 ("C-k" . dired-subtree-remove)
-                 ("C-n" . dired-subtree-next-sibling)
-                 ("C-p" . dired-subtree-previous-sibling)
-                 ("C-u" . dired-subtree-up)
-                 ("C-d" . dired-subtree-down)
-                 ("C-a" . dired-subtree-beginning)
-                 ("C-e" . dired-subtree-end)
-                 ("C-c" . dired-subtree-cycle)
-                 ("m" . dired-subtree-mark-subtree)
-                 ("u" . dired-subtree-unmark-subtree)
+                 ("k" . dired-subtree-remove)
+                 ("n" . dired-subtree-next-sibling)
+                 ("p" . dired-subtree-previous-sibling)
+                 ("u" . dired-subtree-up)
+                 ("d" . dired-subtree-down)
+                 ("a" . dired-subtree-beginning)
+                 ("e" . dired-subtree-end)
+                 ("c" . dired-subtree-cycle)
+                 ("C-m" . dired-subtree-mark-subtree)
+                 ("C-u" . dired-subtree-unmark-subtree)
                  ("C-o C-f" . dired-subtree-only-this-file)
                  ("C-o C-d" . dired-subtree-only-this-directory)))))
