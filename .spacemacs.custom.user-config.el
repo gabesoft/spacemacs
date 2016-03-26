@@ -144,6 +144,14 @@ layers configuration."
   ;; ruby mode
   (setq enh-ruby-program "/usr/bin/ruby")
 
+  ;; term mode
+  (add-hook 'term-mode-hook
+            (lambda ()
+              (setq term-buffer-maximum-size 30000)
+              (setq term-scroll-show-maximum-output t)
+              (setq multi-term-scroll-show-maximum-output t)
+              (setq multi-term-scroll-to-bottom-on-output t)))
+
   ;; js2-mode
   (add-hook 'js2-mode-hook
             (lambda ()

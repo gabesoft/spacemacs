@@ -74,7 +74,7 @@
 
      (shell :variables
             shell-default-height 30
-            shell-default-shell 'term
+            shell-default-shell 'multi-term
             shell-enable-smart-eshell t
             shell-default-position 'bottom)
 
