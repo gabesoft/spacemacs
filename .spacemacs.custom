@@ -184,6 +184,7 @@
  '(avy-lead-face-2 ((t (:background "inherit" :foreground "#859900"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(dired-header ((t (:background "#657b83" :weight extra-bold))))
  '(flycheck-error ((t (:underline "#dc322f"))))
  '(flycheck-fringe-error ((t (:background "transparent" :foreground "#dc322f" :weight bold))))
  '(flycheck-fringe-info ((t (:background "transparent" :foreground "#268bd2" :weight bold))))
