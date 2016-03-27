@@ -91,6 +91,9 @@ layers configuration."
     (interactive)
     (evil-window-decrease-width 3))
 
+  (defun yas/org-very-safe-expand ()
+    (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+
   ;; indentation
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
@@ -151,6 +154,20 @@ layers configuration."
               (setq term-scroll-show-maximum-output t)
               (setq multi-term-scroll-show-maximum-output t)
               (setq multi-term-scroll-to-bottom-on-output t)))
+
+  ;; org mode
+  (evil-define-key 'normal evil-org-mode-map
+    "J" 'org-forward-heading-same-level
+    "K" 'org-backward-heading-same-level
+    "-" 'dired-jump)
+
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (make-variable-buffer-local 'yas/trigger-key)
+              (setq yas/trigger-key [tab])
+              (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+              (define-key yas/keymap [tab] 'yas/next-field)))
+
 
   ;; js2-mode
   (add-hook 'js2-mode-hook

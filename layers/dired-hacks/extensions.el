@@ -10,8 +10,6 @@
 (load-file (concat user-emacs-directory "layers/dired-hacks/extensions/dired-hacks-utils.el"))
 (load-file (concat user-emacs-directory "layers/dired-hacks/extensions/dired-rainbow.el"))
 
-
-
 (defun dired-hacks-home-directory ()
   "Open the a dired buffer in user's home directory."
   (interactive)
@@ -76,8 +74,8 @@
                 (define-key evil-normal-state-local-map
                   (kbd "k") 'dired-previous-line)
                 (define-key evil-normal-state-local-map
-                  (kbd "RET") 'dired-find-alternate-file)
-                ))
+                  (kbd "RET") 'dired-find-alternate-file)))
+
     (use-package dired-rainbow
       :init
       (progn
@@ -87,6 +85,7 @@
         (dired-rainbow-define css "chocolate" ("css" "sass" "scss"))
 
         (dired-rainbow-define el "plum3" ("el"))
+        (dired-rainbow-define org "#6c71c4" ("org"))
 
         (dired-rainbow-define document "#fce94f" ("doc" "docx" "odt" "pdb" "pdf" "ps" "rtf" "djvu" "epub"))
         (dired-rainbow-define excel "#3465a4" ("xlsx"))
