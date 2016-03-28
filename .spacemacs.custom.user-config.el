@@ -94,6 +94,8 @@ layers configuration."
   (defun yas/org-very-safe-expand ()
     (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
 
+  (setq-default windmove-wrap-around t)
+
   ;; indentation
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
@@ -111,6 +113,9 @@ layers configuration."
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((python . t) (emacs-lisp . t) (sh . t)))
+
+  ;; magit mode
+  (add-hook 'magit-mode-hook (lambda () (evil-mc-mode -1)))
 
   ;; company mode
   (define-key company-active-map (kbd "C-h") 'delete-backward-char)
