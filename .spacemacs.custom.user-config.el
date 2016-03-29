@@ -99,6 +99,11 @@ layers configuration."
   ;; indentation
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
+  ;; documentation
+  (define-key evil-normal-state-map (kbd "C-h C-f") 'find-function)
+  (define-key evil-normal-state-map (kbd "C-h C-v") 'find-variable)
+  (define-key evil-normal-state-map (kbd "C-h C-l") 'find-library)
+
   ;; text movement
   (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
   (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars-before-point)
