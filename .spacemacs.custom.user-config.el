@@ -242,6 +242,7 @@ layers configuration."
   (indent-guide-global-mode 1)
   (linum-relative-mode 1)
   (semantic-mode 1)
+  (smartparens-global-mode 1)
   (turn-on-smartparens-mode))
 
 (provide 'spacemacs-custom-user-config)
