@@ -100,6 +100,11 @@ layers configuration."
                     (get-char-property (point) 'face))))
       (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
+  (defun show-file-name()
+    "Show the full path file name in the minibuffer."
+    (interactive)
+    (message (buffer-file-name)))
+
   (setq-default windmove-wrap-around t)
 
   ;; indentation
