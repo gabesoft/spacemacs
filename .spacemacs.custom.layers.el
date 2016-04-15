@@ -47,6 +47,7 @@
           git-enable-magit-svn-plugin t
           git-gutter-use-fringe t)
 
+     haskell
      (html :variables
            web-mode-code-indent-offset 2
            web-mode-markup-indent-offset 2
