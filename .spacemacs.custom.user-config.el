@@ -219,6 +219,20 @@ layers configuration."
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
 
+  ;; scala mode
+  (setq ensime-sem-high-faces
+        '(
+          (var . (:foreground "#ff2222"))
+          (val . (:foreground "#111111"))
+          (varField . (:foreground "#ff6666"))
+          (valField . (:foreground "#666666"))
+          (functionCall . (:foreground "#84BEE3"))
+          (param . (:foreground "#111111"))
+          (class . font-lock-type-face)
+          (trait . (:foreground "#084EA8"))
+          (object . (:foreground "#026DF7"))
+          (package . font-lock-preprocessor-face)))
+
   ;; persistent undo
   (setq undo-tree-auto-save-history t
         undo-tree-history-directory-alist
