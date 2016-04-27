@@ -56,3 +56,4 @@ private/
 srecode-map.el
 .#*
 url/cache/*
+.spacemacs.custom.user-config.local.el

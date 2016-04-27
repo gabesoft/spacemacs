@@ -41,7 +41,7 @@ layers configuration."
 
   (defun update-whitespace-hooks ()
     "Updates the white space hooks based on the current major mode."
-    (let ((modes '(emacs-lisp-mode js2-mode scss-mode react-mode))
+    (let ((modes '(emacs-lisp-mode js2-mode scss-mode react-mode java-mode))
           (whitespace-hooks '(auto-save-hook before-save-hook)))
       (if (member major-mode modes)
           (mapcar (lambda (hook) (add-hook hook 'do-whitespace-cleanup nil t))
@@ -268,6 +268,13 @@ layers configuration."
   (linum-relative-mode 1)
   (semantic-mode 1)
   (smartparens-global-mode 1)
-  (turn-on-smartparens-mode))
+  (turn-on-smartparens-mode)
+
+  (let* ((parent (file-name-as-directory user-emacs-directory))
+         (local (concat parent ".spacemacs.custom.user-config.local.el")))
+    (when (file-exists-p local)
+      (load-file local)
+      (require 'spacemacs-custom-user-config-local)
+      (dotspacemacs/user-config-local))))
 
 (provide 'spacemacs-custom-user-config)
