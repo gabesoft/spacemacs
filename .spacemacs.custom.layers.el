@@ -71,7 +71,9 @@
            ruby-enable-ruby-on-rails-support t)
      ruby-on-rails
 
-     scala
+     (scala :variables
+            scala-auto-insert-asterisk-in-comments t
+            scala-enable-eldoc nil)
 
      (shell :variables
             shell-default-height 30
@@ -98,7 +100,7 @@
    dotspacemacs-additional-packages '(tern-auto-complete nodejs-repl)
 
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(evil-search-highlight-persist evil-escape hl-todo nyan iswitchb evil-jumper)
+   dotspacemacs-excluded-packages '(evil-search-highlight-persist evil-escape hl-todo nyan iswitchb evil-jumper org-bullets)
 
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
