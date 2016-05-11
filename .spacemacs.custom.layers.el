@@ -31,6 +31,10 @@
 
      dired-hacks
 
+     (elm :variables
+          elm-reactor-port "8000"
+          elm-reactor-address "127.0.0.1"
+          elm-format-on-save t)
      emacs-lisp
      evil-commentary
      evil-easymotion
