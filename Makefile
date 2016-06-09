@@ -17,4 +17,7 @@ build-js:
 build-ruby:
 	@$(GEM) install pry
 
+haskell:
+	cabal install stylish-haskell hlint hasktags ghc-mod hindent
+
 build: build-js build-ruby
