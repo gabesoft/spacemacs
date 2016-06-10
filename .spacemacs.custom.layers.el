@@ -52,7 +52,8 @@
           git-gutter-use-fringe t)
 
      (haskell :variables
-              haskell-enable-hindent-style "fundamental")
+              haskell-enable-hindent-style "gibiansky"
+              haskell-enable-shm-support t)
      (html :variables
            web-mode-code-indent-offset 2
            web-mode-markup-indent-offset 2
