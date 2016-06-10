@@ -53,6 +53,8 @@
 
      (haskell :variables
               haskell-enable-hindent-style "gibiansky"
+              haskell-enable-ghci-ng-support t
+              haskell-enable-ghc-mod-support t
               haskell-enable-shm-support nil)
      (html :variables
            web-mode-code-indent-offset 2
