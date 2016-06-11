@@ -105,6 +105,24 @@ layers configuration."
     (interactive)
     (message (buffer-file-name)))
 
+  (defun haskell-on-auto-save()
+    "Actions to be performed for haskell buffers on auto-save"
+    (when (fboundp 'hindent-reformat-buffer)
+      (hindent-reformat-buffer)))
+
+  (defun elm-on-auto-save()
+    "Actions to be performed for elm buffers on auto-save"
+    (when (fbound 'elm-mode-format-buffer)
+      (elm-mode-format-buffer)))
+
+  ;; auto-save hooks
+  (add-hook 'auto-save-hook
+            (lambda ()
+              (cond ((eq major-mode 'haskell-mode)
+                     (haskell-on-auto-save))
+                    ((eq major-mode 'elm-mode)
+                     (elm-mode-format-buffer)))))
+
   (setq-default windmove-wrap-around t)
 
   ;; indentation
