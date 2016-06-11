@@ -105,15 +105,19 @@ layers configuration."
     (interactive)
     (message (buffer-file-name)))
 
+  (defun safe-run-fn (fn)
+    "Run an function if it exists"
+    (when (fboundp fn)
+      (condition-case err (funcall fn)
+        (error (message "%s" (error-message-string err))))))
+
   (defun haskell-on-auto-save()
     "Actions to be performed for haskell buffers on auto-save"
-    (when (fboundp 'hindent-reformat-buffer)
-      (hindent-reformat-buffer)))
+    (safe-run-fn 'hindent-reformat-buffer))
 
   (defun elm-on-auto-save()
     "Actions to be performed for elm buffers on auto-save"
-    (when (fbound 'elm-mode-format-buffer)
-      (elm-mode-format-buffer)))
+    (safe-run-fn 'elm-mode-format-buffer))
 
   ;; auto-save hooks
   (add-hook 'auto-save-hook
