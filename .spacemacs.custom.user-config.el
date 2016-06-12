@@ -122,9 +122,7 @@ layers configuration."
   ;; auto-save hooks
   (add-hook 'auto-save-hook
             (lambda ()
-              (cond ((eq major-mode 'haskell-mode)
-                     (haskell-on-auto-save))
-                    ((eq major-mode 'elm-mode)
+              (cond ((eq major-mode 'elm-mode)
                      (elm-mode-format-buffer)))))
 
   (setq-default windmove-wrap-around t)
@@ -211,6 +209,8 @@ layers configuration."
               (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
               (define-key yas/keymap [tab] 'yas/next-field)))
 
+  ;; haskell mode
+  (define-key haskell-mode-map (kbd "C-c C-f") 'hindent-reformat-buffer)
 
   ;; js2-mode
   (add-hook 'js2-mode-hook
