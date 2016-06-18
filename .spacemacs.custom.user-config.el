@@ -211,6 +211,7 @@ layers configuration."
 
   ;; haskell mode
   (define-key haskell-mode-map (kbd "C-c C-f") 'hindent-reformat-buffer)
+  (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
   ;; js2-mode
   (add-hook 'js2-mode-hook
