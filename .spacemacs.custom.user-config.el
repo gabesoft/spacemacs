@@ -160,7 +160,6 @@ layers configuration."
   ;; hooks
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
   (add-hook 'after-change-major-mode-hook 'update-whitespace-hooks)
-  (add-hook 'emacs-lisp-mode-hook (lambda () (aggressive-indent-mode 1)))
 
   ;; windows
   (define-key evil-visual-state-map (kbd "C-w s") 'evil-window-split-and-focus)
@@ -188,38 +187,11 @@ layers configuration."
   ;; ruby mode
   (setq enh-ruby-program "/usr/bin/ruby")
 
-  ;; term mode
-  (add-hook 'term-mode-hook
-            (lambda ()
-              (setq term-buffer-maximum-size 30000)
-              (setq term-scroll-show-maximum-output t)
-              (setq multi-term-scroll-show-maximum-output t)
-              (setq multi-term-scroll-to-bottom-on-output t)))
-
   ;; org mode
   (evil-define-key 'normal evil-org-mode-map
     "J" 'org-forward-heading-same-level
     "K" 'org-backward-heading-same-level
     "-" 'dired-jump)
-
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (make-variable-buffer-local 'yas/trigger-key)
-              (setq yas/trigger-key [tab])
-              (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-              (define-key yas/keymap [tab] 'yas/next-field)))
-
-  ;; haskell mode
-  (define-key haskell-mode-map (kbd "C-c C-f") 'hindent-reformat-buffer)
-  (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
-
-  ;; js2-mode
-  (add-hook 'js2-mode-hook
-            (lambda ()
-              (setq-local comment-auto-fill-only-comments t)
-              (auto-fill-mode 1)
-              (setq-local comment-multi-line t)
-              (local-set-key (kbd "RET") 'c-indent-new-comment-line)))
 
   (add-to-list 'completion-styles 'initials t)
   (add-to-list 'auto-mode-alist '(".eslintrc" . json-mode))
