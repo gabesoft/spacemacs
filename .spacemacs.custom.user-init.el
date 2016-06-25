@@ -44,8 +44,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   (defun setup-haskell-mode ()
     "Sets up haskell mode. For customizing the template inserted by
-'haskell-auto-insert-module-template see
-'haskell-auto-insert-module-format-string"
+`haskell-auto-insert-module-template' see
+`haskell-auto-insert-module-format-string'"
     (progn
       (when (fboundp 'haskell-auto-insert-module-template)
         (haskell-auto-insert-module-template))
