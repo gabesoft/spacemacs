@@ -119,6 +119,24 @@ layers configuration."
     "Actions to be performed for elm buffers on auto-save"
     (safe-run-fn 'elm-mode-format-buffer))
 
+  (defun setup-js2-mode ()
+    (setq-local comment-auto-fill-only-comments t)
+    (auto-fill-mode 1)
+    (setq-local comment-multi-line t)
+    (local-set-key (kbd "RET") 'c-indent-new-comment-line))
+
+  (defun setup-org-mode ()
+    (make-variable-buffer-local 'yas/trigger-key)
+    (setq yas/trigger-key [tab])
+    (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+    (define-key yas/keymap [tab] 'yas/next-field))
+
+  (defun setup-term-mode ()
+    (setq term-buffer-maximum-size 30000)
+    (setq term-scroll-show-maximum-output t)
+    (setq multi-term-scroll-show-maximum-output t)
+    (setq multi-term-scroll-to-bottom-on-output t))
+
   ;; auto-save hooks
   (add-hook 'auto-save-hook
             (lambda ()
@@ -183,6 +201,12 @@ layers configuration."
   (setq save-abbrevs 'silently)
   (quietly-read-abbrev-file)
   (setq-default abbrev-mode t)
+
+  ;; major mode hooks
+  (add-hook 'js2-mode-hook 'setup-js2-mode)
+  (add-hook 'org-mode-hook 'setup-org-mode);
+  (add-hook 'term-mode-hook 'setup-term-mode)
+  (add-hook 'emacs-lisp-mode-hook (lambda () (aggressive-indent-mode 1)))
 
   ;; ruby mode
   (setq enh-ruby-program "/usr/bin/ruby")

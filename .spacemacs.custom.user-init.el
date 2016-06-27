@@ -37,7 +37,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
    solarized-high-contrast-mode-line t
    solarized-emphasize-indicators nil)
 
-  ;; major mode hooks should be defined here rather than in user-config
+  ;; some major mode hooks need to be defined here rather than in user-config
   ;; this is due to dotspacemacs-auto-resume-layouts which opens layout buffers
   ;; after user-init but before user-config
   ;; https://github.com/syl20bnr/spacemacs/issues/3881
@@ -50,31 +50,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
       (when (fboundp 'haskell-auto-insert-module-template)
         (haskell-auto-insert-module-template))
       (when (boundp 'haskell-mode-map)
-        (define-key haskell-mode-map (kbd "C-c C-f") 'hindent-reformat-buffer))))
-
-  (defun setup-js2-mode ()
-    (setq-local comment-auto-fill-only-comments t)
-    (auto-fill-mode 1)
-    (setq-local comment-multi-line t)
-    (local-set-key (kbd "RET") 'c-indent-new-comment-line))
-
-  (defun setup-org-mode ()
-    (make-variable-buffer-local 'yas/trigger-key)
-    (setq yas/trigger-key [tab])
-    (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-    (define-key yas/keymap [tab] 'yas/next-field))
-
-  (defun setup-term-mode ()
-    (setq term-buffer-maximum-size 30000)
-    (setq term-scroll-show-maximum-output t)
-    (setq multi-term-scroll-show-maximum-output t)
-    (setq multi-term-scroll-to-bottom-on-output t))
+        (define-key haskell-mode-map (kbd "C-c C-f") 'hindent-reformat-buffer))
+      (when (fboundp 'speedbar-add-supported-extension)
+        (speedbar-add-supported-extension ".hs"))))
 
   (add-hook 'haskell-mode-hook 'setup-haskell-mode)
-  (add-hook 'js2-mode-hook 'setup-js2-mode)
-  (add-hook 'org-mode-hook 'setup-org-mode);
-  (add-hook 'term-mode-hook 'setup-term-mode)
-  (add-hook 'emacs-lisp-mode-hook (lambda () (aggressive-indent-mode 1)))
 
   )
 
