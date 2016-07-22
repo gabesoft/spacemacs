@@ -168,9 +168,6 @@ layers configuration."
    'org-babel-load-languages
    '((python . t) (emacs-lisp . t) (sh . t)))
 
-  ;; magit mode
-  (add-hook 'magit-mode-hook (lambda () (evil-mc-mode -1)))
-
   ;; company mode
   (define-key company-active-map (kbd "C-h") 'delete-backward-char)
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
@@ -270,6 +267,7 @@ layers configuration."
   (flycheck-pos-tip-mode 1)
   (global-company-mode)
   (global-evil-mc-mode 1)
+  (global-evil-mc-extras-mode 1)
   (global-hl-line-mode -1)
   (global-linum-mode 1)
   (global-subword-mode +1)

@@ -87,7 +87,9 @@
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values
    (quote
-    ((flycheck-disabled-checkers
+    ((haskell-process-args-cabal-repl "--ghc-option=-ferror-spans" "--with-ghc=ghci-ng")
+     (haskell-process-args-cabal-repl "--ghc-option=-ferror-spans" "--with-ghc=ghci-ng" "--ghc-option=-package ghci-pretty")
+     (flycheck-disabled-checkers
       (quote
        (emacs-lisp emacs-lisp-checkdoc)))
      (flycheck-temp-prefix . ".flycheck")

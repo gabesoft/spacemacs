@@ -39,6 +39,7 @@
      evil-commentary
      evil-easymotion
      evil-mc
+     evil-mc-extras
 
      (evil-snipe :variables
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
