@@ -137,6 +137,45 @@ layers configuration."
     (setq multi-term-scroll-show-maximum-output t)
     (setq multi-term-scroll-to-bottom-on-output t))
 
+  ;; scratch buffer related
+  (defvar scratch-default-directory
+    (concat user-home-directory ".scratch-saved")
+    "Directory used to save scratch buffers")
+
+  (defun ensure-directory-exists (path)
+    "Creates all directories in PATH if they don't exist."
+    (unless (or (null path) (string-empty-p path) (file-exists-p path))
+      (let ((parent (file-name-directory (directory-file-name path))))
+        (ensure-directory-exists parent)
+        (make-directory path))))
+
+  (defun create-scratch-buffer ()
+    "Create a scratch buffer."
+    (interactive)
+    (switch-to-buffer (get-buffer-create "*scratch*"))
+    (lisp-interaction-mode))
+
+  (defun save-scratch-buffer ()
+    "Saves the scratch buffer with a name that includes today's date.
+The buffer will be saved to a file according to the path
+at `scratch-default-directory'."
+    (interactive)
+    (let* ((original (current-buffer))
+           (scratch (get-buffer "*scratch*"))
+           (file-ext ".bak")
+           (timestamp ".%m%d%Y")
+           (base "scratch")
+           (dest-dir (file-name-as-directory (or
+                                              scratch-default-directory
+                                              default-directory)))
+           (file (concat dest-dir base (format-time-string timestamp) file-ext)))
+      (progn
+        (switch-to-buffer scratch)
+        (ensure-directory-exists dest-dir)
+        (write-file file)
+        (create-scratch-buffer)
+        (switch-to-buffer original))))
+
   ;; auto-save hooks
   (add-hook 'auto-save-hook
             (lambda ()
