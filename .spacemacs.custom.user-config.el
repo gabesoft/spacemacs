@@ -175,6 +175,12 @@ at `scratch-default-directory'."
         (write-file file)
         (create-scratch-buffer)
         (switch-to-buffer original))))
+  (defun capitalize-and-insert ()
+    "Capitalize the letter at cursor and enter insert mode."
+    (interactive)
+    (progn
+      (evil-invert-char (point) (+ 1 (point)))
+      (evil-insert 1)))
 
   ;; auto-save hooks
   (add-hook 'auto-save-hook
@@ -197,6 +203,8 @@ at `scratch-default-directory'."
   (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars-before-point)
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
+
+  (define-key evil-normal-state-map (kbd ",i") 'capitalize-and-insert)
 
   ;; evil snipe
   (define-key evil-normal-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
