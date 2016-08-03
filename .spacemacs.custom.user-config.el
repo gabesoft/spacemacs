@@ -175,12 +175,32 @@ at `scratch-default-directory'."
         (write-file file)
         (create-scratch-buffer)
         (switch-to-buffer original))))
+
   (defun capitalize-and-insert ()
     "Capitalize the letter at cursor and enter insert mode."
     (interactive)
     (progn
       (evil-invert-char (point) (+ 1 (point)))
       (evil-insert 1)))
+
+  (defun haskell-doc-insert-type ()
+    "Insert the type of the object near point on the line above."
+    (interactive)
+    (evil-first-non-blank)
+    (let* ((sym (haskell-ident-at-point))
+           (doc (or (haskell-doc-current-info--interaction t)
+                    (haskell-doc-sym-doc sym)))
+           (txt (replace-regexp-in-string
+                 "⇒" "=>" (replace-regexp-in-string
+                           "∷" "::" (or doc "")))))
+      (if (and doc (haskell-doc-in-code-p))
+          (progn
+            (evil-open-above 1)
+            (beginning-of-line)
+            (insert txt)
+            (evil-normal-state)
+            (delete-trailing-whitespace (point-at-bol) (point-at-eol)))
+        (message "Doc not available. Ensure there's a haskell session running."))))
 
   ;; auto-save hooks
   (add-hook 'auto-save-hook
