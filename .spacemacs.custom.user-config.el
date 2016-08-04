@@ -340,6 +340,7 @@ at `scratch-default-directory'."
   (setq scroll-margin 1)
 
   (setq-default truncate-lines t)
+  (setq create-lockfiles nil)
 
   (flycheck-pos-tip-mode 1)
   (global-company-mode)
