@@ -52,6 +52,9 @@
    ("*" " * " "*")
    ("," ", " ","))
 
+ smartchr-haskell-key-map
+ '(("=" " = " "="))
+
  )
 
 (defun smartchr/init-smartchr ()
@@ -59,11 +62,12 @@
   (use-package smartchr
     :config
     (progn
+      (add-hook 'enh-ruby-mode-hook #'smartchr/init-ruby-mode)
+      (add-hook 'haskell-mode-hook #'smartchr/init-haskell-mode)
+      (add-hook 'java-mode-hook #'smartchr/init-java-mode)
       (add-hook 'js2-mode-hook #'smartchr/init-js2-mode)
       (add-hook 'react-mode-hook #'smartchr/init-js2-mode)
-      (add-hook 'enh-ruby-mode-hook #'smartchr/init-ruby-mode)
-      (add-hook 'web-mode-hook #'smartchr/init-web-mode)
-      (add-hook 'java-mode-hook #'smartchr/init-java-mode))))
+      (add-hook 'web-mode-hook #'smartchr/init-web-mode))))
 
 (defun smartchr/init-mode (mode-map)
   "Sets up the keys defined by MODE-MAP."
@@ -131,5 +135,15 @@
   "Set up the keys for java mode."
   (interactive)
   (smartchr/init-mode smartchr-java-key-map))
+
+(defun smartchr/undo-haskell-mode ()
+  "Undo up the keys for haskell mode."
+  (interactive)
+  (smartchr/undo-mode smartchr-haskell-key-map))
+
+(defun smartchr/init-haskell-mode ()
+  "Set up the keys for haskell mode."
+  (interactive)
+  (smartchr/init-mode smartchr-haskell-key-map))
 
 ;;; packages.el ends here

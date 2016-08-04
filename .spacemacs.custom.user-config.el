@@ -183,6 +183,16 @@ at `scratch-default-directory'."
       (evil-invert-char (point) (+ 1 (point)))
       (evil-insert 1)))
 
+  (defun replace-multiple-regexp-in-string (xs str)
+    "Replace all matches of (regex . replacement) for every pair in XS in STR."
+    (if (null xs)
+        str
+      (let ((current (car xs))
+            (rest (cdr xs)))
+        (replace-multiple-regexp-in-string
+         rest
+         (replace-regexp-in-string (car current) (cdr current) str)))))
+
   (defun haskell-doc-insert-type ()
     "Insert the type of the object near point on the line above."
     (interactive)
@@ -190,9 +200,9 @@ at `scratch-default-directory'."
     (let* ((sym (haskell-ident-at-point))
            (doc (or (haskell-doc-current-info--interaction t)
                     (haskell-doc-sym-doc sym)))
-           (txt (replace-regexp-in-string
-                 "⇒" "=>" (replace-regexp-in-string
-                           "∷" "::" (or doc "")))))
+           (txt (replace-multiple-regexp-in-string
+                 '(("→" . "->") ("⇒" . "=>") ("∷" . "::"))
+                 (or doc ""))))
       (if (and doc (haskell-doc-in-code-p))
           (progn
             (evil-open-above 1)
