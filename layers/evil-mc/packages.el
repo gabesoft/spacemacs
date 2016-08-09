@@ -22,6 +22,7 @@ play well with `evil-mc'."
           js2-mode
           java-mode
           css-mode
+          haskell-mode
           (react-mode . js2-mode)
           (enh-ruby-mode . ruby-mode)))
   (when (boundp whitespace-cleanup-disabled)
