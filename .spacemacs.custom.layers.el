@@ -94,6 +94,7 @@
      syntax-checking
      spell-checking
      themes-megapack
+     typescript
      unimpaired
 
      (version-control :variables
