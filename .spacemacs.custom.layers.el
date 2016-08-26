@@ -110,7 +110,7 @@
    dotspacemacs-additional-packages '(tern-auto-complete nodejs-repl)
 
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(evil-search-highlight-persist evil-escape hl-todo nyan iswitchb evil-jumper org-bullets)
+   dotspacemacs-excluded-packages '(evil-search-highlight-persist evil-escape hl-todo nyan iswitchb evil-jumper)
 
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
