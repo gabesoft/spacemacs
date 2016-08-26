@@ -335,6 +335,23 @@ at `scratch-default-directory'."
   ;; disallow nested expansions (can still be done with M-/)
   (setq yas-triggers-in-field nil)
 
+  ;; font
+  (set-fontset-font "fontset-default" nil (font-spec :size 20 :name "Symbola"))
+  (set-face-attribute
+   'default nil
+   :stipple nil
+   :height 130
+   :width 'normal
+   :inverse-video nil
+   :box nil
+   :strike-through nil
+   :overline nil
+   :underline nil
+   :slant 'normal
+   :weight 'normal
+   :foundry "outline"
+   :family "MonacoB2 for Powerline")
+
   (setq auto-save-timeout 1)
   (setq global-mode-string nil)
   (setq mode-require-final-newline 'visit-save)

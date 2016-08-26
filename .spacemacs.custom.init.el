@@ -49,8 +49,8 @@ before layers configuration."
 
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Monaco"
-                               :size 12
+   dotspacemacs-default-font '("MonacoB2 for Powerline"
+                               :height 130
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
