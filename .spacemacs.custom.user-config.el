@@ -213,6 +213,48 @@ at `scratch-default-directory'."
             (delete-trailing-whitespace (point-at-bol) (point-at-eol)))
         (message "Doc not available. Ensure there's a haskell session running."))))
 
+  ;; fonts
+  (defun set-custom-font (font)
+    (when (member font (font-family-list))
+      (set-face-attribute
+       'default nil
+       :stipple nil
+       :height 130
+       :width 'normal
+       :inverse-video nil
+       :box nil
+       :strike-through nil
+       :overline nil
+       :underline nil
+       :slant 'normal
+       :weight 'normal
+       :foundry "outline"
+       :family font)))
+
+  (defun set-font-camingo ()
+    (interactive)
+    (set-custom-font "CamingoCode"))
+
+  (defun set-font-dejavu ()
+    (interactive)
+    (set-custom-font "DejaVu Sans Mono"))
+
+  (defun set-font-monaco ()
+    (interactive)
+    (set-custom-font "Monaco"))
+
+  (defun set-font-monacoB2 ()
+    (interactive)
+    (set-custom-font "MonacoB2"))
+
+  (defun set-font-input ()
+    (interactive)
+    (set-custom-font "Input Mono"))
+
+  (defun set-font-monacoB2powerline ()
+    (interactive)
+    (set-custom-font "MonacoB2 for Powerline"))
+
   ;; auto-save hooks
   (add-hook 'auto-save-hook
             (lambda ()
@@ -335,22 +377,8 @@ at `scratch-default-directory'."
   ;; disallow nested expansions (can still be done with M-/)
   (setq yas-triggers-in-field nil)
 
-  ;; font
+  ;; fallback font
   (set-fontset-font "fontset-default" nil (font-spec :size 20 :name "Symbola"))
-  (set-face-attribute
-   'default nil
-   :stipple nil
-   :height 130
-   :width 'normal
-   :inverse-video nil
-   :box nil
-   :strike-through nil
-   :overline nil
-   :underline nil
-   :slant 'normal
-   :weight 'normal
-   :foundry "outline"
-   :family "MonacoB2 for Powerline")
 
   (setq auto-save-timeout 1)
   (setq global-mode-string nil)
