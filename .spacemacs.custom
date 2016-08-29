@@ -8,9 +8,9 @@
 (load-file (concat user-emacs-directory ".spacemacs.custom.user-config.el"))
 
 (require 'spacemacs-custom-init)
-(provide 'spacemacs-custom-user-init)
+(require 'spacemacs-custom-user-init)
 (require 'spacemacs-custom-layers)
-(provide 'spacemacs-custom-user-config)
+(require 'spacemacs-custom-user-config)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
