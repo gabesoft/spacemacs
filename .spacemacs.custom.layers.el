@@ -93,7 +93,6 @@
      smartchr
      syntax-checking
      spell-checking
-     themes-megapack
      typescript
      unimpaired
 

@@ -378,7 +378,7 @@ at `scratch-default-directory'."
   (setq yas-triggers-in-field nil)
 
   ;; fallback font
-  (set-fontset-font "fontset-default" nil (font-spec :size 20 :name "Symbola"))
+  ;; (set-fontset-font "fontset-default" nil (font-spec :size 20 :name "Symbola"))
 
   (setq auto-save-timeout 1)
   (setq global-mode-string nil)
