@@ -53,7 +53,7 @@
           git-gutter-use-fringe t)
 
      (haskell :variables
-              haskell-enable-hindent-style "chris-done"
+              haskell-enable-hindent-style "johan-tibell"
               haskell-enable-ghci-ng-support t
               haskell-enable-ghc-mod-support t
               haskell-enable-shm-support nil)

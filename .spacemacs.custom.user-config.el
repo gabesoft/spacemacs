@@ -255,6 +255,14 @@ at `scratch-default-directory'."
     (interactive)
     (set-custom-font "MonacoB2 for Powerline"))
 
+  ;; nxml mode
+  (defun nxml-pretty-format ()
+    (interactive)
+    (save-excursion
+      (shell-command-on-region (point-min) (point-max) "xmllint --format -" (buffer-name) t)
+      (nxml-mode)
+      (indent-region begin end)))
+
   ;; auto-save hooks
   (add-hook 'auto-save-hook
             (lambda ()
@@ -291,6 +299,9 @@ at `scratch-default-directory'."
   ;; company mode
   (define-key company-active-map (kbd "C-h") 'delete-backward-char)
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+
+  ;; nxml mode
+  (evil-define-key 'normal nxml-mode-map (kbd "C-c C-f") 'nxml-pretty-format)
 
   ;; hooks
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
