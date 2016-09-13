@@ -396,6 +396,7 @@ at `scratch-default-directory'."
   (setq mode-require-final-newline 'visit-save)
   (setq powerline-default-separator 'arrow)
   (setq scroll-margin 1)
+  (setq x-gtk-use-system-tooltips nil)
 
   (setq-default truncate-lines t)
   (setq create-lockfiles nil)
