@@ -415,6 +415,8 @@ at `scratch-default-directory'."
   (smartparens-global-mode 1)
   (turn-on-smartparens-mode)
 
+  (spaceline-compile)
+
   (let* ((parent (file-name-as-directory user-emacs-directory))
          (local (concat parent ".spacemacs.custom.user-config.local.el")))
     (when (file-exists-p local)
