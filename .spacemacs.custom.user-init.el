@@ -37,6 +37,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
    solarized-high-contrast-mode-line t
    solarized-emphasize-indicators nil)
 
+  (setq tags-add-tables nil)
+
   ;; some major mode hooks need to be defined here rather than in user-config
   ;; this is due to dotspacemacs-auto-resume-layouts which opens layout buffers
   ;; after user-init but before user-config
