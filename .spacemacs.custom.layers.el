@@ -54,9 +54,11 @@
 
      (haskell :variables
               haskell-enable-hindent-style "johan-tibell"
-              haskell-enable-ghci-ng-support t
+              haskell-completion-backend 'intero
+              haskell-enable-ghci-ng-support nil
               haskell-enable-ghc-mod-support t
               haskell-enable-shm-support nil)
+
      (html :variables
            web-mode-code-indent-offset 2
            web-mode-markup-indent-offset 2
