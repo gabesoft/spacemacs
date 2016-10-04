@@ -398,6 +398,9 @@ at `scratch-default-directory'."
   (setq-default truncate-lines t)
   (setq create-lockfiles nil)
 
+  (setq avy-all-windows nil)
+  (setq avy-all-windows-alt nil)
+
   (flycheck-pos-tip-mode 1)
   (global-company-mode)
   (global-evil-mc-mode 1)
