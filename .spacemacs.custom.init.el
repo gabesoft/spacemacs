@@ -27,6 +27,45 @@ before layers configuration."
    ;; If non nil output loading progress in `*Messages*' buffer.
    dotspacemacs-verbose-loading t
 
+   ;; Lazy installation of layers (unused, all, nil)
+   dotspacemacs-enable-lazy-installation 'unused
+
+   ;; List of packages that cannot be updated or rolled-back
+   dotspacemacs-frozen-packages nil
+
+   ;; Enable the recenter of the home buffer contents when the window is resized
+   dotspacemacs-startup-buffer-responsive t
+
+   ;; How to deal with installed packages
+   ;; - used-only: installs only explicitly used packages and uninstall any
+   ;; - used-but-keep-unused: installs only the used packages but won't uninstall
+   ;; - all: installs all packages supported by Spacemacs and never uninstall
+   dotspacemacs-install-packages 'used-only
+
+   ;; If non-nil then the behavior of the g flag in :subsitute ex-command is inverted
+   dotspacemacs-ex-substitute-global nil
+
+   ;; It controls fuzzy matching in helm.
+   ;; If set to always, force fuzzy matching in all non-asynchronous sources.
+   ;; If set to source, preserve individual source settings.
+   ;; Else, disable fuzzy matching in all sources
+   dotspacemacs-helm-use-fuzzy 'always
+
+   ;; Can be nil or a form that evaluates to a package directory.
+   ;; For example, to use different package directories for different Emacs versions, set this to emacs-version
+   dotspacemacs-elpa-subdirectory 'emacs-version
+
+   ;; If non-nil pressing the closing parenthesis ) key in insert mode passes over any
+   ;; automatically added closing parenthesis, bracket, quote, etc…
+   ;; This can be temporary disabled by pressing C-q before )
+   dotspacemacs-smart-closing-parenthesis t
+
+   ;;  If non nil > is remapped to >gv and < is remapped to <gv in visual mode
+   dotspacemacs-retain-visual-state-on-shift nil
+
+   ;;  If non-nil, J and K move lines up and down when in visual mode
+   dotspacemacs-visual-line-move-text t
+
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
@@ -68,11 +107,11 @@ before layers configuration."
    ;; Major mode leader key accessible in `emacs state' and `insert state'
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
 
-   ;; The command key used for Evil commands (ex-commands) and
-   ;; Emacs commands (M-x).
-   ;; By default the command key is `:' so ex-commands are executed like in Vim
-   ;; with `:' and Emacs commands are executed with `<leader> :'.
-   dotspacemacs-command-key ":"
+   ;; This variable represents the key to press after the leader key to execute M-x
+   dotspacemacs-emacs-command-key "SPC"
+
+   ;; Code folding method (evil, origami)
+   dotspacemacs-folding-method: 'evil
 
    ;; If non nil `Y' is remapped to `y$'. (default t)
    dotspacemacs-remap-Y-to-y$ t

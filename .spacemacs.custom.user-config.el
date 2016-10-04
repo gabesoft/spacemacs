@@ -388,9 +388,6 @@ at `scratch-default-directory'."
   ;; disallow nested expansions (can still be done with M-/)
   (setq yas-triggers-in-field nil)
 
-  ;; fallback font
-  ;; (set-fontset-font "fontset-default" nil (font-spec :size 20 :name "Symbola"))
-
   (setq auto-save-timeout 1)
   (setq global-mode-string nil)
   (setq mode-require-final-newline 'visit-save)
@@ -413,6 +410,7 @@ at `scratch-default-directory'."
   (semantic-mode 1)
   (smartparens-global-mode 1)
   (turn-on-smartparens-mode)
+  (hl-todo-mode 1) ;; TODO customize faces (see hl-todo-keyword-faces)
 
   (spaceline-compile)
 

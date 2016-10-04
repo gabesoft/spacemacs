@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: component constructor
+# key: cc
+# --
+constructor(props) {
+  super(props);
+  $0
+}

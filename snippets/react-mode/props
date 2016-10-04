@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: props
+# key: pro
+# --
+{this.props.$0}

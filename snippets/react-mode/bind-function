@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: bind function
+# key: bf
+# --
+this.${1:name} = this.$1.bind(this);$0

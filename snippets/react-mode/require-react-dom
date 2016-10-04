@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: require react dom
+# key: rrd
+# --
+const ReactDOM = require('react-dom');
