@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: it test method in es6 format
+# key: ite
+# --
+it('${1:does something}', ${2:done} => {
+  $0
+});

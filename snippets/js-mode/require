@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: require statement
+# key: re
+# --
+${1:name} = require('${2:$1}')$0

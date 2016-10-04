@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: component extends
+# key: ce
+# --
+class ${1:ClassName} extends React.Component {
+  $0
+}

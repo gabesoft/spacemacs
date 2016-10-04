@@ -29,7 +29,7 @@
              colors-colorize-identifiers t
              colors-enable-nyan-cat-progress-bar nil)
 
-     ;; dired-hacks
+     dired-hacks
 
      (elm :variables
           elm-reactor-port "8000"
@@ -39,12 +39,10 @@
      evil-commentary
      ;; evil-easymotion
      ;; evil-mc
-     ;; evil-mc-extras
+     evil-mc-extras
 
      (evil-snipe :variables
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
-
-     ;; (eyebrowse :variables eyebrowse-display-help t)
 
      (git :variables
           git-magit-status-fullscreen nil
@@ -56,7 +54,7 @@
               haskell-enable-hindent-style "johan-tibell"
               haskell-completion-backend 'intero
               haskell-enable-ghci-ng-support nil
-              haskell-enable-ghc-mod-support t
+              haskell-enable-ghc-mod-support nil
               haskell-enable-shm-support nil)
 
      (html :variables
@@ -96,14 +94,13 @@
      syntax-checking
      spell-checking
      typescript
-     ;; unimpaired
 
-     (evil-search-highlight-persist :excluded t)
-     (evil-escape :excluded t)
-     (hl-todo :excluded t)
-     (nyan :excluded t)
-     (iswitchb :excluded t)
-     (evil-jumper :excluded t)
+     ;; (evil-search-highlight-persist :excluded t)
+     ;; (evil-escape :excluded t)
+     ;; (hl-todo :excluded t)
+     ;; (nyan :excluded t)
+     ;; (iswitchb :excluded t)
+     ;; (evil-jumper :excluded t)
 
      (version-control :variables
                       version-control-diff-tool 'diff-hl
@@ -116,12 +113,6 @@
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(tern-auto-complete nodejs-repl)
-
-   dotspacemacs-emacs-command-key "SPC"
-
-   ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
-   ;; are declared in a layer which is not a member of
-   ;; the list `dotspacemacs-configuration-layers'
-   dotspacemacs-delete-orphan-packages t))
+   ))
 
 (provide 'spacemacs-custom-layers)

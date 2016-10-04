@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: props attribute
+# key: atp
+# --
+${1:className}={${2:this.props.${3:prop}}}$0

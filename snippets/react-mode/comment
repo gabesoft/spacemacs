@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: comment
+# key: cm
+# --
+{/* $1 */}$0
