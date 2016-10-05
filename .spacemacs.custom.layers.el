@@ -67,6 +67,7 @@
      java
      javascript
      markdown
+     nixos
 
      (org :variables org-enable-github-support t)
 
