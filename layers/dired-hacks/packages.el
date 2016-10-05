@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(setq dired-hacks-packages '(dired-hacks :location local))
+(setq dired-hacks-packages '((dired-hacks :location local)))
 
 (load-file (concat user-emacs-directory "layers/dired-hacks/local/dash.el"))
 (load-file (concat user-emacs-directory "layers/dired-hacks/local/dired-hacks-utils.el"))
