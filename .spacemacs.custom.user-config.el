@@ -214,12 +214,12 @@ at `scratch-default-directory'."
         (message "Doc not available. Ensure there's a haskell session running."))))
 
   ;; fonts
-  (defun set-custom-font (font)
+  (defun set-custom-font (font height)
     (when (member font (font-family-list))
       (set-face-attribute
        'default nil
        :stipple nil
-       :height 130
+       :height height
        :width 'normal
        :inverse-video nil
        :box nil
@@ -231,29 +231,27 @@ at `scratch-default-directory'."
        :foundry "outline"
        :family font)))
 
-  (defun set-font-camingo ()
-    (interactive)
-    (set-custom-font "CamingoCode"))
+  (defun create-set-font (input)
+    (let ((name-normal (intern (format "set-font-%s" (car input))))
+          (name-small (intern (format "set-font-%s-small" (car input))))
+          (font (cdr input)))
+      `(progn
+         (defun ,name-normal ()
+           (interactive) (set-custom-font ,font 130))
+         (defun ,name-small ()
+           (interactive) (set-custom-font ,font 110)))))
 
-  (defun set-font-dejavu ()
-    (interactive)
-    (set-custom-font "DejaVu Sans Mono"))
+  (defmacro create-set-font-funs (funs)
+    `(progn ,@(mapcar 'create-set-font funs)))
 
-  (defun set-font-monaco ()
-    (interactive)
-    (set-custom-font "Monaco"))
-
-  (defun set-font-monacoB2 ()
-    (interactive)
-    (set-custom-font "MonacoB2"))
-
-  (defun set-font-input ()
-    (interactive)
-    (set-custom-font "Input Mono"))
-
-  (defun set-font-monacoB2powerline ()
-    (interactive)
-    (set-custom-font "MonacoB2 for Powerline"))
+  ;; Create functions for setting fonts
+  ;; The function names will be like `set-font-camingo' and `set-font-camingo-small'
+  (macroexpand (create-set-font-funs (("camingo" . "CamingoCode")
+                                      ("dejavu" . "DejaVu Sans Mono")
+                                      ("input" . "Input Mono")
+                                      ("monaco" . "Monaco")
+                                      ("monacoB2" . "MonacoB2")
+                                      ("monacoB2powerline" . "MonacoB2 for Powerline"))))
 
   ;; nxml mode
   (defun nxml-pretty-format ()
@@ -422,6 +420,7 @@ at `scratch-default-directory'."
     (when (file-exists-p local)
       (load-file local)
       (require 'spacemacs-custom-user-config-local)
-      (dotspacemacs/user-config-local))))
+      (dotspacemacs/user-config-local)))
+  )
 
 (provide 'spacemacs-custom-user-config)
