@@ -4,11 +4,6 @@
   "Configuration function.
 This function is called at the very end of Spacemacs initialization after
 layers configuration."
-  (defun transpose-chars-before-point (arg)
-    "Interchange the two characters before point."
-    (interactive "*P")
-    (transpose-chars -1))
-
   (defun indent-buffer ()
     "Indent the currently visited buffer."
     (interactive)
@@ -279,7 +274,7 @@ at `scratch-default-directory'."
 
   ;; text movement
   (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
-  (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars-before-point)
+  (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars)
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
 

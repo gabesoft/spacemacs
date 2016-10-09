@@ -91,6 +91,8 @@
             shell-enable-smart-eshell t
             shell-default-position 'bottom)
 
+     shell-scripts
+
      ;; smartchr
      syntax-checking
      spell-checking
