@@ -383,7 +383,7 @@ at `scratch-default-directory'."
 
   (setq auto-save-timeout 1)
   (setq global-mode-string nil)
-  (setq mode-require-final-newline 'visit-save)
+  (setq mode-require-final-newline t)
   (setq powerline-default-separator 'arrow)
   (setq scroll-margin 1)
   (setq x-gtk-use-system-tooltips nil)
