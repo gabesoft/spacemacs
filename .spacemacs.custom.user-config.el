@@ -346,6 +346,7 @@ at `scratch-default-directory'."
   (setq-default
    ;; js2-mode
    js2-basic-offset 2
+   js-indent-level 2
    jsx-indent-level 2
    js2-strict-inconsistent-return-warning nil
    ;; web-mode
