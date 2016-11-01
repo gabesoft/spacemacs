@@ -317,6 +317,12 @@ at `scratch-default-directory'."
 
   (define-key evil-normal-state-map (kbd "M-l") 'helm-imenu)
 
+  ;; avy
+  (define-key evil-normal-state-map (kbd ",j") 'avy-goto-line-below)
+  (define-key evil-normal-state-map (kbd ",k") 'avy-goto-line-above)
+  (define-key evil-normal-state-map (kbd ",b") 'avy-goto-word-1-above)
+  (define-key evil-normal-state-map (kbd ",w") 'avy-goto-word-1-below)
+
   ;; abbrevs
   (setq abbrev-file-name (concat user-emacs-directory "abbrevs.el"))
   (setq save-abbrevs 'silently)

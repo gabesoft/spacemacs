@@ -52,6 +52,8 @@
 
      (haskell :variables
               haskell-enable-hindent-style "johan-tibell"
+              haskell-process-type 'stack-ghci
+              haskell-process-args-stack-ghci '("--ghc-options=-ferror-spans" "--with-ghc=intero")
               haskell-completion-backend 'intero
               haskell-enable-ghci-ng-support nil
               haskell-enable-ghc-mod-support nil
