@@ -37,8 +37,6 @@
           elm-format-on-save t)
      emacs-lisp
      evil-commentary
-     ;; evil-easymotion
-     ;; evil-mc
      evil-mc-extras
 
      (evil-snipe :variables
@@ -96,7 +94,6 @@
 
      shell-scripts
 
-     ;; smartchr
      syntax-checking
      spell-checking
      typescript
@@ -118,7 +115,11 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(tern-auto-complete nodejs-repl)
+   dotspacemacs-additional-packages '(tern-auto-complete
+                                      nodejs-repl
+                                      darktooth-theme
+                                      creamsody-theme
+                                      company-ghci)
    ))
 
 (provide 'spacemacs-custom-layers)
