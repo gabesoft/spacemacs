@@ -55,7 +55,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
         (define-key haskell-mode-map (kbd "C-c C-f") 'hindent-reformat-buffer)
         (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-doc-insert-type))
       (when (fboundp 'speedbar-add-supported-extension)
-        (speedbar-add-supported-extension ".hs"))))
+        (speedbar-add-supported-extension ".hs"))
+      (setq haskell-stylish-on-save t)))
 
   (add-hook 'haskell-mode-hook 'setup-haskell-mode)
 

@@ -284,17 +284,20 @@ at `scratch-default-directory'."
   (define-key evil-normal-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
   (define-key evil-visual-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
 
-  ;; org babel
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((python . t) (emacs-lisp . t) (sh . t)))
-
   ;; company mode
   (define-key company-active-map (kbd "C-h") 'delete-backward-char)
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
 
+  ;; helm
+  (bind-key* "<f9>" 'helm-semantic-or-imenu) ;; see also SPC-s-j
+
   ;; nxml mode
   (evil-define-key 'normal nxml-mode-map (kbd "C-c C-f") 'nxml-pretty-format)
+
+  ;; org babel
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t) (emacs-lisp . t) (sh . t)))
 
   ;; hooks
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
