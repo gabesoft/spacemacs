@@ -420,6 +420,8 @@ at `scratch-default-directory'."
 
   (spaceline-compile)
 
+  (add-to-list 'auto-mode-alist '("\\.pdsc\\'" . json-mode))
+
   (let* ((parent (file-name-as-directory user-emacs-directory))
          (local (concat parent ".spacemacs.custom.user-config.local.el")))
     (when (file-exists-p local)
