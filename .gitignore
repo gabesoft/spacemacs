@@ -52,4 +52,4 @@ private/
 !private/snippets/README.md
 !private/local/README.md
 /games/
-.spacemacs.custom.user-config.el
+.spacemacs.custom.user-config.local.el
