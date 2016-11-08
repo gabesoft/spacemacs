@@ -70,7 +70,9 @@
      nginx
      nixos
 
-     (org :variables org-enable-github-support t)
+     (org :variables
+          org-enable-github-support t
+          org-src-tab-acts-natively t)
 
      osx
      react
