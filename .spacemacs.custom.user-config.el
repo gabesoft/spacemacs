@@ -209,6 +209,33 @@ at `scratch-default-directory'."
             (delete-trailing-whitespace (point-at-bol) (point-at-eol)))
         (message "Doc not available. Ensure there's a haskell session running."))))
 
+  (defun with-region (fun start end)
+    "Run FUN over the region between START and END in current buffer"
+    (save-excursion
+      (let ((text (delete-and-extract-region start end)))
+        (insert (funcall fun text)))))
+
+  ;; URL encoding functions
+  (defun encode-uri-component (start end)
+    "Encode the region between START and END to be used within a URL as a component."
+    (interactive "r")
+    (with-region 'url-hexify-string start end))
+
+  (defun decode-uri-component (start end)
+    "Decode the region between START and END assume to be an encoded URL component."
+    (interactive "r")
+    (with-region 'url-unhex-string start end))
+
+  (defun encode-uri (start end)
+    "Encode the region between START and END to be used as a full URL."
+    (interactive "r")
+    (with-region 'org-link-escape start end))
+
+  (defun decode-uri (start end)
+    "Decode the region between START and END assumed to be a full URL encoded."
+    (interactive "r")
+    (with-region 'org-link-unescape start end))
+
   ;; fonts
   (defun set-custom-font (font height)
     (when (member font (font-family-list))
