@@ -59,6 +59,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   (add-hook 'haskell-mode-hook 'setup-haskell-mode)
 
+  (with-eval-after-load 'intero
+    (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
+
   )
 
 (provide 'spacemacs-custom-user-init)
