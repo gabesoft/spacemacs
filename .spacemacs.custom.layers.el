@@ -66,7 +66,8 @@
 
      java
      javascript
-     markdown
+     (markdown :variables
+               markdown-command "multimarkdown")
      nginx
      nixos
 
