@@ -442,8 +442,6 @@ at `scratch-default-directory'."
   (semantic-mode 1)
   (smartparens-global-mode 1)
   (turn-on-smartparens-mode)
-  (global-hl-todo-mode -1) ;; TODO customize faces (see hl-todo-keyword-faces)
-  (global-diff-hl-mode -1)
 
   (spaceline-compile)
 

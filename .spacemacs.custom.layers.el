@@ -102,10 +102,6 @@
      typescript
 
      ;; (evil-search-highlight-persist :excluded t)
-     ;; (evil-escape :excluded t)
-     ;; (hl-todo :excluded t)
-     ;; (nyan :excluded t)
-     ;; (iswitchb :excluded t)
      ;; (evil-jumper :excluded t)
 
      (version-control :variables
@@ -123,6 +119,9 @@
                                       darktooth-theme
                                       creamsody-theme
                                       company-ghci)
+
+   ;; List of excluded packages
+   dotspacemacs-excluded-packages '(hl-todo diff-hl evil-escape nyan)
    ))
 
 (provide 'spacemacs-custom-layers)
