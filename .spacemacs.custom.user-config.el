@@ -442,6 +442,7 @@ at `scratch-default-directory'."
   (semantic-mode 1)
   (smartparens-global-mode 1)
   (turn-on-smartparens-mode)
+  (global-diff-hl-mode -1)
 
   (spaceline-compile)
 
