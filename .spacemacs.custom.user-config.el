@@ -430,6 +430,8 @@ at `scratch-default-directory'."
   (setq avy-all-windows nil)
   (setq avy-all-windows-alt nil)
 
+  (setq evil-search-highlight-string-min-len 5)
+
   (flycheck-pos-tip-mode 1)
   (global-company-mode)
   (global-evil-mc-mode 1)

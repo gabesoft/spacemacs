@@ -101,9 +101,6 @@
      spell-checking
      typescript
 
-     ;; (evil-search-highlight-persist :excluded t)
-     ;; (evil-jumper :excluded t)
-
      (version-control :variables
                       version-control-diff-tool 'diff-hl
                       version-control-global-margin t)
