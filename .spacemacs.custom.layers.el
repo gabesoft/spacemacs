@@ -121,7 +121,7 @@
                                       company-ghci)
 
    ;; List of excluded packages
-   dotspacemacs-excluded-packages '(hl-todo diff-hl evil-escape nyan)
+   dotspacemacs-excluded-packages '(hl-todo evil-escape nyan iswitchb)
    ))
 
 (provide 'spacemacs-custom-layers)
