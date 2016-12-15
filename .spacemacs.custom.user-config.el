@@ -441,7 +441,7 @@ at `scratch-default-directory'."
   (global-linum-mode 1)
   (global-subword-mode +1)
   (global-undo-tree-mode 1)
-  (indent-guide-global-mode 1)
+  (indent-guide-global-mode -1)
   (semantic-mode 1)
   (smartparens-global-mode 1)
   (turn-on-smartparens-mode)
