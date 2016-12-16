@@ -221,7 +221,7 @@ before layers configuration."
 
    ;; Select a scope to highlight delimiters. Possible value is `all',
    ;; `current' or `nil'. Default is `all'
-   dotspacemacs-highlight-delimiters 'current
+   dotspacemacs-highlight-delimiters 'all
 
    ;; If non nil advises quit functions to keep server open when quitting.
    ;; Note: this interferes with persistent undo
