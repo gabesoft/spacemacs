@@ -435,8 +435,10 @@ at `scratch-default-directory'."
 
   (flycheck-pos-tip-mode 1)
   (global-company-mode)
-  (global-evil-mc-mode 1)
+  (global-diff-hl-mode -1)
   (global-evil-mc-extras-mode 1)
+  (global-evil-mc-mode 1)
+  (global-highlight-parentheses-mode -1)
   (global-hl-line-mode -1)
   (global-linum-mode 1)
   (global-subword-mode +1)
@@ -445,7 +447,6 @@ at `scratch-default-directory'."
   (semantic-mode 1)
   (smartparens-global-mode 1)
   (turn-on-smartparens-mode)
-  (global-diff-hl-mode -1)
 
   (spaceline-compile)
 
