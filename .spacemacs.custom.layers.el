@@ -111,11 +111,11 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(tern-auto-complete
-                                      nodejs-repl
-                                      darktooth-theme
+   dotspacemacs-additional-packages '(company-ghci
                                       creamsody-theme
-                                      company-ghci)
+                                      darktooth-theme
+                                      nodejs-repl
+                                      tern-auto-complete)
 
    ;; List of excluded packages
    dotspacemacs-excluded-packages '(hl-todo evil-escape nyan iswitchb)

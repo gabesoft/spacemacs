@@ -430,7 +430,6 @@ at `scratch-default-directory'."
   (setq avy-all-windows nil)
   (setq avy-all-windows-alt nil)
 
-  (setq evil-search-highlight-string-min-len 5)
   (setq evil-mc-undo-cursors-on-keyboard-quit t)
 
   (flycheck-pos-tip-mode 1)
@@ -447,6 +446,7 @@ at `scratch-default-directory'."
   (semantic-mode 1)
   (smartparens-global-mode 1)
   (turn-on-smartparens-mode)
+  (global-evil-search-highlight-persist -1)
 
   (spaceline-compile)
 
