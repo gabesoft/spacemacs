@@ -358,6 +358,10 @@ at `scratch-default-directory'."
   (quietly-read-abbrev-file)
   (setq-default abbrev-mode t)
 
+  ;; evil-jump
+  (define-key evil-normal-state-map (kbd "<f11>") 'evil-jump-backward)
+  (define-key evil-normal-state-map (kbd "<f12>") 'evil-jump-forward)
+
   ;; major mode hooks
   (add-hook 'js2-mode-hook 'setup-js2-mode)
   (add-hook 'org-mode-hook 'setup-org-mode);
