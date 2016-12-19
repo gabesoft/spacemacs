@@ -12,11 +12,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (defvar spacemacs-evil-cursors
     '(("normal" "#268bd2" box)
       ("insert" "#859900" (bar . 2))
-      ("emacs"  "plum3" box)
+      ("emacs"  "#d33682" box)
       ("hybrid" "SkyBlue2" (bar . 2))
       ("replace" "#dc322f" (hbar . 2))
       ("evilified" "#cb4b16" box)
-      ("visual" "#d33682" box)
+      ("visual" "#b58900" box)
       ("motion" "#2aa198" box)
       ("lisp"   "#6c71c4" box)
       ("iedit"  "chocolate" box)
