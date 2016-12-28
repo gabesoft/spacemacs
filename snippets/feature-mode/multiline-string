@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Multiline string
+# key: ms
+# --
+"""
+$0
+"""
