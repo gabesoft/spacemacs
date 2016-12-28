@@ -52,10 +52,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
       (when (fboundp 'haskell-auto-insert-module-template)
         (haskell-auto-insert-module-template))
       (when (boundp 'haskell-mode-map)
-        (define-key haskell-mode-map (kbd "C-c C-f") 'hindent-reformat-buffer)
-        (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-doc-insert-type))
+        (define-key haskell-mode-map (kbd "C-c C-f") 'hindent-reformat-buffer))
       (when (fboundp 'speedbar-add-supported-extension)
-        (speedbar-add-supported-extension ".hs"))))
+        (speedbar-add-supported-extension ".hs"))
+      (add-hook 'auto-save-hook 'haskell-sort-imports)))
 
   (add-hook 'haskell-mode-hook 'setup-haskell-mode)
 

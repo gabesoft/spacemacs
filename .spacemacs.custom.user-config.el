@@ -435,6 +435,7 @@ at `scratch-default-directory'."
   (setq avy-all-windows-alt nil)
 
   (setq evil-mc-undo-cursors-on-keyboard-quit t)
+  (setq mouse-autoselect-window nil)
 
   (flycheck-pos-tip-mode 1)
   (global-company-mode)
