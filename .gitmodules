@@ -1,0 +1,3 @@
+[submodule "layers/+themes/gabesoft-solarized-theme"]
+	path = layers/+themes/gabesoft-solarized-theme
+	url = git@github.com:gabesoft/gabesoft-solarized-theme.git

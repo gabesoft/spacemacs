@@ -42,6 +42,7 @@
      (evil-snipe :variables
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
 
+     gabesoft-solarized-theme
      (git :variables
           git-magit-status-fullscreen nil
           git-enable-github-support t
