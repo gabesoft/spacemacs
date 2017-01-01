@@ -49,7 +49,7 @@ before layers configuration."
    ;; If set to always, force fuzzy matching in all non-asynchronous sources.
    ;; If set to source, preserve individual source settings.
    ;; Else, disable fuzzy matching in all sources
-   dotspacemacs-helm-use-fuzzy 'always
+   dotspacemacs-helm-use-fuzzy 'source
 
    ;; Can be nil or a form that evaluates to a package directory.
    ;; For example, to use different package directories for different Emacs versions, set this to emacs-version
