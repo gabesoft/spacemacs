@@ -246,11 +246,14 @@ at `scratch-default-directory'."
 
   (defun create-set-font (input)
     (let ((name-normal (intern (format "set-font-%s" (car input))))
+          (name-medium (intern (format "set-font-%s-medium" (car input))))
           (name-small (intern (format "set-font-%s-small" (car input))))
           (font (cdr input)))
       `(progn
          (defun ,name-normal ()
-           (interactive) (set-custom-font ,font 130))
+           (interactive) (set-custom-font ,font 124))
+         (defun ,name-medium ()
+           (interactive) (set-custom-font ,font 118))
          (defun ,name-small ()
            (interactive) (set-custom-font ,font 110)))))
 
