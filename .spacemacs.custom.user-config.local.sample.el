@@ -5,7 +5,7 @@
     (interactive)
     (set-default-font "Monaco 10"))
 
-  (setq hindent-process-path (concat user-home-directory ".local/bin/hindent"))
+  ;; (setq hindent-process-path (concat user-home-directory ".local/bin/hindent"))
 
   (add-hook 'spacemacs-post-theme-change-hook
             'set-font-camingo-small)
