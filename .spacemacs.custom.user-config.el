@@ -110,6 +110,13 @@ layers configuration."
     "Actions to be performed for haskell buffers on auto-save"
     (safe-run-fn 'hindent-reformat-buffer))
 
+  (defun intero-mode-turn-off ()
+    "Turn off `intero-mode' in current buffer."
+    (interactive)
+    (intero-mode -1)
+    (flycheck-mode -1)
+    (company-mode -1))
+
   (defun elm-on-auto-save()
     "Actions to be performed for elm buffers on auto-save"
     (safe-run-fn 'elm-mode-format-buffer))
@@ -191,25 +198,6 @@ at `scratch-default-directory'."
         (replace-multiple-regexp-in-string
          rest
          (replace-regexp-in-string (car current) (cdr current) str)))))
-
-  (defun haskell-doc-insert-type ()
-    "Insert the type of the object near point on the line above."
-    (interactive)
-    (evil-first-non-blank)
-    (let* ((sym (haskell-ident-at-point))
-           (doc (or (haskell-doc-current-info--interaction t)
-                    (haskell-doc-sym-doc sym)))
-           (txt (replace-multiple-regexp-in-string
-                 '(("→" . "->") ("⇒" . "=>") ("∷" . "::"))
-                 (or doc ""))))
-      (if (and doc (haskell-doc-in-code-p))
-          (progn
-            (evil-open-above 1)
-            (beginning-of-line)
-            (insert txt)
-            (evil-normal-state)
-            (delete-trailing-whitespace (point-at-bol) (point-at-eol)))
-        (message "Doc not available. Ensure there's a haskell session running."))))
 
   (defun with-region (fun start end)
     "Run FUN over the region between START and END in current buffer"
