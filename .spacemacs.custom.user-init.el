@@ -56,7 +56,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
       (when (fboundp 'speedbar-add-supported-extension)
         (speedbar-add-supported-extension ".hs"))
       (setq haskell-auto-insert-module-format-string "-- ^ \n\nmodule %s where\n\n")
-      (setq flycheck-display-errors-function 'flycheck-display-error-messages)
       (flycheck-pos-tip-mode -1)
       (add-hook 'auto-save-hook 'haskell-sort-imports)))
 
