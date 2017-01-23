@@ -430,6 +430,9 @@ at `scratch-default-directory'."
   (setq evil-mc-undo-cursors-on-keyboard-quit t)
   (setq mouse-autoselect-window nil)
 
+  (setq flycheck-display-errors-function 'flycheck-display-error-messages)
+
+  (flycheck-pos-tip-mode -1)
   (global-company-mode)
   (global-diff-hl-mode -1)
   (global-evil-mc-extras-mode 1)
