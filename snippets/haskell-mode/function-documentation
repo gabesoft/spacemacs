@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: function documentation
+# key: dd
+# --
+-- ^
+-- $0

@@ -110,6 +110,12 @@ layers configuration."
     "Actions to be performed for haskell buffers on auto-save"
     (safe-run-fn 'hindent-reformat-buffer))
 
+  (defun flycheck-pos-tip-mode-turn-off ()
+    "Disable `flycheck-pos-tip-mode'"
+    (interactive)
+    (flycheck-pos-tip-mode -1)
+    (setq flycheck-display-errors-function 'flycheck-display-error-messages))
+
   (defun intero-mode-turn-off ()
     "Turn off `intero-mode' in current buffer."
     (interactive)
