@@ -119,7 +119,7 @@
                                       tern-auto-complete)
 
    ;; List of excluded packages
-   dotspacemacs-excluded-packages '(hl-todo evil-escape nyan iswitchb)
+   dotspacemacs-excluded-packages '(evil-escape nyan iswitchb)
    ))
 
 (provide 'spacemacs-custom-layers)
