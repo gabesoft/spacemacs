@@ -23,6 +23,24 @@ before packages are loaded. If you are unsure, you should try in setting them in
       ("iedit-insert"  "#dc322f" (bar . 2)))
     "Colors assigned to evil states with cursor definitions.")
 
+  (defvar hl-todo-keyword-faces
+    '(("HOLD" . "#b58900")
+      ("TODO" . "#b58900")
+      ("NEXT" . "#b58900")
+      ("THEM" . "#b58900")
+      ("PROG" . "#b58900")
+      ("OKAY" . "#b58900")
+      ("DONT" . "#b58900")
+      ("FAIL" . "#dc322f")
+      ("DONE" . "#b58900")
+      ("NOTE" . "#b58900")
+      ("KLUDGE" . "#b58900")
+      ("HACK" . "#d75f00")
+      ("FIXME" . "#d75f00")
+      ("XXX" . "#b58900")
+      ("XXXX" . "#b58900")
+      ("???" . "#b58900")))
+
   ;; solarized settings
   (setq
    solarized-distinct-fringe-background nil
