@@ -98,7 +98,8 @@
 
      shell-scripts
 
-     syntax-checking
+     (syntax-checking :variables
+                      syntax-checking-enable-tooltips nil)
      spell-checking
      typescript
 
