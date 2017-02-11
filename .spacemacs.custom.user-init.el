@@ -73,7 +73,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
         (define-key haskell-mode-map (kbd "C-c C-f") 'hindent-reformat-buffer))
       (when (fboundp 'speedbar-add-supported-extension)
         (speedbar-add-supported-extension ".hs"))
-      (setq haskell-auto-insert-module-format-string "-- ^ \n\nmodule %s where\n\n")
+      (setq haskell-auto-insert-module-format-string "-- ^\n-- \nmodule %s where\n\n")
       (setq flycheck-display-errors-function 'flycheck-display-error-messages)
       (when (fboundp 'flycheck-pos-tip-mode)
         (flycheck-pos-tip-mode -1))
