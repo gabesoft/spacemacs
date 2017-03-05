@@ -25,7 +25,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   (defvar hl-todo-keyword-faces
     '(("HOLD" . "#b58900")
-      ("TODO" . "#b58900")
+      ("TODO" . "#d33682")
       ("NEXT" . "#b58900")
       ("THEM" . "#b58900")
       ("PROG" . "#b58900")
