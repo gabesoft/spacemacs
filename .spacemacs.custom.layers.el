@@ -29,6 +29,7 @@
              colors-colorize-identifiers t
              colors-enable-nyan-cat-progress-bar nil)
 
+     csv
      dired-hacks
 
      (elm :variables
