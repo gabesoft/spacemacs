@@ -312,8 +312,9 @@ at `scratch-default-directory'."
   (define-key evil-visual-state-map (kbd "\\") 'evil-snipe-repeat-reverse)
 
   ;; company mode
-  (define-key company-active-map (kbd "C-h") 'delete-backward-char)
-  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+  (when (boundp 'company-active-map)
+    (define-key company-active-map (kbd "C-h") 'delete-backward-char)
+    (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word))
 
   ;; helm
   (bind-key* "<f9>" 'helm-semantic-or-imenu) ;; see also SPC-s-j
