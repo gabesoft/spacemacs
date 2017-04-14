@@ -358,6 +358,10 @@ at `scratch-default-directory'."
   (quietly-read-abbrev-file)
   (setq-default abbrev-mode t)
 
+  ;; evil-mc
+  (global-set-key (kbd "C-S-<mouse-1>") 'evil-mc-toggle-cursor-on-click)
+  (global-set-key (kbd "C-S-<mouse-3>") 'evil-mc-toggle-cursor-on-click)
+
   ;; evil-jump
   (define-key evil-normal-state-map (kbd "<f11>") 'evil-jump-backward)
   (define-key evil-normal-state-map (kbd "<f12>") 'evil-jump-forward)
