@@ -66,7 +66,6 @@
 
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
 
-     java
      javascript
      (markdown :variables
                markdown-command "multimarkdown")
