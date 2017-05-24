@@ -439,6 +439,10 @@ at `scratch-default-directory'."
   (setq avy-all-windows-alt nil)
 
   (setq evil-mc-undo-cursors-on-keyboard-quit t)
+  (setq evil-mc-mode-line-prefix "ⓜ")
+  (setq evil-mc-mode-line-text-inverse-colors nil)
+  (setq evil-mc-one-cursor-show-mode-line-text nil)
+
   (setq mouse-autoselect-window nil)
 
   (setq flycheck-display-errors-function 'flycheck-display-error-messages)
