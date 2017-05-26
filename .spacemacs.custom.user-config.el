@@ -293,6 +293,7 @@ at `scratch-default-directory'."
 
   ;; indentation
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+  (global-set-key (kbd "C-M-c") 'capitalize-word)
 
   ;; documentation
   (define-key evil-normal-state-map (kbd "C-h C-f") 'find-function)
