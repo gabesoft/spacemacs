@@ -395,6 +395,7 @@ at `scratch-default-directory'."
    js-indent-level 2
    jsx-indent-level 2
    js2-strict-inconsistent-return-warning nil
+   js-switch-indent-offset 1
    ;; web-mode
    css-indent-offset 2
    web-mode-code-indent-offset 2
