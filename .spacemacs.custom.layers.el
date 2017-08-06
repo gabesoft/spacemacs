@@ -77,6 +77,7 @@
           org-src-tab-acts-natively t)
 
      osx
+     python
      react
      restclient
 
