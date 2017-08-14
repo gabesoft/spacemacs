@@ -1,6 +1,8 @@
 ;;-*-coding: utf-8;-*-
 (define-abbrev-table 'Buffer-menu-mode-abbrev-table '())
 
+(define-abbrev-table 'Custom-mode-abbrev-table '())
+
 (define-abbrev-table 'Info-edit-mode-abbrev-table '())
 
 (define-abbrev-table 'awk-mode-abbrev-table
@@ -51,9 +53,13 @@
 
 (define-abbrev-table 'diff-mode-abbrev-table '())
 
+(define-abbrev-table 'dsssl-mode-abbrev-table '())
+
 (define-abbrev-table 'edebug-eval-mode-abbrev-table '())
 
 (define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
+
+(define-abbrev-table 'elisp-byte-code-mode-abbrev-table '())
 
 (define-abbrev-table 'elm-interactive-mode-abbrev-table '())
 
@@ -118,6 +124,7 @@
 (define-abbrev-table 'global-abbrev-table
   '(
     ("cilp" "clip" nil 2)
+    ("haev" "have" nil 0)
     ("heigth" "height" nil 1)
     ("htat" "that" nil 4)
     ("hte" "the" nil 10)
@@ -125,14 +132,14 @@
     ("lenght" "length" nil 1)
     ("rigth" "right" nil 1)
     ("taht" "that" nil 3)
-    ("teh" "the" nil 12)
+    ("teh" "the" nil 14)
     ("thsi" "this" nil 4)
     ("thta" "that" nil 1)
     ("tihs" "this" nil 3)
     ("varibale" "variable" nil 1)
     ("varibales" "variables" nil 0)
     ("wiht" "with" nil 1)
-   ))
+    ))
 
 (define-abbrev-table 'grep-mode-abbrev-table '())
 
@@ -162,6 +169,8 @@
 
 (define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
 
+(define-abbrev-table 'inf-ruby-mode-abbrev-table '())
+
 (define-abbrev-table 'inferior-emacs-lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-haskell-mode-abbrev-table '())
@@ -169,6 +178,8 @@
 (define-abbrev-table 'java-mode-abbrev-table
   '(
    ))
+
+(define-abbrev-table 'js-jsx-mode-abbrev-table '())
 
 (define-abbrev-table 'js-mode-abbrev-table '())
 
@@ -208,6 +219,8 @@
 
 (define-abbrev-table 'magit-refs-mode-abbrev-table '())
 
+(define-abbrev-table 'magit-repolist-mode-abbrev-table '())
+
 (define-abbrev-table 'magit-revision-mode-abbrev-table '())
 
 (define-abbrev-table 'magit-stash-mode-abbrev-table '())
@@ -235,6 +248,12 @@
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
 (define-abbrev-table 'nim-mode-abbrev-table '())
+
+(define-abbrev-table 'nix-mode-abbrev-table '())
+
+(define-abbrev-table 'nxml-mode-abbrev-table '())
+
+(define-abbrev-table 'ob-http-mode-abbrev-table '())
 
 (define-abbrev-table 'objc-mode-abbrev-table
   '(
@@ -276,6 +295,8 @@
 
 (define-abbrev-table 'reb-mode-abbrev-table '())
 
+(define-abbrev-table 'restclient-mode-abbrev-table '())
+
 (define-abbrev-table 'ruby-mode-abbrev-table '())
 
 (define-abbrev-table 'rxt-help-mode-abbrev-table '())
@@ -283,6 +304,8 @@
 (define-abbrev-table 'sbt-mode-abbrev-table '())
 
 (define-abbrev-table 'scala-mode-abbrev-table '())
+
+(define-abbrev-table 'scheme-mode-abbrev-table '())
 
 (define-abbrev-table 'scss-mode-abbrev-table '())
 
@@ -294,7 +317,13 @@
 
 (define-abbrev-table 'shell-mode-abbrev-table '())
 
+(define-abbrev-table 'skewer-clients-mode-abbrev-table '())
+
+(define-abbrev-table 'skewer-error-mode-abbrev-table '())
+
 (define-abbrev-table 'snippet-mode-abbrev-table '())
+
+(define-abbrev-table 'spacemacs/report-issue-mode-abbrev-table '())
 
 (define-abbrev-table 'special-mode-abbrev-table '())
 
@@ -316,5 +345,11 @@
 
 (define-abbrev-table 'vc-git-log-view-mode-abbrev-table '())
 
+(define-abbrev-table 'vc-git-region-history-mode-abbrev-table '())
+
 (define-abbrev-table 'web-mode-abbrev-table '())
+
+(define-abbrev-table 'xref--xref-buffer-mode-abbrev-table '())
+
+(define-abbrev-table 'yaml-mode-abbrev-table '())
 
