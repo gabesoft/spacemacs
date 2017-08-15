@@ -480,39 +480,41 @@ at `scratch-default-directory'."
       (load-file local)
       (require 'spacemacs-custom-user-config-local)
       (dotspacemacs/user-config-local)))
+
+
+  (require 'f)
+  (require 'json)
+  (require 'flycheck)
+
+  (defun flycheck-parse-flow (output checker buffer)
+    (let ((json-array-type 'list))
+      (let ((o (json-read-from-string output)))
+        (mapcar #'(lambda (errp)
+                    (let ((err (cadr (assoc 'message errp))))
+                      (flycheck-error-new
+                       :line (cdr (assoc 'line err))
+                       :column (cdr (assoc 'start err))
+                       :level 'error
+                       :message (cdr (assoc 'descr err))
+                       :filename (f-relative
+                                  (cdr (assoc 'path err))
+                                  (f-dirname (file-truename
+                                              (buffer-file-name))))
+                       :buffer buffer
+                       :checker checker)))
+                (cdr (assoc 'errors o))))))
+
+  (flycheck-define-checker javascript-flow
+    "Javascript type checking using Flow."
+    :command ("flow" "--json" source-original)
+    :error-parser flycheck-parse-flow
+    :modes react-mode
+    :next-checkers ((error . javascript-eslint))
+    )
+
+  (add-to-list 'flycheck-checkers 'javascript-flow)
   )
 
-;; https://github.com/saltycrane/.spacemacs.d/blob/9d985ace9251529c2b8d7857e2ec9835b103084c/init.el
-;; (require 'f)
-;; (require 'json)
-;; (require 'flycheck)
-
-;; (defun flycheck-parse-flow (output checker buffer)
-;;   (let ((json-array-type 'list))
-;;     (let ((o (json-read-from-string output)))
-;;       (mapcar #'(lambda (errp)
-;;                   (let ((err (cadr (assoc 'message errp))))
-;;                     (flycheck-error-new
-;;                      :line (cdr (assoc 'line err))
-;;                      :column (cdr (assoc 'start err))
-;;                      :level 'error
-;;                      :message (cdr (assoc 'descr err))
-;;                      :filename (f-relative
-;;                                 (cdr (assoc 'path err))
-;;                                 (f-dirname (file-truename
-;;                                             (buffer-file-name))))
-;;                      :buffer buffer
-;;                      :checker checker)))
-;;               (cdr (assoc 'errors o))))))
-
-;; (flycheck-define-checker javascript-flow
-;;   "Javascript type checking using Flow."
-;;   :command ("flow" "--json" source-original)
-;;   :error-parser flycheck-parse-flow
-;;   :modes react-mode
-;;   :next-checkers ((error . javascript-eslint))
-;;   )
-
-;; (add-to-list 'flycheck-checkers 'javascript-flow)
+(message "user-config loaded")
 
 (provide 'spacemacs-custom-user-config)

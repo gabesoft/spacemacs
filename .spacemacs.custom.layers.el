@@ -124,4 +124,6 @@
    dotspacemacs-excluded-packages '(evil-escape nyan iswitchb)
    ))
 
+(message "layers loaded")
+
 (provide 'spacemacs-custom-layers)

@@ -259,4 +259,6 @@ before layers configuration."
    dotspacemacs-startup-recent-list-size 30
    auto-completion-private-snippets-directory (concat user-emacs-directory "snippets/")))
 
+(message "init loaded")
+
 (provide 'spacemacs-custom-init)

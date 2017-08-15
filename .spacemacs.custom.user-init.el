@@ -90,4 +90,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   )
 
+(message "user-init loaded")
+
 (provide 'spacemacs-custom-user-init)

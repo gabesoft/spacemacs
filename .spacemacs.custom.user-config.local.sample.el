@@ -12,6 +12,8 @@
 
   )
 
+(message "user-config.local loaded")
+
 (provide 'spacemacs-custom-user-config-local)
 
 ;; (require 'spacemacs-custom-user-config-local)
