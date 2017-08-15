@@ -508,7 +508,7 @@ at `scratch-default-directory'."
     "Javascript type checking using Flow."
     :command ("flow" "--json" source-original)
     :error-parser flycheck-parse-flow
-    :modes react-mode
+    :modes (react-mode js2-mode javascript-mode)
     :next-checkers ((error . javascript-eslint))
     )
 
