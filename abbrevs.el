@@ -124,6 +124,12 @@
 (define-abbrev-table 'global-abbrev-table
   '(
     ("cilp" "clip" nil 2)
+    ("enpdointUrl" "endpointUrl" nil 0)
+    ("enpointUrl" "endpointUrl" nil 0)
+    ("EnpdointUrl" "EndpointUrl" nil 0)
+    ("EnpointUrl" "EndpointUrl" nil 0)
+    ("enpdoint" "endpoint" nil 0)
+    ("enpoint" "endpoint" nil 0)
     ("haev" "have" nil 0)
     ("heigth" "height" nil 1)
     ("htat" "that" nil 4)
