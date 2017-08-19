@@ -50,6 +50,7 @@
           git-enable-magit-svn-plugin t
           git-gutter-use-fringe t)
 
+     graphviz
      (haskell :variables
               haskell-enable-hindent-style "johan-tibell"
               haskell-process-type 'stack-ghci
