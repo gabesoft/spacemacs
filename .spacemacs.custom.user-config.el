@@ -385,6 +385,9 @@ at `scratch-default-directory'."
     "K" 'org-backward-heading-same-level
     "-" 'dired-jump)
 
+  ;; open URLs in chrome
+  (setq browse-url-browser-function 'browse-url-chrome)
+
   (add-to-list 'completion-styles 'initials t)
   (add-to-list 'auto-mode-alist '(".eslintrc" . json-mode))
   (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
