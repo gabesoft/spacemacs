@@ -232,6 +232,30 @@ at `scratch-default-directory'."
     (interactive "r")
     (with-region 'org-link-unescape start end))
 
+  (defvar current-date-time-format "%Y.%m.%d-%H.%M.%S"
+    "Format of date to insert with `insert-current-date-time' function.
+See help of `format-time-string' for possible replacements.")
+
+  (defvar current-time-format "%Y.%m.%d"
+    "Format of date to insert with `insert-current-date' function.
+ See help of `format-time-string' for possible replacements.")
+
+  (defun insert-current-time-stamp (format)
+    "Insert the current timestamp formatted according to FORMAT into the current buffer."
+    (insert (format-time-string format (current-time))))
+
+  (defun insert-current-date-time ()
+    "Insert the current date and time into the current buffer.
+Uses `current-date-time-format' for formatting the date."
+    (interactive)
+    (insert-current-time-stamp current-date-time-format))
+
+  (defun insert-current-date ()
+    "Insert the current date into the current buffer.
+Uses `current-date-format' for formatting the date."
+    (interactive)
+    (insert-current-time-stamp current-date-format))
+
   ;; fonts
   (defun set-custom-font (font height)
     (when (member font (font-family-list))
