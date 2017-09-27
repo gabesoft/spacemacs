@@ -119,7 +119,6 @@
                                       creamsody-theme
                                       darktooth-theme
                                       nodejs-repl
-                                      org-mind-map
                                       tern-auto-complete)
 
    ;; List of excluded packages
