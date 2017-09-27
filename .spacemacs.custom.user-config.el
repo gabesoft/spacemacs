@@ -512,6 +512,7 @@ Uses `current-date-format' for formatting the date."
   (require 'f)
   (require 'json)
   (require 'flycheck)
+  (require 'helm-bookmark)
 
   (defun flycheck-parse-flow (output checker buffer)
     (let ((json-array-type 'list))
