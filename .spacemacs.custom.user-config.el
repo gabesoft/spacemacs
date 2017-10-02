@@ -399,6 +399,9 @@ Uses `current-date-format' for formatting the date."
   (add-hook 'term-mode-hook 'setup-term-mode)
   (add-hook 'emacs-lisp-mode-hook (lambda () (aggressive-indent-mode 1)))
 
+  ;; python mode
+  (setq flycheck-flake8-maximum-line-length 120)
+
   ;; ruby mode
   (setq enh-ruby-program "/usr/bin/ruby")
 
