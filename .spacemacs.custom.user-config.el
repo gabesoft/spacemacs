@@ -517,6 +517,8 @@ Uses `current-date-format' for formatting the date."
   (require 'flycheck)
   (require 'helm-bookmark)
 
+  (gabesoft-solarized-enable-dark)
+
   (defun flycheck-parse-flow (output checker buffer)
     (let ((json-array-type 'list))
       (let ((o (json-read-from-string output)))
