@@ -10,6 +10,7 @@
   (add-hook 'spacemacs-post-theme-change-hook
             'set-font-camingo-small)
 
+  (gabesoft-solarized-enable-dark)
   )
 
 (message "user-config.local loaded")
