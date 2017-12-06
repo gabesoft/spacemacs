@@ -349,11 +349,6 @@ Uses `current-date-format' for formatting the date."
   ;; nxml mode
   (evil-define-key 'normal nxml-mode-map (kbd "C-c C-f") 'nxml-pretty-format)
 
-  ;; org babel
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((python . t) (emacs-lisp . t) (sh . t)))
-
   ;; hooks
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
   (add-hook 'after-change-major-mode-hook 'update-whitespace-hooks)
@@ -411,6 +406,17 @@ Uses `current-date-format' for formatting the date."
     "J" 'org-forward-heading-same-level
     "K" 'org-backward-heading-same-level
     "-" 'dired-jump)
+
+  ;; org packages
+  (require 'org-agenda)
+  (require 'ob-python)
+  (require 'ob-dot)
+  (require 'ob-org)
+  (require 'ob-sh)
+  (org-bullets-mode)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t) (emacs-lisp . t) (dot . t) (sh . t)))
 
   (add-to-list 'completion-styles 'initials t)
   (add-to-list 'auto-mode-alist '(".eslintrc" . json-mode))
