@@ -129,7 +129,7 @@ layers configuration."
 
   (defun setup-js2-mode ()
     (setq-local comment-auto-fill-only-comments t)
-    (auto-fill-mode 1)
+    (auto-fill-mode nil)
     (setq-local comment-multi-line t)
     (local-set-key (kbd "RET") 'c-indent-new-comment-line))
 
