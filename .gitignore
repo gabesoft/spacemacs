@@ -8,6 +8,7 @@ eproject.lst
 .places
 .cache
 .cache-old
+.cache.old
 /eww-bookmarks
 eshell/history
 .emacs.desktop
