@@ -99,6 +99,7 @@
             shell-default-position 'bottom)
 
      shell-scripts
+     sql
 
      (syntax-checking :variables
                       syntax-checking-enable-tooltips nil)
