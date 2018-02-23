@@ -276,10 +276,13 @@ Uses `current-date-format' for formatting the date."
 
   (defun create-set-font (input)
     (let ((name-normal (intern (format "set-font-%s" (car input))))
+          (name-large (intern (format "set-font-%s-large" (car input))))
           (name-medium (intern (format "set-font-%s-medium" (car input))))
           (name-small (intern (format "set-font-%s-small" (car input))))
           (font (cdr input)))
       `(progn
+         (defun ,name-large ()
+           (interactive) (set-custom-font ,font 144))
          (defun ,name-normal ()
            (interactive) (set-custom-font ,font 124))
          (defun ,name-medium ()
