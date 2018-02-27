@@ -11,6 +11,16 @@
             'set-font-camingo-small)
 
   (gabesoft-solarized-enable-dark)
+
+  ;; mac - remap command to ctrl
+  (setq mac-command-modifier 'control)
+
+  ;; scrolling
+  (setq hscroll-step 1)
+  (setq scroll-step 1)
+  (setq scroll-conservatively 1000)
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+  (setq mouse-wheel-follow-mouse 't)
   )
 
 (message "user-config.local loaded")
