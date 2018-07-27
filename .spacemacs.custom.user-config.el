@@ -298,6 +298,7 @@ Uses `current-date-format' for formatting the date."
   (macroexpand (create-set-font-funs (("camingo" . "CamingoCode")
                                       ("dejavu" . "DejaVu Sans Mono")
                                       ("input" . "Input Mono")
+                                      ("source-code" . "Source Code Pro")
                                       ("monaco" . "Monaco")
                                       ("monacoB2" . "MonacoB2")
                                       ("monacoB2powerline" . "MonacoB2 for Powerline"))))
