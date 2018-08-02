@@ -282,13 +282,13 @@ Uses `current-date-format' for formatting the date."
           (font (cdr input)))
       `(progn
          (defun ,name-large ()
-           (interactive) (set-custom-font ,font 144))
+           (interactive) (set-custom-font ,font 170))
          (defun ,name-normal ()
-           (interactive) (set-custom-font ,font 124))
+           (interactive) (set-custom-font ,font 160))
          (defun ,name-medium ()
-           (interactive) (set-custom-font ,font 118))
+           (interactive) (set-custom-font ,font 150))
          (defun ,name-small ()
-           (interactive) (set-custom-font ,font 110)))))
+           (interactive) (set-custom-font ,font 140)))))
 
   (defmacro create-set-font-funs (funs)
     `(progn ,@(mapcar 'create-set-font funs)))
@@ -321,9 +321,6 @@ Uses `current-date-format' for formatting the date."
 
   ;; indentation
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
-
-  ;; text operations
-  (global-set-key (kbd "C-M-c") 'capitalize-word)
 
   ;; documentation
   (define-key evil-normal-state-map (kbd "C-h C-f") 'find-function)
