@@ -413,11 +413,11 @@ Uses `current-date-format' for formatting the date."
   (require 'ob-python)
   (require 'ob-dot)
   (require 'ob-org)
-  (require 'ob-sh)
+  (require 'ob-shell)
   (org-bullets-mode)
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t) (emacs-lisp . t) (dot . t) (sh . t)))
+   '((python . t) (emacs-lisp . t) (dot . t) (shell . t)))
 
   (add-to-list 'completion-styles 'initials t)
   (add-to-list 'auto-mode-alist '(".eslintrc" . json-mode))
