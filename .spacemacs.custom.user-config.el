@@ -322,6 +322,12 @@ Uses `current-date-format' for formatting the date."
   ;; indentation
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
+  ;; evil-jump
+  (keyboard-translate ?\C-i ?\H-i)
+  (define-key evil-normal-state-map [?\H-i] 'evil-jump-forward)
+  (define-key evil-normal-state-map (kbd "<f11>") 'evil-jump-backward)
+  (define-key evil-normal-state-map (kbd "<f12>") 'evil-jump-forward)
+
   ;; documentation
   (define-key evil-normal-state-map (kbd "C-h C-f") 'find-function)
   (define-key evil-normal-state-map (kbd "C-h C-v") 'find-variable)
@@ -384,10 +390,6 @@ Uses `current-date-format' for formatting the date."
   ;; evil-mc
   (global-set-key (kbd "C-S-<mouse-1>") 'evil-mc-toggle-cursor-on-click)
   (global-set-key (kbd "C-S-<mouse-3>") 'evil-mc-toggle-cursor-on-click)
-
-  ;; evil-jump
-  (define-key evil-normal-state-map (kbd "<f11>") 'evil-jump-backward)
-  (define-key evil-normal-state-map (kbd "<f12>") 'evil-jump-forward)
 
   ;; major mode hooks
   (add-hook 'js2-mode-hook 'setup-js2-mode)
