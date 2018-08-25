@@ -21,6 +21,9 @@
   (setq scroll-conservatively 1000)
   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
   (setq mouse-wheel-follow-mouse 't)
+
+  ;; evil-mc
+  (setq evil-mc-enable-bar-cursor nil)
   )
 
 (message "user-config.local loaded")

@@ -282,13 +282,13 @@ Uses `current-date-format' for formatting the date."
           (font (cdr input)))
       `(progn
          (defun ,name-large ()
-           (interactive) (set-custom-font ,font 144))
+           (interactive) (set-custom-font ,font 170))
          (defun ,name-normal ()
-           (interactive) (set-custom-font ,font 124))
+           (interactive) (set-custom-font ,font 160))
          (defun ,name-medium ()
-           (interactive) (set-custom-font ,font 118))
+           (interactive) (set-custom-font ,font 150))
          (defun ,name-small ()
-           (interactive) (set-custom-font ,font 110)))))
+           (interactive) (set-custom-font ,font 140)))))
 
   (defmacro create-set-font-funs (funs)
     `(progn ,@(mapcar 'create-set-font funs)))
@@ -298,6 +298,7 @@ Uses `current-date-format' for formatting the date."
   (macroexpand (create-set-font-funs (("camingo" . "CamingoCode")
                                       ("dejavu" . "DejaVu Sans Mono")
                                       ("input" . "Input Mono")
+                                      ("source-code" . "Source Code Pro")
                                       ("monaco" . "Monaco")
                                       ("monacoB2" . "MonacoB2")
                                       ("monacoB2powerline" . "MonacoB2 for Powerline"))))
@@ -321,8 +322,11 @@ Uses `current-date-format' for formatting the date."
   ;; indentation
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
-  ;; text operations
-  (global-set-key (kbd "C-M-c") 'capitalize-word)
+  ;; evil-jump
+  (keyboard-translate ?\C-i ?\H-i)
+  (define-key evil-normal-state-map [?\H-i] 'evil-jump-forward)
+  (define-key evil-normal-state-map (kbd "<f11>") 'evil-jump-backward)
+  (define-key evil-normal-state-map (kbd "<f12>") 'evil-jump-forward)
 
   ;; documentation
   (define-key evil-normal-state-map (kbd "C-h C-f") 'find-function)
@@ -387,10 +391,6 @@ Uses `current-date-format' for formatting the date."
   (global-set-key (kbd "C-S-<mouse-1>") 'evil-mc-toggle-cursor-on-click)
   (global-set-key (kbd "C-S-<mouse-3>") 'evil-mc-toggle-cursor-on-click)
 
-  ;; evil-jump
-  (define-key evil-normal-state-map (kbd "<f11>") 'evil-jump-backward)
-  (define-key evil-normal-state-map (kbd "<f12>") 'evil-jump-forward)
-
   ;; major mode hooks
   (add-hook 'js2-mode-hook 'setup-js2-mode)
   (add-hook 'org-mode-hook 'setup-org-mode);
@@ -415,11 +415,11 @@ Uses `current-date-format' for formatting the date."
   (require 'ob-python)
   (require 'ob-dot)
   (require 'ob-org)
-  (require 'ob-sh)
+  (require 'ob-shell)
   (org-bullets-mode)
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t) (emacs-lisp . t) (dot . t) (sh . t)))
+   '((python . t) (emacs-lisp . t) (dot . t) (shell . t)))
 
   (add-to-list 'completion-styles 'initials t)
   (add-to-list 'auto-mode-alist '(".eslintrc" . json-mode))

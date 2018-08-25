@@ -119,7 +119,11 @@
    dotspacemacs-additional-packages '(company-ghci
                                       creamsody-theme
                                       darktooth-theme
+                                      json-reformat
+                                      json-snatcher
                                       nodejs-repl
+                                      prettier-js
+                                      rjsx-mode
                                       tern-auto-complete)
 
    ;; List of excluded packages

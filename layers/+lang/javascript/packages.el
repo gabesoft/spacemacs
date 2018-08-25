@@ -82,7 +82,6 @@
       (spacemacs/declare-prefix-for-mode 'js2-mode "mz" "folding")
       ;; key bindings
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-        "w" 'js2-mode-toggle-warnings-and-errors
         "zc" 'js2-mode-hide-element
         "zo" 'js2-mode-show-element
         "zr" 'js2-mode-show-all
@@ -144,7 +143,6 @@
         "rvt" 'js2r-var-to-this
         "rwi" 'js2r-wrap-buffer-in-iife
         "rwl" 'js2r-wrap-in-for-loop
-        "k" 'js2r-kill
         "xmj" 'js2r-move-line-down
         "xmk" 'js2r-move-line-up))))
 
