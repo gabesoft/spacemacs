@@ -24,6 +24,16 @@
 
   ;; evil-mc
   (setq evil-mc-enable-bar-cursor nil)
+
+  ;; javascript setup
+  ;; (add-hook 'js2-mode-hook 'prettier-js-mode)
+  ;; (add-hook 'react-mode-hook 'prettier-js-mode)
+  ;; (add-hook 'rjsx-mode-hook 'prettier-js-mode)
+  ;; (add-hook 'web-mode-hook 'prettier-js-mode)
+  ;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+  ;; (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "=" 'prettier-js)
+  ;; (spacemacs/set-leader-keys-for-major-mode 'js2-mode  "=" 'prettier-js)
+  ;; (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "gg" 'tern-find-definition)
   )
 
 (message "user-config.local loaded")
