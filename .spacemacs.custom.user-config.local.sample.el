@@ -34,6 +34,10 @@
   ;; (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "=" 'prettier-js)
   ;; (spacemacs/set-leader-keys-for-major-mode 'js2-mode  "=" 'prettier-js)
   ;; (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "gg" 'tern-find-definition)
+
+  ;; workaround for c-context-line-break being bound to Enter in js-mode
+  (add-hook 'js2-mode-hook (lambda() (setq c-block-comment-start-regexp "/\\*")))
+  (add-hook 'rjsx-mode-hook (lambda() (setq c-block-comment-start-regexp "/\\*")))
   )
 
 (message "user-config.local loaded")
