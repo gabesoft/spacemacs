@@ -279,6 +279,7 @@ Uses `current-date-format' for formatting the date."
           (name-large (intern (format "set-font-%s-large" (car input))))
           (name-medium (intern (format "set-font-%s-medium" (car input))))
           (name-small (intern (format "set-font-%s-small" (car input))))
+          (name-mini (intern (format "set-font-%s-mini" (car input))))
           (font (cdr input)))
       `(progn
          (defun ,name-large ()
@@ -288,7 +289,9 @@ Uses `current-date-format' for formatting the date."
          (defun ,name-medium ()
            (interactive) (set-custom-font ,font 150))
          (defun ,name-small ()
-           (interactive) (set-custom-font ,font 140)))))
+           (interactive) (set-custom-font ,font 140))
+         (defun ,name-mini ()
+           (interactive) (set-custom-font ,font 120)))))
 
   (defmacro create-set-font-funs (funs)
     `(progn ,@(mapcar 'create-set-font funs)))
