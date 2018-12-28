@@ -544,13 +544,13 @@ Uses `current-date-format' for formatting the date."
                        :checker checker)))
                 (cdr (assoc 'errors o))))))
 
-  (flycheck-define-checker javascript-flow
-    "Javascript type checking using Flow."
-    :command ("flow" "--json" source-original)
-    :error-parser flycheck-parse-flow
-    :modes (react-mode js2-mode javascript-mode)
-    :next-checkers ((error . javascript-eslint))
-    )
+  ;; (flycheck-define-checker javascript-flow
+  ;;   "Javascript type checking using Flow."
+  ;;   :command ("flow" "--json" source-original)
+  ;;   :error-parser flycheck-parse-flow
+  ;;   :modes (react-mode js2-mode javascript-mode)
+  ;;   :next-checkers ((error . javascript-eslint))
+  ;;   )
 
   (add-to-list 'flycheck-checkers 'javascript-flow)
   )
