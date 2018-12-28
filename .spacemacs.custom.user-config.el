@@ -552,7 +552,7 @@ Uses `current-date-format' for formatting the date."
   ;;   :next-checkers ((error . javascript-eslint))
   ;;   )
 
-  (add-to-list 'flycheck-checkers 'javascript-flow)
+  ;; (add-to-list 'flycheck-checkers 'javascript-flow)
   )
 
 (message "user-config loaded")
