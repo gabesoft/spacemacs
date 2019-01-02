@@ -131,7 +131,23 @@ layers configuration."
     (setq-local comment-auto-fill-only-comments t)
     (auto-fill-mode nil)
     (setq-local comment-multi-line t)
+    (setq-local js2-strict-inconsistent-return-warning nil)
     (local-set-key (kbd "RET") 'c-indent-new-comment-line))
+
+  (defun setup-js2-mode-indent(indent)
+    (setq-default
+     js2-basic-offset indent
+     js-indent-level indent
+     jsx-indent-level indent
+     js-switch-indent-offset indent))
+
+  (defun setup-web-mode-indent(indent)
+    (setq-default
+     css-indent-offset indent
+     web-mode-code-indent-offset indent
+     web-mode-css-indent-offset indent
+     web-mode-markup-indent-offset indent
+     web-mode-attr-indent-offset indent))
 
   (defun setup-org-mode ()
     (make-variable-buffer-local 'yas/trigger-key)
@@ -313,22 +329,6 @@ Uses `current-date-format' for formatting the date."
       (shell-command-on-region (point-min) (point-max) "xmllint --format -" (buffer-name) t)
       (nxml-mode)
       (indent-region begin end)))
-
-  (defun setup-js2-mode(indent)
-    (setq-default
-     js2-basic-offset indent
-     js-indent-level indent
-     jsx-indent-level indent
-     js2-strict-inconsistent-return-warning nil
-     js-switch-indent-offset indent))
-
-  (defun setup-web-mode(indent)
-    (setq-default
-     css-indent-offset indent
-     web-mode-code-indent-offset indent
-     web-mode-css-indent-offset indent
-     web-mode-markup-indent-offset indent
-     web-mode-attr-indent-offset indent))
 
   ;; auto-save hooks
   (add-hook 'auto-save-hook
