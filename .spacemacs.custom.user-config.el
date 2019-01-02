@@ -345,7 +345,7 @@ Uses `current-date-format' for formatting the date."
   (keyboard-translate ?\C-i ?\H-i)
   (define-key evil-normal-state-map [?\H-i] 'evil-jump-forward)
   (define-key evil-normal-state-map (kbd "<f11>") 'evil-jump-backward)
-  (define-key evil-normal-state-map (kbd "<f12>") 'evil-jump-forward)
+  (define-key evil-normal-state-map (kbd "<f12>") 'evil-indent-line)
 
   ;; documentation
   (define-key evil-normal-state-map (kbd "C-h C-f") 'find-function)
