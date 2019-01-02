@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: nocommit
+# key: nc
+# --
+logging.NOCOMMIT($0)

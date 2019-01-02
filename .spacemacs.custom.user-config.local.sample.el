@@ -34,6 +34,8 @@
   ;; (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "=" 'prettier-js)
   ;; (spacemacs/set-leader-keys-for-major-mode 'js2-mode  "=" 'prettier-js)
   ;; (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "gg" 'tern-find-definition)
+  (setup-js2-mode 2)
+  (setup-web-mode 2)
 
   ;; workaround for c-context-line-break being bound to Enter in js-mode
   (add-hook 'js2-mode-hook (lambda() (setq c-block-comment-start-regexp "/\\*")))

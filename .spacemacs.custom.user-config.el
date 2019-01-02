@@ -314,6 +314,22 @@ Uses `current-date-format' for formatting the date."
       (nxml-mode)
       (indent-region begin end)))
 
+  (defun setup-js2-mode(indent)
+    (setq-default
+     js2-basic-offset indent
+     js-indent-level indent
+     jsx-indent-level indent
+     js2-strict-inconsistent-return-warning nil
+     js-switch-indent-offset indent))
+
+  (defun setup-web-mode(indent)
+    (setq-default
+     css-indent-offset indent
+     web-mode-code-indent-offset indent
+     web-mode-css-indent-offset indent
+     web-mode-markup-indent-offset indent
+     web-mode-attr-indent-offset indent))
+
   ;; auto-save hooks
   (add-hook 'auto-save-hook
             (lambda ()
@@ -427,20 +443,6 @@ Uses `current-date-format' for formatting the date."
   (add-to-list 'completion-styles 'initials t)
   (add-to-list 'auto-mode-alist '(".eslintrc" . json-mode))
   (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
-
-  (setq-default
-   ;; js2-mode
-   js2-basic-offset 2
-   js-indent-level 2
-   jsx-indent-level 2
-   js2-strict-inconsistent-return-warning nil
-   js-switch-indent-offset 2
-   ;; web-mode
-   css-indent-offset 2
-   web-mode-code-indent-offset 2
-   web-mode-css-indent-offset 2
-   web-mode-markup-indent-offset 2
-   web-mode-attr-indent-offset 2)
 
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
