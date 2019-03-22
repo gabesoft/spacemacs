@@ -409,6 +409,9 @@ Uses `current-date-format' for formatting the date."
   ;; evil-mc
   (global-set-key (kbd "C-S-<mouse-1>") 'evil-mc-toggle-cursor-on-click)
   (global-set-key (kbd "C-S-<mouse-3>") 'evil-mc-toggle-cursor-on-click)
+  (evil-define-key 'visual evil-mc-key-map
+    "A" #'evil-mc-make-cursor-in-visual-selection-end
+    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 
   ;; major mode hooks
   (add-hook 'js2-mode-hook 'setup-js2-mode)

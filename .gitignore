@@ -56,3 +56,4 @@ private/
 /games/
 .spacemacs.custom.user-config.local.el
 /elpa.old/
+transient/
