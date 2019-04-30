@@ -79,7 +79,6 @@
 
      osx
      python
-     react
      restclient
 
      (ruby :variables
