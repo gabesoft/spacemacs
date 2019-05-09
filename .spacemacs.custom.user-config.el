@@ -525,6 +525,7 @@ Uses `current-date-format' for formatting the date."
       (require 'spacemacs-custom-user-config-local)
       (dotspacemacs/user-config-local)))
 
+  (evil-select-search-module 'evil-search-module 'evil-search)
 
   (require 'f)
   (require 'json)
