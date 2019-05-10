@@ -560,6 +560,8 @@ Uses `current-date-format' for formatting the date."
 
   (setq company-tooltip-align-annotations t)
 
+  (advice-add 'semantic-idle-scheduler-function :around #'ignore)
+
   )
 
 (message "user-config loaded")
