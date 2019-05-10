@@ -38,6 +38,8 @@
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode  "=" 'prettier-js)
   (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "gd" 'tide-jump-to-definition)
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode  "gd" 'tide-jump-to-definition)
+  (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "gi" 'tide-jump-to-implementation)
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode  "gi" 'tide-jump-to-implementation)
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode  "dd" 'tide-documentation-at-point)
   (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "dd" 'tide-documentation-at-point)
   (setup-js2-mode-indent 4)
