@@ -123,7 +123,7 @@
                                       nodejs-repl
                                       prettier-js
                                       rjsx-mode
-                                      tern-auto-complete)
+                                      tide)
 
    ;; List of excluded packages
    dotspacemacs-excluded-packages '(evil-escape nyan iswitchb)

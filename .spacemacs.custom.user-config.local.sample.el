@@ -26,10 +26,13 @@
   (setq evil-mc-enable-bar-cursor nil)
 
   ;; javascript setup
+  ;; (setq prettier-js-command (concat user-home-directory "quip/bin/prettier"))
   ;; (add-hook 'js2-mode-hook 'prettier-js-mode)
-  ;; (add-hook 'react-mode-hook 'prettier-js-mode)
+  ;; (add-hook 'js2-mode-hook 'setup-tide-mode)
   ;; (add-hook 'rjsx-mode-hook 'prettier-js-mode)
+  ;; (add-hook 'rjsx-mode-hook 'setup-tide-mode)
   ;; (add-hook 'web-mode-hook 'prettier-js-mode)
+  ;; (add-hook 'web-mode-hook 'setup-tide-mode)
   ;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
   ;; (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "=" 'prettier-js)
   ;; (spacemacs/set-leader-keys-for-major-mode 'js2-mode  "=" 'prettier-js)

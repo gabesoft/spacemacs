@@ -550,15 +550,16 @@ Uses `current-date-format' for formatting the date."
                        :checker checker)))
                 (cdr (assoc 'errors o))))))
 
-  ;; (flycheck-define-checker javascript-flow
-  ;;   "Javascript type checking using Flow."
-  ;;   :command ("flow" "--json" source-original)
-  ;;   :error-parser flycheck-parse-flow
-  ;;   :modes (react-mode js2-mode javascript-mode)
-  ;;   :next-checkers ((error . javascript-eslint))
-  ;;   )
+  (defun setup-tide-mode()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (eldoc-mode +1)
+    (tide-hl-identifier-mode +1)
+    (company-mode +1))
 
-  ;; (add-to-list 'flycheck-checkers 'javascript-flow)
+  (setq company-tooltip-align-annotations t)
+
   )
 
 (message "user-config loaded")
