@@ -27,12 +27,21 @@
 
   ;; javascript setup
   (setq prettier-js-command (concat user-home-directory "quip/bin/prettier"))
+
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'js2-mode-hook 'setup-tide-mode)
+
   (add-hook 'rjsx-mode-hook 'prettier-js-mode)
   (add-hook 'rjsx-mode-hook 'setup-tide-mode)
+
+  ;; needed to avoid typing slowness in RJSX mode
+  (add-hook 'rjsx-mode-hook
+            (lambda() (setq-local intent-line-function
+                                  'js-jsx-indent-line)))
+
   (add-hook 'web-mode-hook 'prettier-js-mode)
   (add-hook 'web-mode-hook 'setup-tide-mode)
+
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
   (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode  "=" 'prettier-js)
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode  "=" 'prettier-js)
