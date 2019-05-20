@@ -34,6 +34,10 @@
   (add-hook 'rjsx-mode-hook 'prettier-js-mode)
   (add-hook 'rjsx-mode-hook 'setup-tide-mode)
 
+  ;; js2-mode settings for improving performance in large files
+  (setq js2-idle-timer-delay 2)
+  (setq blink-matching-paren nil)
+
   ;; needed to avoid typing slowness in RJSX mode
   (add-hook 'rjsx-mode-hook
             (lambda() (setq-local intent-line-function
