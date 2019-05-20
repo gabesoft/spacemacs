@@ -81,7 +81,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
         (haskell-indentation-mode -1))
       (when (fboundp 'haskell-indent-mode)
         (haskell-indent-mode 1))
-      (add-hook 'auto-save-hook 'haskell-sort-imports)))
+      ;; (add-hook 'auto-save-hook 'haskell-sort-imports)
+      ))
 
   (add-hook 'haskell-mode-hook 'setup-haskell-mode)
 
