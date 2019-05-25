@@ -63,6 +63,11 @@
   ;; workaround for c-context-line-break being bound to Enter in js-mode
   (add-hook 'js2-mode-hook (lambda() (setq c-block-comment-start-regexp "/\\*")))
   (add-hook 'rjsx-mode-hook (lambda() (setq c-block-comment-start-regexp "/\\*")))
+
+  ;; emacs-plus settings (mac-os)
+  ;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  ;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  ;; (add-to-list 'default-frame-alist '(ns-appearance . light))
   )
 
 (message "user-config.local loaded")
