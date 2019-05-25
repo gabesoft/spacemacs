@@ -79,7 +79,6 @@
 
      osx
      python
-     react
      restclient
 
      (ruby :variables
@@ -123,9 +122,9 @@
                                       json-snatcher
                                       nodejs-repl
                                       prettier-js
-                                      evil-mc
                                       rjsx-mode
-                                      tern-auto-complete)
+                                      evil-mc
+                                      tide)
 
    ;; List of excluded packages
    dotspacemacs-excluded-packages '(evil-escape nyan iswitchb)

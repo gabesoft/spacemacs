@@ -131,7 +131,23 @@ layers configuration."
     (setq-local comment-auto-fill-only-comments t)
     (auto-fill-mode nil)
     (setq-local comment-multi-line t)
+    (setq-local js2-strict-inconsistent-return-warning nil)
     (local-set-key (kbd "RET") 'c-indent-new-comment-line))
+
+  (defun setup-js2-mode-indent(indent)
+    (setq-default
+     js2-basic-offset indent
+     js-indent-level indent
+     jsx-indent-level indent
+     js-switch-indent-offset indent))
+
+  (defun setup-web-mode-indent(indent)
+    (setq-default
+     css-indent-offset indent
+     web-mode-code-indent-offset indent
+     web-mode-css-indent-offset indent
+     web-mode-markup-indent-offset indent
+     web-mode-attr-indent-offset indent))
 
   (defun setup-org-mode ()
     (make-variable-buffer-local 'yas/trigger-key)
@@ -279,6 +295,7 @@ Uses `current-date-format' for formatting the date."
           (name-large (intern (format "set-font-%s-large" (car input))))
           (name-medium (intern (format "set-font-%s-medium" (car input))))
           (name-small (intern (format "set-font-%s-small" (car input))))
+          (name-mini (intern (format "set-font-%s-mini" (car input))))
           (font (cdr input)))
       `(progn
          (defun ,name-large ()
@@ -288,7 +305,9 @@ Uses `current-date-format' for formatting the date."
          (defun ,name-medium ()
            (interactive) (set-custom-font ,font 150))
          (defun ,name-small ()
-           (interactive) (set-custom-font ,font 140)))))
+           (interactive) (set-custom-font ,font 140))
+         (defun ,name-mini ()
+           (interactive) (set-custom-font ,font 120)))))
 
   (defmacro create-set-font-funs (funs)
     `(progn ,@(mapcar 'create-set-font funs)))
@@ -321,6 +340,12 @@ Uses `current-date-format' for formatting the date."
 
   ;; indentation
   (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+  ;; evil-jump
+  (keyboard-translate ?\C-i ?\H-i)
+  (define-key evil-normal-state-map [?\H-i] 'evil-jump-forward)
+  (define-key evil-normal-state-map (kbd "<f11>") 'evil-jump-backward)
+  (define-key evil-normal-state-map (kbd "<f12>") 'evil-indent-line)
 
   ;; documentation
   (define-key evil-normal-state-map (kbd "C-h C-f") 'find-function)
@@ -384,10 +409,9 @@ Uses `current-date-format' for formatting the date."
   ;; evil-mc
   (global-set-key (kbd "C-S-<mouse-1>") 'evil-mc-toggle-cursor-on-click)
   (global-set-key (kbd "C-S-<mouse-3>") 'evil-mc-toggle-cursor-on-click)
-
-  ;; evil-jump
-  (define-key evil-normal-state-map (kbd "<f11>") 'evil-jump-backward)
-  (define-key evil-normal-state-map (kbd "<f12>") 'evil-jump-forward)
+  (evil-define-key 'visual evil-mc-key-map
+    "A" #'evil-mc-make-cursor-in-visual-selection-end
+    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 
   ;; major mode hooks
   (add-hook 'js2-mode-hook 'setup-js2-mode)
@@ -422,20 +446,6 @@ Uses `current-date-format' for formatting the date."
   (add-to-list 'completion-styles 'initials t)
   (add-to-list 'auto-mode-alist '(".eslintrc" . json-mode))
   (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
-
-  (setq-default
-   ;; js2-mode
-   js2-basic-offset 2
-   js-indent-level 2
-   jsx-indent-level 2
-   js2-strict-inconsistent-return-warning nil
-   js-switch-indent-offset 2
-   ;; web-mode
-   css-indent-offset 2
-   web-mode-code-indent-offset 2
-   web-mode-css-indent-offset 2
-   web-mode-markup-indent-offset 2
-   web-mode-attr-indent-offset 2)
 
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
@@ -515,6 +525,7 @@ Uses `current-date-format' for formatting the date."
       (require 'spacemacs-custom-user-config-local)
       (dotspacemacs/user-config-local)))
 
+  (evil-select-search-module 'evil-search-module 'evil-search)
 
   (require 'f)
   (require 'json)
@@ -539,15 +550,18 @@ Uses `current-date-format' for formatting the date."
                        :checker checker)))
                 (cdr (assoc 'errors o))))))
 
-  (flycheck-define-checker javascript-flow
-    "Javascript type checking using Flow."
-    :command ("flow" "--json" source-original)
-    :error-parser flycheck-parse-flow
-    :modes (react-mode js2-mode javascript-mode)
-    :next-checkers ((error . javascript-eslint))
-    )
+  (defun setup-tide-mode()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (eldoc-mode +1)
+    (tide-hl-identifier-mode +1)
+    (company-mode +1))
 
-  (add-to-list 'flycheck-checkers 'javascript-flow)
+  (setq company-tooltip-align-annotations t)
+
+  (advice-add 'semantic-idle-scheduler-function :around #'ignore)
+
   )
 
 (message "user-config loaded")
