@@ -508,6 +508,7 @@ Uses `current-date-format' for formatting the date."
   (when (fboundp 'semantic-mode) (semantic-mode 1))
   (when (fboundp 'smartparens-global-mode) (smartparens-global-mode 1))
   (when (fboundp 'turn-on-smartparens-mode) (turn-on-smartparens-mode))
+  (when (fboundp 'tern-mode) (tern-mode -1))
 
   (when (fboundp 'global-evil-search-highlight-persist)
     (global-evil-search-highlight-persist 1))

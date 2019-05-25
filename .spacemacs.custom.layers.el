@@ -127,7 +127,7 @@
                                       tide)
 
    ;; List of excluded packages
-   dotspacemacs-excluded-packages '(evil-escape nyan iswitchb)
+   dotspacemacs-excluded-packages '(evil-escape nyan iswitchb tern tern-auto-complete)
    ))
 
 (message "layers loaded")
