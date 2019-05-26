@@ -1,1 +1,0 @@
-/Users/gabe/quip-support/.spacemacs.custom.user-config.local.el
