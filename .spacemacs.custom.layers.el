@@ -66,8 +66,9 @@
            web-mode-css-indent-offset 2)
 
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
+     imenu-list
 
-     javascript
+     (javascript :variables javascript-import-tool 'import-js)
      (markdown :variables
                markdown-command "multimarkdown")
      nginx
@@ -123,8 +124,7 @@
                                       nodejs-repl
                                       prettier-js
                                       rjsx-mode
-                                      evil-mc
-                                      tide)
+                                      evil-mc)
 
    ;; List of excluded packages
    dotspacemacs-excluded-packages '(evil-escape nyan iswitchb tern tern-auto-complete)

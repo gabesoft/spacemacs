@@ -501,7 +501,7 @@ Uses `current-date-format' for formatting the date."
   (when (fboundp 'global-evil-mc-extras-mode) (global-evil-mc-extras-mode 1))
   (when (fboundp 'global-evil-mc-mode) (global-evil-mc-mode 1))
   (when (fboundp 'global-hl-line-mode) (global-hl-line-mode -1))
-  (when (fboundp 'global-linum-mode) (global-linum-mode 1))
+  (when (fboundp 'global-linum-mode) (global-linum-mode -1))
   (when (fboundp 'global-subword-mode) (global-subword-mode +1))
   (when (fboundp 'global-undo-tree-mode) (global-undo-tree-mode 1))
   (when (fboundp 'indent-guide-global-mode) (indent-guide-global-mode -1))
