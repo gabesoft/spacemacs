@@ -69,8 +69,10 @@
      imenu-list
 
      (javascript :variables javascript-import-tool 'import-js)
-     (markdown :variables
-               markdown-command "multimarkdown")
+
+     (markdown :variables markdown-command "multimarkdown")
+     (multiple-cursors :variables multiple-cursors-backend 'evil-mc)
+
      nginx
      nixos
 
@@ -119,7 +121,6 @@
    dotspacemacs-additional-packages '(company-ghci
                                       creamsody-theme
                                       darktooth-theme
-                                      evil-mc
                                       import-js
                                       json-reformat
                                       json-snatcher
