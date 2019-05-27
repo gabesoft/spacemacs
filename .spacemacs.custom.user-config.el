@@ -132,6 +132,7 @@ layers configuration."
     (auto-fill-mode nil)
     (setq-local comment-multi-line t)
     (setq-local js2-strict-inconsistent-return-warning nil)
+    (js2-imenu-extras-mode -1)
     (local-set-key (kbd "RET") 'c-indent-new-comment-line))
 
   (defun setup-js2-mode-indent(indent)
@@ -370,7 +371,8 @@ Uses `current-date-format' for formatting the date."
     (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word))
 
   ;; helm
-  (bind-key* "<f9>" 'helm-semantic-or-imenu) ;; see also SPC-s-j
+  (bind-key* "<f9>" 'helm-imenu) ;; see also SPC-s-j
+  (bind-key* "<f10>" 'helm-imenu-in-all-buffers) ;; see also SPC-s-j
 
   ;; nxml mode
   (evil-define-key 'normal nxml-mode-map (kbd "C-c C-f") 'nxml-pretty-format)
@@ -495,6 +497,11 @@ Uses `current-date-format' for formatting the date."
 
   (setq flycheck-display-errors-function 'flycheck-display-error-messages)
 
+  ;; imenu-list
+  (setq imenu-list-position 'left)
+  (setq imenu-list-auto-resize nil)
+  (setq imenu-list-size 0.2)
+
   (when (fboundp 'flycheck-pos-tip-mode) (flycheck-pos-tip-mode -1))
   (when (fboundp 'global-company-mode) (global-company-mode))
   (when (fboundp 'global-diff-hl-mode) (global-diff-hl-mode -1))
@@ -558,6 +565,12 @@ Uses `current-date-format' for formatting the date."
     (eldoc-mode +1)
     (tide-hl-identifier-mode +1)
     (company-mode +1))
+
+  (defun tide-imenu-run ()
+    (interactive)
+    (js2-imenu-extras-mode -1)
+    (imenu-add-menubar-index)
+    (tide-setup))
 
   (setq company-tooltip-align-annotations t)
 
