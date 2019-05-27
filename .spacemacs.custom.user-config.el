@@ -110,6 +110,10 @@ layers configuration."
     "Actions to be performed for haskell buffers on auto-save"
     (safe-run-fn 'hindent-reformat-buffer))
 
+  (defun elm-on-auto-save()
+    "Actions to be performed for elm buffers on auto-save"
+    (safe-run-fn 'elm-mode-format-buffer))
+
   (defun flycheck-pos-tip-mode-turn-off ()
     "Disable `flycheck-pos-tip-mode'"
     (interactive)
@@ -122,10 +126,6 @@ layers configuration."
     (intero-mode -1)
     (flycheck-mode -1)
     (company-mode -1))
-
-  (defun elm-on-auto-save()
-    "Actions to be performed for elm buffers on auto-save"
-    (safe-run-fn 'elm-mode-format-buffer))
 
   (defun setup-js2-mode ()
     (setq-local comment-auto-fill-only-comments t)
@@ -356,8 +356,8 @@ Uses `current-date-format' for formatting the date."
   ;; text movement
   (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
   (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars)
-  (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
-  (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
+  (define-key evil-normal-state-map (kbd "C-M-j") 'move-text-down)
+  (define-key evil-normal-state-map (kbd "C-M-k") 'move-text-up)
 
   (define-key evil-normal-state-map (kbd ",i") 'capitalize-and-insert)
 
@@ -370,7 +370,7 @@ Uses `current-date-format' for formatting the date."
     (define-key company-active-map (kbd "C-h") 'delete-backward-char)
     (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word))
 
-  ;; helm
+  ;; imenu
   (bind-key* "<f9>" 'helm-imenu) ;; see also SPC-s-j
   (bind-key* "<f10>" 'helm-imenu-in-all-buffers) ;; see also SPC-s-j
 
