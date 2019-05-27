@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: qualified import
+# key: qimp
+# --
+import qualified $1 as ${2:L}$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: todo
+# key: tdr
+# --
+{/* TODO $0 */}

@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: require react
+# key: rre
+# --
+const React = require('react');

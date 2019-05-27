@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: module exports statement in es5 format
+# key: exj
+# --
+module.exports = function(${1:args}) {
+  $0
+};

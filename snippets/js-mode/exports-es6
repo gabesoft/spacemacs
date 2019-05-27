@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: module exports statement in es6 format
+# key: exe
+# --
+module.exports = (${1:args}) => {
+  $0
+};

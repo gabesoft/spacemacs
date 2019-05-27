@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: react component
+# key: cmp
+# --
+module.exports = React.createClass({
+  propTypes: {},
+  render: function render() {
+    return (
+      $0
+    );
+  }
+});
