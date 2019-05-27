@@ -119,12 +119,13 @@
    dotspacemacs-additional-packages '(company-ghci
                                       creamsody-theme
                                       darktooth-theme
+                                      evil-mc
+                                      import-js
                                       json-reformat
                                       json-snatcher
                                       nodejs-repl
                                       prettier-js
-                                      rjsx-mode
-                                      evil-mc)
+                                      rjsx-mode)
 
    ;; List of excluded packages
    dotspacemacs-excluded-packages '(evil-escape nyan iswitchb tern tern-auto-complete)
