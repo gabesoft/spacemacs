@@ -497,6 +497,8 @@ Uses `current-date-format' for formatting the date."
 
   (setq flycheck-display-errors-function 'flycheck-display-error-messages)
 
+  (setq recenter-positions '(top middle bottom))
+
   ;; imenu-list
   (setq imenu-list-position 'left)
   (setq imenu-list-auto-resize nil)
