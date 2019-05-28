@@ -39,7 +39,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("FIXME" . "#d75f00")
           ("XXX" . "#b58900")
           ("XXXX" . "#b58900")
-          ("???" . "#b58900")))
+          ("\\?\\?\\?+"  . "#b58900")))
 
   ;; solarized settings
   (setq
