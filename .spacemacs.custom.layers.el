@@ -106,6 +106,7 @@
      (syntax-checking :variables
                       syntax-checking-enable-tooltips nil)
      spell-checking
+     treemacs
      typescript
 
      (version-control :variables
