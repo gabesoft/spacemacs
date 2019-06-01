@@ -392,6 +392,7 @@ sane way, here is the complete list of changed key bindings
   - New variable =dotspacemacs-zone-out-when-idle= to zone when idle. Zoning
     will obfuscate the current buffer acting like a screen saver.
     (thanks to Eugene Yaremenko and Sylvain Benner)
+  - New variable =dotspacemacs-undecorated-at-startup= (thanks to bb2020)
 Other:
   - Added =vim-style-visual-feedback= and =hybrid-style-visual-feedback= style
     variables to enable =evil-goggles= pulse in the Vim and Hybrid editing
@@ -1036,6 +1037,10 @@ Other:
 - Breaking changes:
   - Moved =cmake-ide= and cmake script support to separate =cmake= layer
     (thanks to Alexander Dalshov)
+- New packages:
+  - =cpp-auto-include= Insert and delete C++ header files automatically:
+    - Added variable: =++-enable-organize-includes-on-save=
+    - Added key binding: ~SPC m r i~ organize includes
 - Improvements:
   - Added =lsp= support using either =cquery= or =ccls= backends
     (thanks to Cormac Cannon, Sergey Litovchuk and Fangrui Song)
@@ -1216,6 +1221,9 @@ Other:
 **** Dash
 - Improvements:
   - Use default docsets path in =helm-dash= on macos (thanks to ColorFuzzy)
+- Fixes:
+  - Fix startup error when using counsel-dash with custom path in
+    helm-dash-docset-newpath (thanks to madand)
 **** Deft
 - Key bindings:
   - ~SPC m c~ clear deft filter (thanks to Bahtiar Gadimov)
@@ -1533,6 +1541,7 @@ Other:
   (thanks to Dela Anthonio)
 - Added missing prefixes for =web-mode= and =css-mode= (thanks to Uroš Perišić)
 - Fixed ~TAB~ indenting in =web-mode= (thanks to Christopher Eames)
+- Added =lsp= support for =css-mode=, =less-css-mode=, and =scss-mode=
 **** Hy
 - Added support for virtual envs (thanks to Danny Freeman)
 - Key bindings:
@@ -1992,6 +2001,8 @@ Other:
 **** PHP
 - Added company-php (thanks to jim and Eivind Fonn)
 - Fixed php-company autocompletion (thanks to Dela Anthonio)
+**** PlantUML
+- Added a missing prefix: =compile=
 **** Platinum
 - Added the =.plum= extension to the platinum modes (thanks to Sylvain Benner)
 - Remove automatic indentation on paste (thanks to Sylvain Benner)
@@ -2163,6 +2174,7 @@ Other:
   - ~SPC m f f b~ to find job
   - ~SPC m f f w~ to find webpack config
   - ~SPC m f c d~ to run rails destroy
+- Added =rubocopfmt= with the key binding ~SPC m = r~
 **** Rust
 - Added missing =counsel-gtags= and =smartparens= package declarations
   (thanks to Kalle Lindqvist)
@@ -2382,6 +2394,7 @@ Other:
 - Fixed jump handling with multiple backends (thanks to Aaron Jensen)
 - Fixed =typescript/jump-to-type-def= for npm modules (thanks to Jam Risser)
 - Added the same setup to tsx files as to ts files (thanks to Trapez Breen)
+- Configured =emmet-mode= for =typescript-tsx-mode=
 **** Vagrant
 - Key bindings:
   - move key bindings prefix to ~SPC a V~ (thanks to Thomas de Beauchêne)
@@ -2465,8 +2478,8 @@ Other:
   Strømsodd, Jonathan Arnett, Jonathan Chen, Jonathan Gillett, Josh Greenwood,
   Joshua Santos, Justin Stone, Kainalu Hagiwara, Kalle Lindqvist, Kechao Cai,
   Keith Simmons, Keith Wygant, Kevin Ji, Kristoffer Haugsbakk, lawrsp, Leo
-  Joseph Buchignani III, Luke Worth, Marco Ieni, Marco Zucconelli, Max
-  Beutelspacher, Max Deineko, Max Nordlund, Maximilian Wolff, Miciah Dashiel
+  Joseph Buchignani III, Luke Winship, Luke Worth, Marco Ieni, Marco Zucconelli,
+  Max Beutelspacher, Max Deineko, Max Nordlund, Maximilian Wolff, Miciah Dashiel
   Butler Masters, mjkramer, Mikhail Yakutovich, Muneeb Shaikh, Nasser
   Alshammari, Nasser Alshammari, Niko Felger, Nikolai Myllymäki, nikolaiam,
   Nicolas Forgerit, Oguz Serbetci, Olivier Verdier, Pancho Horrillo, Paul Milla,
