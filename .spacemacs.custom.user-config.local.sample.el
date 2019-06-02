@@ -7,6 +7,9 @@
 
   ;; (setq hindent-process-path (concat user-home-directory ".local/bin/hindent"))
 
+  ;; path
+  ;; (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+
   (add-hook 'spacemacs-post-theme-change-hook
             'set-font-camingo-small)
 
