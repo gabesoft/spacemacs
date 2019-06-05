@@ -68,7 +68,7 @@
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      imenu-list
 
-     (javascript :variables javascript-import-tool 'import-js)
+     javascript
 
      (markdown :variables markdown-command "multimarkdown")
      (multiple-cursors :variables multiple-cursors-backend 'evil-mc)
@@ -122,7 +122,6 @@
    dotspacemacs-additional-packages '(company-ghci
                                       creamsody-theme
                                       darktooth-theme
-                                      import-js
                                       json-reformat
                                       json-snatcher
                                       nodejs-repl
