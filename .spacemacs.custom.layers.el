@@ -68,6 +68,7 @@
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      imenu-list
 
+     (java :variables java-backend 'eclim)
      javascript
 
      (markdown :variables markdown-command "multimarkdown")
