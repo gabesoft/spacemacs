@@ -145,6 +145,7 @@
     ("varibale" "variable" nil 1)
     ("varibales" "variables" nil 0)
     ("wiht" "with" nil 1)
+    ("retrun" "return" nil 1)
     ))
 
 (define-abbrev-table 'grep-mode-abbrev-table '())
