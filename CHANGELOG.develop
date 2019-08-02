@@ -566,6 +566,8 @@ Other:
   - Added missing force argument to the =spacemacs//init-spacemacs-env= call in
     the function =spacemacs/load-spacemacs-env= (thanks to sergeiz2)
   - Fixed =spacemacs/alternate-buffer= to restore point.
+  - Removed Unicode triple dot in both =dotspacemacs-smart-closing-parenthesis=
+    variable comments in favor of the ASCII one (thanks to nshadov)
 - Other:
   - New function =configuration-layer/message= to display message in
     =*Messages*= buffer (thanks to Sylvain Benner)
@@ -1217,6 +1219,8 @@ Other:
   - ~SPC m g g~ changed to =spacemacs/clj-find-var=, a wrapper for
     =cider-find-var= if REPL running, otherwise =dumb-jump-go=
     (thanks to John Stevenson)
+  - Restore standard =SPC m s i= binding for =cider-jack-in-clj=
+    (thanks to Russell Mull)
 - Fixes:
   - Remove `cider.nrepl/cider-middleware` in lein quick start setting
   - Fixed =cider-inspector-prev-page= binding, also add ~p~ as another key
@@ -1411,6 +1415,7 @@ Other:
   - ~SPC m b~ to switch between ERC buffers (thanks to Evan Klitzke)
 - Conditionally enable ERC notifications via =erc-enable-notifications=
   (thanks to Evan Klitzke)
+- Added spell checking and mIRC colors (thanks to Benjamin Levy)
 **** ESS
 - Key bindings:
   - Change ~SPC m s t~ to ~SPC m s f~ to respect convention (thanks to Yi Liu)
@@ -2662,8 +2667,8 @@ Other:
 - Lots of improvement with CI and documentation exporting
   (thanks to Eugene Yaremenko)
 - New LAYERS.org format (thanks to Eugene Yaremenko && Anton Latukha)
-- Various code and style improvements (thanks to bmag, duianto, Eivind Fonn,
-  Eugene Yaremenko, Fabien Dubosson, Kalle Lindqvist, Boris Buliga, timor,
+- Various code and style improvements (thanks to bmag, duianto, Enze Chi, Eivind
+  Fonn, Eugene Yaremenko, Fabien Dubosson, Kalle Lindqvist, Boris Buliga, timor,
   yuhan0, thanhvg, Sylvain Benner)
 - Multiple unit test improvements (thanks to Sylvain Benner, et2010 and
   Codruț Constantin Gușoi)
