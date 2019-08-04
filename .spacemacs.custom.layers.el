@@ -121,6 +121,7 @@
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(company-ghci
+                                      company-tabnine
                                       creamsody-theme
                                       darktooth-theme
                                       json-reformat

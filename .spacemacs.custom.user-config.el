@@ -570,11 +570,19 @@ Uses `current-date-format' for formatting the date."
 
   (defun tide-imenu-run ()
     (interactive)
+    (message "tide-imenu-run")
+    (add-to-list (make-local-variable 'company-backends) 'company-tide)
+    (add-to-list (make-local-variable 'company-backends) 'company-tabnine)
     (js2-imenu-extras-mode -1)
     (imenu-add-menubar-index)
     (tide-setup))
 
   (setq company-tooltip-align-annotations t)
+  (setq company-idle-delay 0.2)
+  (company-tng-configure-default)
+  (setq company-frontends '(company-tng-frontend
+                            company-pseudo-tooltip-frontend
+                            company-echo-metadata-frontend))
 
   (advice-add 'semantic-idle-scheduler-function :around #'ignore)
 
