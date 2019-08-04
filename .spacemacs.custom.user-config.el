@@ -127,29 +127,6 @@ layers configuration."
     (flycheck-mode -1)
     (company-mode -1))
 
-  (defun setup-js2-mode ()
-    (setq-local comment-auto-fill-only-comments t)
-    (auto-fill-mode nil)
-    (setq-local comment-multi-line t)
-    (setq-local js2-strict-inconsistent-return-warning nil)
-    (js2-imenu-extras-mode -1)
-    (local-set-key (kbd "RET") 'c-indent-new-comment-line))
-
-  (defun setup-js2-mode-indent(indent)
-    (setq-default
-     js2-basic-offset indent
-     js-indent-level indent
-     jsx-indent-level indent
-     js-switch-indent-offset indent))
-
-  (defun setup-web-mode-indent(indent)
-    (setq-default
-     css-indent-offset indent
-     web-mode-code-indent-offset indent
-     web-mode-css-indent-offset indent
-     web-mode-markup-indent-offset indent
-     web-mode-attr-indent-offset indent))
-
   (defun setup-org-mode ()
     (make-variable-buffer-local 'yas/trigger-key)
     (setq yas/trigger-key [tab])
@@ -297,6 +274,7 @@ Uses `current-date-format' for formatting the date."
           (name-medium (intern (format "set-font-%s-medium" (car input))))
           (name-small (intern (format "set-font-%s-small" (car input))))
           (name-mini (intern (format "set-font-%s-mini" (car input))))
+          (name-micro (intern (format "set-font-%s-micro" (car input))))
           (font (cdr input)))
       `(progn
          (defun ,name-large ()
@@ -308,7 +286,9 @@ Uses `current-date-format' for formatting the date."
          (defun ,name-small ()
            (interactive) (set-custom-font ,font 140))
          (defun ,name-mini ()
-           (interactive) (set-custom-font ,font 120)))))
+           (interactive) (set-custom-font ,font 120))
+         (defun ,name-micro ()
+           (interactive) (set-custom-font ,font 100)))))
 
   (defmacro create-set-font-funs (funs)
     `(progn ,@(mapcar 'create-set-font funs)))
@@ -414,12 +394,6 @@ Uses `current-date-format' for formatting the date."
   (evil-define-key 'visual evil-mc-key-map
     "A" #'evil-mc-make-cursor-in-visual-selection-end
     "I" #'evil-mc-make-cursor-in-visual-selection-beg)
-
-  ;; major mode hooks
-  (add-hook 'js2-mode-hook 'setup-js2-mode)
-  (add-hook 'org-mode-hook 'setup-org-mode);
-  (add-hook 'term-mode-hook 'setup-term-mode)
-  (add-hook 'emacs-lisp-mode-hook (lambda () (aggressive-indent-mode 1)))
 
   ;; python mode
   (setq flycheck-flake8-maximum-line-length 120)
@@ -560,6 +534,14 @@ Uses `current-date-format' for formatting the date."
                        :checker checker)))
                 (cdr (assoc 'errors o))))))
 
+  (defun setup-js2-mode ()
+    (setq-local comment-auto-fill-only-comments t)
+    (auto-fill-mode nil)
+    (setq-local comment-multi-line t)
+    (setq-local js2-strict-inconsistent-return-warning nil)
+    (js2-imenu-extras-mode -1)
+    (local-set-key (kbd "RET") 'c-indent-new-comment-line))
+
   (defun setup-tide-mode()
     (interactive)
     (tide-setup)
@@ -570,12 +552,35 @@ Uses `current-date-format' for formatting the date."
 
   (defun tide-imenu-run ()
     (interactive)
-    (message "tide-imenu-run")
     (add-to-list (make-local-variable 'company-backends) 'company-tide)
     (add-to-list (make-local-variable 'company-backends) 'company-tabnine)
     (js2-imenu-extras-mode -1)
     (imenu-add-menubar-index)
-    (tide-setup))
+    (tide-setup)
+    (message "tide-imenu-run"))
+
+  (defun setup-javascript()
+    (interactive)
+    (setup-js2-mode)
+    (setup-tide-mode)
+    (tide-imenu-run))
+
+  (defun setup-python()
+    (interactive)
+    (add-to-list (make-local-variable 'company-backends) 'company-tabnine)
+    (message "setup-python"))
+
+  ;; major mode hooks
+  (add-hook 'js2-mode-hook 'setup-javascript)
+  (add-hook 'rjsx-mode-hook'setup-javascript)
+  (add-hook 'python-mode 'setup-python)
+  (add-hook 'python-2-mode 'setup-python)
+  (add-hook 'python-3-mode 'setup-python)
+  (add-hook 'org-mode-hook 'setup-org-mode);
+  (add-hook 'term-mode-hook 'setup-term-mode)
+  (add-hook 'emacs-lisp-mode-hook (lambda () (aggressive-indent-mode 1)))
+
+  ;; (add-hook 'js2-mode-hook 'tide-imenu-run)
 
   (setq company-tooltip-align-annotations t)
   (setq company-idle-delay 0.2)

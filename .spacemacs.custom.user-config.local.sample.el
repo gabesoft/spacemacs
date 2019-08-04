@@ -5,6 +5,21 @@
     (interactive)
     (set-default-font "Monaco 10"))
 
+  (defun setup-js2-mode-indent(indent)
+    (setq-default
+     js2-basic-offset indent
+     js-indent-level indent
+     jsx-indent-level indent
+     js-switch-indent-offset indent))
+
+  (defun setup-web-mode-indent(indent)
+    (setq-default
+     css-indent-offset indent
+     web-mode-code-indent-offset indent
+     web-mode-css-indent-offset indent
+     web-mode-markup-indent-offset indent
+     web-mode-attr-indent-offset indent))
+
   ;; (setq hindent-process-path (concat user-home-directory ".local/bin/hindent"))
 
   ;; path
