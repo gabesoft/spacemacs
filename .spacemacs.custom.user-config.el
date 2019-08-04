@@ -584,6 +584,7 @@ Uses `current-date-format' for formatting the date."
 
   (setq company-tooltip-align-annotations t)
   (setq company-idle-delay 0.2)
+  (setq company-show-numbers t)
   (company-tng-configure-default)
   (setq company-frontends '(company-tng-frontend
                             company-pseudo-tooltip-frontend
