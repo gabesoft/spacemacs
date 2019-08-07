@@ -592,8 +592,6 @@ Uses `current-date-format' for formatting the date."
 
   (advice-add 'semantic-idle-scheduler-function :around #'ignore)
 
-  )
-
-(message "user-config loaded")
+  (message "user-config loaded"))
 
 (provide 'spacemacs-custom-user-config)
