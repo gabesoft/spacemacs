@@ -288,7 +288,7 @@ Uses `current-date-format' for formatting the date."
          (defun ,name-mini ()
            (interactive) (set-custom-font ,font 120))
          (defun ,name-micro ()
-           (interactive) (set-custom-font ,font 100)))))
+           (interactive) (set-custom-font ,font 110)))))
 
   (defmacro create-set-font-funs (funs)
     `(progn ,@(mapcar 'create-set-font funs)))
