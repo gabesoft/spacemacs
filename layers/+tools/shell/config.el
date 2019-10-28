@@ -19,11 +19,11 @@
 
 ;; Variables
 
-(defvar shell-default-shell (if (eq window-system 'w32)
+(defvar shell-default-shell (if (spacemacs/system-is-mswindows)
                                 'eshell
                               'ansi-term)
-  "Default shell to use in Spacemacs. Possible values are `eshell', `shell',
-`term', `ansi-term' and `multi-term'.")
+  "Default shell to use in Spacemacs. Possible values are `eshell' (default),
+`shell', `term', `ansi-term', `multi-term' and `vterm'.")
 
 (defvar shell-default-position 'bottom
   "Position of the shell. Possible values are `top', `bottom', `full',
@@ -36,7 +36,7 @@
   "Width in percents for the shell window.")
 
 (defvar shell-default-term-shell shell-file-name
-  "Default shell to use in `term' and `ansi-term' shells.")
+  "Default shell to use in `term', `ansi-term' and `vterm' shells.")
 
 (defvar shell-enable-smart-eshell nil
   "If non-nil then `em-smart' is enabled. `em-smart' allows to quickly review

@@ -15,6 +15,7 @@
         company
         counsel-gtags
         cython-mode
+        dap-mode
         eldoc
         evil-matchit
         flycheck
@@ -49,19 +50,18 @@
 
 (defun python/init-anaconda-mode ()
   (use-package anaconda-mode
-    :if (eq python-backend 'anaconda)
+    :if (eq (spacemacs//python-backend) 'anaconda)
     :defer t
     :init
+    (setq anaconda-mode-installation-directory
+      (concat spacemacs-cache-directory "anaconda-mode"))
+    :config
     (progn
       (spacemacs/set-leader-keys-for-major-mode 'python-mode
         "hh" 'anaconda-mode-show-doc
         "ga" 'anaconda-mode-find-assignments
         "gb" 'xref-pop-marker-stack
         "gu" 'anaconda-mode-find-references)
-      (setq anaconda-mode-installation-directory
-        (concat spacemacs-cache-directory "anaconda-mode")))
-    :config
-    (progn
       ;; new anaconda-mode (2018-06-03) removed `anaconda-view-mode-map' in
       ;; favor of xref. Eventually we need to remove this part.
       (when (boundp 'anaconda-view-mode-map)
@@ -94,7 +94,7 @@
 
 (defun python/init-company-anaconda ()
   (use-package company-anaconda
-    :if (eq python-backend 'anaconda)
+    :if (eq (spacemacs//python-backend) 'anaconda)
     :defer t
     ;; see `spacemacs//python-setup-anaconda-company'
     ))
@@ -113,12 +113,15 @@
 (defun python/init-cython-mode ()
   (use-package cython-mode
     :defer t
-    :init
-    (progn
-      (when (eq python-backend 'anaconda)
-        (spacemacs/set-leader-keys-for-major-mode 'cython-mode
-          "hh" 'anaconda-mode-show-doc
-          "gu" 'anaconda-mode-find-references)))))
+    :config
+    (when (eq (spacemacs//python-backend) 'anaconda)
+      (spacemacs/set-leader-keys-for-major-mode 'cython-mode
+        "hh" 'anaconda-mode-show-doc
+        "gu" 'anaconda-mode-find-references))))
+
+(defun python/pre-init-dap-mode ()
+  (add-to-list 'spacemacs--dap-supported-modes 'python-mode)
+  (add-hook 'python-mode-local-vars-hook #'spacemacs//python-setup-dap))
 
 (defun python/post-init-eldoc ()
   (add-hook 'python-mode-local-vars-hook #'spacemacs//python-setup-eldoc))
@@ -309,8 +312,7 @@
     (progn
       (spacemacs/register-repl 'python
                                'spacemacs/python-start-or-switch-repl "python")
-      (add-hook 'inferior-python-mode-hook
-                'spacemacs//inferior-python-setup-hook)
+      (spacemacs//bind-python-repl-keys)
       (spacemacs/add-to-hook 'python-mode-hook
                              '(spacemacs//python-setup-backend
                                spacemacs//python-default))
@@ -427,6 +429,7 @@ fix this issue."
   (use-package lsp-python-ms
     :if (eq python-lsp-server 'mspyls)
     :ensure nil
+    :defer t
     :config
     (when python-lsp-git-root
       ;; Use dev version of language server checked out from github

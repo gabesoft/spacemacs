@@ -12,7 +12,17 @@
 (setq gnus-packages '(
                       gnus
                       window-purpose
+                      persp-mode
                       ))
+
+(defun gnus/pre-init-persp-mode ()
+  (spacemacs|use-package-add-hook persp-mode
+    :post-config
+    (progn
+      (spacemacs|define-custom-layout gnus-spacemacs-layout-name
+        :binding gnus-spacemacs-layout-binding
+        :body
+        (call-interactively 'gnus)))))
 
 (defun gnus/init-gnus ()
   "Initialize my package"
@@ -76,7 +86,9 @@
             (gnus-summary-scroll-up arg))))
       (add-to-list 'nnmail-extra-headers nnrss-url-field)
 
-      (evilified-state-evilify gnus-group-mode gnus-group-mode-map)
+      (evilified-state-evilify gnus-group-mode gnus-group-mode-map
+        (kbd "g r") 'gnus-group-get-new-news
+        (kbd "O") 'gnus-group-group-map)
       (evilified-state-evilify gnus-server-mode gnus-server-mode-map)
       (evilified-state-evilify gnus-browse-mode gnus-browse-mode-map)
       (evilified-state-evilify gnus-article-mode gnus-article-mode-map)
